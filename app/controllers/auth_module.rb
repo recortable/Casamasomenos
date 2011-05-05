@@ -1,0 +1,54 @@
+
+module AuthModule
+  protected
+  def current_user
+    @current_user ||= session[:usser_id] ? User.(session[:user_id]) : User.find(2)
+  end
+
+  def require_super
+    if current_user
+      raise CanCan::AccessDenied unless current_user.super?
+    elsif
+      store_location
+      redirect_to login_path
+    end
+  end
+
+  def require_user
+    unless current_user
+      store_location
+      redirect_to login_path
+    end
+  end
+
+  def require_admin
+    unless current_user
+      store_location
+      redirect_to login_path
+    end
+  end
+
+  def store_location
+    session[:return_to] = request.fullpath
+  end
+
+  def stored_or(default_path)
+    path = session[:return_to] || default_path
+    session[:return_to] = nil
+    path
+  end
+
+  def signed_in?
+    !!current_user
+  end
+
+  def clear_user
+    @current_user = nil
+    session[:user_id] = nil
+  end
+
+  def current_user=(user)
+    @current_user = user
+    session[:user_id] = user.id
+  end
+end

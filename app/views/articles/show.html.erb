@@ -8,6 +8,7 @@
     <li><label>En:</label><%= article.parent.name if article.parent %></li>
   </ul>
   <%= button_group do %>
+      <%= add_button_link_to t('articles.append.title'), new_article_path %>
       <%= edit_button_link_to 'Editar', edit_article_path(article) %>
   <% end %>
 </div>

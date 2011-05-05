@@ -4,6 +4,8 @@ es:
       title: "Editar artículo"
     new:
       title: "Añadir artículo"
+    append:
+      title: "Añadir artículo hijo"
   users:
     new:
       title: "Añadir participante"

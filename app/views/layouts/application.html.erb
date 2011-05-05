@@ -8,7 +8,15 @@
 </head>
 <body>
 
-<header>
+<header id="app">
+  <div class="session">
+    <% if current_user.anonymous? %>
+    <% else %>
+        <%= link_to current_user.name %>
+        <%= link_to 'Salir' %>
+    <% end %>
+  </div>
+  <div class="cmom">casamasomenos.net</div>
 </header>
 <% flash.each do |name, msg| %>
     <%= content_tag :div, :class => "flash #{name}" do %>
@@ -17,9 +25,9 @@
 <% end %>
 <div id="page" role="main">
   <header>
-    <%= link_to 'Web', root_path %>
-    <%= link_to 'Participantes', users_path %>
-    <%= link_to 'Articulos', articles_path %>
+    <%= link_to 'Mapa', root_path %>
+    <%= link_to 'Participantes', users_path if current_user.admin? %>
+    <%= link_to 'Articulos', articles_path if current_user.admin? %>
   </header>
   <%= yield %>
 </div>
