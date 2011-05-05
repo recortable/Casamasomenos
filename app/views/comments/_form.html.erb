@@ -1,0 +1,6 @@
+<%= simple_form_for [resource, comment] do |form| %>
+    <%= form.input :body %>
+    <%= button_group do %>
+        <%= button_submit_tag 'Comentar' %>
+    <% end %>
+<% end %>

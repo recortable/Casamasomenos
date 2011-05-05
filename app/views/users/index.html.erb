@@ -1,0 +1,19 @@
+<header>
+  <%= title t('.title') %>
+</header>
+
+<div class="strip">
+  <%= button_group do %>
+      <%= add_button_link_to t('users.new.title'), new_user_path %>
+  <% end %>
+</div>
+
+<table>
+  <% users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.email %></td>
+      </tr>
+  <% end %>
+</table>
+

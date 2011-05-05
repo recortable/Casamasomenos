@@ -1,0 +1,7 @@
+<%= div_for comment do %>
+    <div class="info">
+      <%= comment.author.name %>:
+    </div>
+    <%= comment.body %>
+    <%= link_to t('.reply'), new_comment_path(:parent_id => comment) %>
+<% end %>

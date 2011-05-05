@@ -8,6 +8,9 @@ gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
+
+gem 'cancan'
+gem 'ancestry'
 gem 'decent_exposure'
 gem "simple_form"
 gem 'rdiscount', :require => 'rdiscount'

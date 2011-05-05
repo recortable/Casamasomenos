@@ -10,12 +10,16 @@
 
 <header>
 </header>
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, :class => "flash #{name}" do %>
+        <%= msg %>
+    <% end %>
+<% end %>
 <div id="page" role="main">
   <header>
     <%= link_to 'Web', root_path %>
-    <%= link_to 'Artículos', articles_path %>
-    <%= link_to 'Mapas', datamaps_path %>
-    <%= link_to 'Ficheros', assets_path %>
+    <%= link_to 'Participantes', users_path %>
+    <%= link_to 'Articulos', articles_path %>
   </header>
   <%= yield %>
 </div>

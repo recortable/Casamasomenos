@@ -1,27 +1,17 @@
-<h1>Listing articles</h1>
+<header>
+  <%= title 'Articulos' %>
+</header>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Content</th>
-    <th>Parent</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="strip">
+  <%= button_group do %>
+      <%= add_button_link_to t('articles.new.title'), new_article_path %>
+  <% end %>
+</div>
 
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.name %></td>
-    <td><%= article.content %></td>
-    <td><%= article.parent %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div class="articles">
+  <div class="nested_articles">
+    <%= nested_articles article.subtree.arrange(:order => :created_at) %>
+  </div>
+</div>
 
-<br />
 
-<%= link_to 'New Article', new_article_path %>

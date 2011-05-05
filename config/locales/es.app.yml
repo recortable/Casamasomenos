@@ -1,0 +1,30 @@
+es:
+  articles:
+    edit:
+      title: "Editar artículo"
+    new:
+      title: "Añadir artículo"
+  users:
+    new:
+      title: "Añadir participante"
+    form:
+      submit: "Guardar"
+    notice:
+      create: "Participante añadido"
+  comments:
+    notice:
+      create: "Gracias por tu comentario!"
+
+      replied: "Comentario respondido. Muchas gracias"
+    comment:
+      reply: "Responder"
+    new:
+      title: "Responder a un comentario"
+  activerecord:
+    models:
+      article: "Artículo"
+  users:
+    new:
+      title: "Añadir usuario"
+    index:
+      title: "Participantes"

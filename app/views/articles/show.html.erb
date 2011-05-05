@@ -1,20 +1,28 @@
-<p id="notice"><%= notice %></p>
+<header>
+  <h2><%= t 'activerecord.models.article' %></h2>
+  <%= title article.name %>
+</header>
+<div class="strip">
+  <ul class="properties">
+    <li><label>Autor:</label><%= article.author.name %></li>
+    <li><label>En:</label><%= article.parent.name if article.parent %></li>
+  </ul>
+  <%= button_group do %>
+      <%= edit_button_link_to 'Editar', edit_article_path(article) %>
+  <% end %>
+</div>
+<div class="body">
+  <%= article.body %>
+</div>
+<div class="comment_area">
+  <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
+  <div class="comments">
+    <% article.comments.each do |comment| %>
+        <div class="nested_comments">
+          <%= nested_comments comment.subtree.arrange(:order => :created_at) %>
+        </div>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @article.name %>
-</p>
 
-<p>
-  <b>Content:</b>
-  <%= @article.content %>
-</p>
-
-<p>
-  <b>Parent:</b>
-  <%= @article.parent %>
-</p>
-
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>

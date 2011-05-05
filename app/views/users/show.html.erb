@@ -1,0 +1,16 @@
+<header>
+  <h2><%= t 'activerecord.models.user ' %></h2>
+  <%= title user.name %>
+</header>
+<div class="strip">
+  <ul class="properties">
+    <li><label>Email:</label><%= user.email %></li>
+  </ul>
+  <%= button_group do %>
+      <%= edit_button_link_to 'Editar', edit_user_path(user) %>
+  <% end %>
+</div>
+<div class="content">
+</div>
+
+

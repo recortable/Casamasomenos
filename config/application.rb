@@ -28,7 +28,7 @@ module Cmom
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :es
 
     # Please note that JavaScript expansions are *ignored altogether* if the asset
     # pipeline is enabled (see config.assets.enabled below). Put your defaults in
@@ -36,7 +36,6 @@ module Cmom
     #
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(prototype prototype_ujs)
-
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

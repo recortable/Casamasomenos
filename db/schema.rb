@@ -10,16 +10,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110505115732) do
+ActiveRecord::Schema.define(:version => 20110505135504) do
 
   create_table "articles", :force => true do |t|
     t.string   "name",       :limit => 300
-    t.text     "content"
-    t.integer  "parent_id"
+    t.text     "body"
+    t.integer  "author_id"
+    t.string   "ancestry"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "articles", ["parent_id"], :name => "index_articles_on_parent_id"
+  add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"
+  add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.integer  "author_id"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.text     "ancestry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
+  add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
+  add_index "comments", ["resource_id"], :name => "index_comments_on_resource_id"
+  add_index "comments", ["resource_type"], :name => "index_comments_on_resource_type"
+
+  create_table "users", :force => true do |t|
+    t.string   "name",       :limit => 100
+    t.string   "email",      :limit => 300
+    t.string   "rol",        :limit => 16
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

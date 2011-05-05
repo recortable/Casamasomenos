@@ -1,0 +1,17 @@
+<header>
+  <%= title t('.title') %>
+</header>
+
+<div class="strip">
+  <ul class="properties">
+    <li><label>Autor:</label><%= replied.author.name %></li>
+    <li><%= replied.body %></li>
+  </ul>
+</div>
+  <%= simple_form_for reply do |form| %>
+    <%= form.input :parent_id, :as => :hidden %>
+    <%= form.input :body %>
+      <%= button_group do %>
+          <%= button_submit_tag 'Responder' %>
+      <% end %>
+  <% end %>

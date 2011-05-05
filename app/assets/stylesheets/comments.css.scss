@@ -1,0 +1,11 @@
+/* 
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+  You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+
+div.comments {width: 95%; margin: 10px auto;}
+div.comment {}
+div.nested_comments {margin: 10px 0;padding-left:10px;
+border-left: 3px solid #efefef;}
+textarea#comment_body {height: 5em;}
