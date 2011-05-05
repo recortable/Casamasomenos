@@ -1,13 +1,8 @@
 class User < ActiveRecord::Base
+  include Models::User::RolMethods
+
   validates :name, :presence => true
   validates :email, :presence => true
 
-  def admin?
-    rol == 'admin'
-  end
-
-  def anonymous?
-    rol == 'anonymous'
-  end
-
+  has_roles :admin, :anonymous
 end
