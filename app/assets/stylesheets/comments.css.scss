@@ -4,8 +4,9 @@
   You can use Sass (SCSS) here: http://sass-lang.com/
 */
 
-div.comments {width: 95%; margin: 10px auto;}
+div.comment_area {width: 70%; margin: 10px auto; padding-top:10px; border-top: 1px solid #efefef;}
+div.comment_area input[type=submit] {font-size: 80%;}
 div.comment {}
 div.nested_comments {margin: 10px 0;padding-left:10px;
 border-left: 3px solid #efefef;}
-textarea#comment_body {height: 5em;}
+textarea#comment_body {height: 2em; width: 100%;}

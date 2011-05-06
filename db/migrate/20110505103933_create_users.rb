@@ -7,8 +7,5 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    User.create(:name => 'Admin', :email => 'super@casamasomenos.net', :rol => 'admin')
-    User.create(:name => 'Anonymous', :email => 'anonymous@casamasomenos.net', :rol => 'anonymous')
-    User.create(:name => 'Danigb', :email => 'danigb@gmail.com', :rol => 'admin')
   end
 end

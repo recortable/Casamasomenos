@@ -1,9 +1,10 @@
 #encoding: utf-8
 
 class ArticlesController < ApplicationController
+  respond_to :html
   expose(:root) { Article.first }
   expose(:article)
-  expose(:parent) { Article.find params[:parent_id] }
+  expose(:parent) {  Article.find(params[:article] ? params[:article][:parent_id] : params[:parent_id]) }
   expose(:comment) { Comment.new(:resource => article) }
 
   def index
@@ -25,16 +26,15 @@ class ArticlesController < ApplicationController
 
 
   def create
-    params[:article][:author_id] = current_user.id
-    logger.debug(article.to_json)
+    article.author = current_user
     authorize! :create, article
-    flash[:notice] = 'Artículo añadido.' if article.save
-    redirect_to article
+    flash[:notice] = article.save ? 'Articulo añadido.' : "El artículo contiene #{article.errors.size} errores"
+    respond_with article
   end
 
   def update
     flash[:notice] = 'Artículo actualizado.' if article.update_attributes(params[:article])
-    redirect_to article
+    respond_with article
   end
 
 end

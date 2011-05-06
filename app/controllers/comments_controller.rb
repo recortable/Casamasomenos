@@ -8,14 +8,12 @@ class CommentsController < ApplicationController
 
   # only to reply!!
   def new
-
   end
 
 
   def create
     if params[:comment][:parent_id].present?
-      # FIXME
-      params[:comment][:author_id] = 3
+      params[:comment][:author_id] = current_user.id
       resp = Comment.new(params[:comment])
       flash[:notice] = t('comments.notice.replied') if resp.save
       respond_with resp, :location => resp.root.resource

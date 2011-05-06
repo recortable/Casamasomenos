@@ -5,25 +5,25 @@
 <div class="strip">
   <ul class="properties">
     <li><label>Autor:</label><%= article.author.name %></li>
-    <li><label>En:</label><%= article.parent.name if article.parent %></li>
+    <li><label>Forma parte de:</label><%= article.parent.name if article.parent %></li>
   </ul>
   <%= button_group do %>
-      <%= add_button_link_to t('articles.append.title'), new_article_path(:parent_id => article.id) %>
-      <%= edit_button_link_to 'Editar', edit_article_path(article) %>
+      <%= add_button_link_to t('articles.append.title'), new_article_path(:parent_id => article.id) if can? :new, Article %>
+      <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
   <% end %>
 </div>
-<div class="body">
-  <%= article.body %>
-</div>
-<div class="comment_area">
-  <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
-  <div class="comments">
-    <% article.comments.each do |comment| %>
-        <div class="nested_comments">
-          <%= nested_comments comment.subtree.arrange(:order => :created_at) %>
-        </div>
-    <% end %>
-  </div>
-</div>
+<%= div_for article do %>
+    <%= render_body article %>
+    <div class="comment_area">
+      <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
+      <div class="comments">
+        <% article.comments.each do |comment| %>
+            <div class="nested_comments">
+              <%= nested_comments comment.subtree.arrange(:order => :created_at) %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+<% end %>
 
 
