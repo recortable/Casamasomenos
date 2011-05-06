@@ -7,10 +7,12 @@ $s-width: 960px;
 
 /** ELEMENTS **/
 html {background-color:$c-bg;font-size: 12px;font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;}
-a {text-decoration:none;}
+a {text-decoration:none; color:black;}
+a:hover {color: $c-head; text-shadow: 0px 0px 15px $c-gray;}
 h1, h2 {line-height: 1.2em;}
 h1 {color: $c-head; font-size: 32px;}
 h2 {color: black;font-size: 16px;}
+em {font-weight:bold;}
 
 /** LAYOUT **/
 #page {background: white;width: 960px;margin: 20px auto;padding-bottom:30px;
@@ -19,7 +21,6 @@ h2 {color: black;font-size: 16px;}
 
 header#app {width: $s-width; margin: 10px auto;}
 header#app div.info {float: left;}
-header#app div.session {float: right;}
 
 #page header {background: #F8F8F8;padding:5px 38px;}
 #page header a {color: $c-head;}
@@ -29,7 +30,8 @@ header#app div.session {float: right;}
 div.flash {width: 960px; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px;}
 div.flash.notice {background-color:yellow;}
 
-div.strip ul.properties {margin-bottom: 10px;}
+div.strip div.button-group {margin-top: 10px;}
+div.strip ul.properties {}
 div.strip ul.properties li {width:100%;overflow:hidden;}
 div.strip ul.properties li label {font-weight:bold;padding-right:0.5em;}
 
@@ -37,6 +39,10 @@ div.strip ul.properties li label {font-weight:bold;padding-right:0.5em;}
 form {width: 95%; margin: 10px auto;}
 form label {display:block;}
 form div.button-group {margin-top:10px;}
+form input[type=text], form textarea {
+    width: 400px;
+    border: 1px solid $c-bg; padding: 2px;
+}
 
 /** TABLE **/
 table {width: 95%; margin: 10px auto; border-bottom: 1px solid $c-bg;}

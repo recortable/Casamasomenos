@@ -2,7 +2,7 @@
 module AuthModule
   protected
   def current_user
-    @current_user ||= session[:usser_id] ? User.(session[:user_id]) : User.find(2)
+    @current_user ||= session[:user_id].present? ? User.find(session[:user_id]) : User.find(2)
   end
 
   def require_super

@@ -20,6 +20,7 @@ gem 'carrierwave'
 
 group :test, :development do
   gem 'unicorn'
+  gem 'test-unit'
   gem 'capistrano'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'turn', :require => false

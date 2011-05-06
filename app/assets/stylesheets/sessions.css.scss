@@ -3,3 +3,7 @@
   They will automatically be included in application.css.
   You can use Sass (SCSS) here: http://sass-lang.com/
 */
+
+
+#app div.session {float: right;}
+#app div.session img.avatar {border:0; float: left;margin: 0px 2px 0 0;}

@@ -9,7 +9,7 @@
 
 <div class="articles">
   <div class="nested_articles">
-    <%= nested_articles article.subtree.arrange(:order => :created_at) %>
+    <%= nested_articles root.subtree.arrange(:order => :created_at) %>
   </div>
 </div>
 

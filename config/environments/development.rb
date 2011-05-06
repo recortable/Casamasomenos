@@ -22,8 +22,5 @@ Cmom::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
-  config.to_prepare do
-    Dir[Rails.root + "lib/models/**/*.rb"].sort.each {|f| load File.expand_path(f)}
-  end
 end
 

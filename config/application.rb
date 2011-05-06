@@ -48,5 +48,9 @@ module Cmom
 
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    config.to_prepare do
+      Dir[Rails.root + "lib/models/**/*.rb"].sort.each {|f| load File.expand_path(f)}
+    end
   end
 end

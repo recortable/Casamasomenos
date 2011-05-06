@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cmom</title>
+  <title><%= yield :title %> :: Casa + o -</title>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,9 +10,11 @@
 
 <header id="app">
   <div class="session">
+    <%= avatar_img(current_user) %> Eres <%= current_user.name %> :
     <% if current_user.anonymous? %>
+        <%= link_to t('invitations.new.title') %>
     <% else %>
-        <%= link_to current_user.name %>
+        <%= link_to 'Ver perfil' %> |
         <%= link_to 'Salir' %>
     <% end %>
   </div>

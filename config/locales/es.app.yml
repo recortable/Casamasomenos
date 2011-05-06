@@ -30,3 +30,6 @@ es:
       title: "Añadir usuario"
     index:
       title: "Participantes"
+  invitations:
+    new:
+      title: "Solicitar una invitación"
