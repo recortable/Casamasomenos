@@ -18,6 +18,8 @@ gem 'css3buttons'
 gem 'fog'
 gem 'carrierwave'
 
+gem 'lorem'
+
 group :test, :development do
   gem 'unicorn'
   gem 'test-unit'

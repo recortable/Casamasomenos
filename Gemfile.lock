@@ -80,6 +80,7 @@ GEM
     kgio (2.3.3)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
+    lorem (0.1.2)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -167,6 +168,7 @@ DEPENDENCIES
   decent_exposure
   fog
   jquery-rails
+  lorem
   rails (= 3.1.0.beta1)
   rdiscount
   ruby-debug19

@@ -2,6 +2,7 @@
 
 class ArticlesController < ApplicationController
   respond_to :html
+  respond_to :js, :only => :show
   expose(:root) { Article.first }
   expose(:article)
   expose(:parent) {  Article.find(params[:article] ? params[:article][:parent_id] : params[:parent_id]) }

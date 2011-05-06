@@ -5,6 +5,10 @@ module AuthModule
     @current_user ||= session[:user_id].present? ? User.find(session[:user_id]) : User.find(2)
   end
 
+  def has_user?
+    !current_user.anonymous?
+  end
+
   def require_super
     if current_user
       raise CanCan::AccessDenied unless current_user.super?

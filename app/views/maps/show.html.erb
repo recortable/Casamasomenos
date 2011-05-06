@@ -1,0 +1,20 @@
+<% title 'Mapa de posibilidades' %>
+<div id="infovis">
+
+</div>
+
+<div id="content-view">
+  <div class="container">
+    <div id="page-view">
+      <%= render article %>
+    </div>
+  </div>
+
+</div>
+
+<%= data_map_script(article.subtree.arrange(:order => :created_at)) %>
+<script>
+    $(function() {
+
+    });
+</script>

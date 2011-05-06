@@ -1,0 +1,5 @@
+es:
+  simple_form:
+    labels:
+      comment:
+        body: 'Comentario'

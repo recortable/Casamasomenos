@@ -1,10 +1,13 @@
 # encoding: utf-8
 # DSL: http://4loc.wordpress.com/2009/05/29/dsl-in-ruby/
 
+require 'lorem'
+
 User.create!(:name => 'Admin', :email => 'super@casamasomenos.net', :rol => 'admin')
 User.create!(:name => 'Anonymous', :email => 'anonymous@casamasomenos.net', :rol => 'anonymous')
 User.create!(:name => 'Danigb', :email => 'danigb@gmail.com', :rol => 'admin')
 
+BODY = Lorem::Base.new('paragraphs', 10).output
 
 class ArticleBuilder
   def initialize(parent_id = nil)
@@ -12,7 +15,7 @@ class ArticleBuilder
   end
 
   def article(title, &block)
-    parent = create(:name => title, :body => 'De momento no hay contenido para este artículo', :author_id => 1, :parent_id => @parent_id)
+    parent = create(:name => title, :body => BODY, :author_id => 1, :parent_id => @parent_id)
     builder = ArticleBuilder.new(parent.id)
     builder.instance_eval &block if block_given?
   end

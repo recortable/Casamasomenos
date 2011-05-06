@@ -1,6 +1,6 @@
 <header>
   <h2><%= t 'activerecord.models.article' %></h2>
-  <%= title article.name %>
+  <% title article.name %>
 </header>
 <div class="strip">
   <ul class="properties">
@@ -12,18 +12,4 @@
       <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
   <% end %>
 </div>
-<%= div_for article do %>
-    <%= render_body article %>
-    <div class="comment_area">
-      <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
-      <div class="comments">
-        <% article.comments.each do |comment| %>
-            <div class="nested_comments">
-              <%= nested_comments comment.subtree.arrange(:order => :created_at) %>
-            </div>
-        <% end %>
-      </div>
-    </div>
-<% end %>
-
-
+<%= render article %>

@@ -11,12 +11,12 @@
 
 <header id="app">
   <div class="session">
-    <%= avatar_img(current_user) %> Eres <%= current_user.name %> :
-    <% if current_user.anonymous? %>
-        <%= link_to t('invitations.new.title') %>
-    <% else %>
+    <% if has_user? %>
+        <%= avatar_img(current_user) %> Eres <%= current_user.name %> :
         <%= link_to 'Ver perfil' %> |
         <%= link_to 'Salir' %>
+    <% else %>
+        <%= link_to t('invitations.new.title') %>
     <% end %>
   </div>
   <div class="cmom">casamasomenos.net</div>
@@ -26,15 +26,18 @@
         <%= msg %>
     <% end %>
 <% end %>
-<div id="page" role="main">
-  <header>
-    <%= link_to 'Mapa', root_path %>
-    <%= link_to 'Participantes', users_path if current_user.admin? %>
-    <%= link_to 'Articulos', articles_path if current_user.admin? %>
-  </header>
-  <%= yield %>
-</div>
-<footer>
-</footer>
+<% if controller.class != MapsController %>
+    <div id="page" role="main">
+      <header>
+        <%= link_to 'Mapa', root_path %>
+        <%= link_to 'Participantes', users_path if current_user.admin? %>
+        <%= link_to 'Articulos', articles_path if current_user.admin? %>
+      </header>
+      <%= yield %>
+    </div>
+<% else %>
+    <%= yield %>
+    <%= javascript_include_tag "maps" %>
+<% end %>
 </body>
 </html>
