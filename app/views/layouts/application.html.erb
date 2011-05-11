@@ -7,7 +7,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= controller.class.name[0..-11].downcase %>">
 
 <header id="app">
   <div class="session">
@@ -16,7 +16,7 @@
         <%= link_to 'Ver perfil' %> |
         <%= link_to 'Salir' %>
     <% else %>
-        <%= link_to t('invitations.new.title') %>
+        <%= link_to t('invitations.new.title'), '#' %>
     <% end %>
   </div>
   <div class="cmom">casamasomenos.net</div>
