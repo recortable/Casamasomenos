@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.text :body
       t.belongs_to :author
       t.belongs_to :resource, :polymorphic => true
-      t.text :ancestry
+      t.string :ancestry
       t.timestamps
     end
     add_index :comments, :author_id
