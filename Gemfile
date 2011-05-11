@@ -19,6 +19,7 @@ gem 'fog'
 gem 'carrierwave'
 
 gem 'lorem'
+gem 'mysql2'
 
 group :test, :development do
   gem 'unicorn'
