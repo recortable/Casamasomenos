@@ -1,5 +1,4 @@
 module ArticlesHelper
-
   def nested_articles(articles)
     articles.map do |article, sub_articles|
       render(:partial => 'nested', :locals => {:article => article}) +
