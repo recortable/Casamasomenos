@@ -4,7 +4,6 @@ class Article < ActiveRecord::Base
   has_ancestry :cache_depth => true
 
   validates :title, :presence => true
-  validates :body, :presence => true
   validates :author_id, :presence => true
 
 end

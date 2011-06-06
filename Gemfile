@@ -21,6 +21,11 @@ gem 'carrierwave'
 gem 'lorem'
 gem 'mysql2'
 
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
+  gem 'pg'
+end
+
 group :test, :development do
   gem 'mongrel', '1.2.0.pre2'
   gem 'test-unit'
