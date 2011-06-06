@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(:version => 20110505135504) do
 
   create_table "articles", :force => true do |t|
-    t.string   "name",           :limit => 300
+    t.string   "title",      :limit => 300
     t.text     "body"
+    t.string   "lang",       :limit => 6
     t.integer  "author_id"
     t.string   "ancestry"
-    t.integer  "ancestry_depth",                :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20110505135504) do
     t.integer  "author_id"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.text     "ancestry"
+    t.string   "ancestry"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

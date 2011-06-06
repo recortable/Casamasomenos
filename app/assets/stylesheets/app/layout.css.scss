@@ -1,15 +1,12 @@
 
-/** VARIABLES **/
-$c-bg: #D6D6D6;
-$c-gray: gray;
-$c-head: #CA0202;
-$s-width: 960px;
+
+@import "variables.css.scss";
 
 /** ELEMENTS **/
 html {background-color:$c-bg;font-size: 12px;font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;}
 a {text-decoration:none; color:black;}
 a:hover {color: $c-head; text-shadow: 0px 0px 15px $c-gray;}
-h1, h2 {line-height: 1.2em;}
+h1, h2 {line-height: 1.2em; text-shadow: 0px 0px 1px $c-gray;}
 h1 {color: $c-head; font-size: 32px;}
 h2 {color: black;font-size: 16px;}
 em {font-weight:bold;}
@@ -32,8 +29,9 @@ div.flash.notice {background-color:yellow;}
 
 div.strip div.button-group {}
 div.strip ul.properties {}
-div.strip ul.properties li {width:100%;overflow:hidden;}
-div.strip ul.properties li label {font-weight:bold;padding-right:0.5em;}
+div.strip ul.properties > li {width:100%;overflow:hidden;}
+div.strip ul.properties > li label {font-weight:bold;padding-right:0.5em;}
+div.strip ul.properties > li > ul {margin-left:10px;}
 
 /** FORM **/
 form {width: 95%; margin: 10px auto;}

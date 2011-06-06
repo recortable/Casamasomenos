@@ -1,15 +1,28 @@
 <header>
-  <h2><%= t 'activerecord.models.article' %></h2>
-  <% title article.name %>
+  <%= link_to 'Artículos', articles_path %> > <%= t 'activerecord.models.article' %>
+  <%= title article.title %>
 </header>
 <div class="strip">
-  <ul class="properties">
-    <li><label>Autor:</label><%= article.author.name %></li>
-    <li><label>Forma parte de:</label><%= article.parent.name if article.parent %></li>
-  </ul>
   <%= button_group do %>
       <%= add_button_link_to t('articles.append.title'), new_article_path(:parent_id => article.id) if can? :new, Article %>
       <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
   <% end %>
+  <ul class="properties">
+    <li><label>Autor:</label><%= article.author.name %></li>
+    <li><label>Está incluído en:</label>
+      <ul class="ancestors">
+        <% article.ancestors.each do |parent| %>
+        <li>&nbsp;&gt;&nbsp;<%= link_to parent.title, parent %></li>
+        <% end %>
+      </ul>
+    </li>
+    <li><label>Contiene:</label>
+      <ul>
+        <% article.children.each do |child| %>
+        <li>&nbsp;&gt;&nbsp;<%= link_to child.title, child %></li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
 </div>
 <%= render article %>

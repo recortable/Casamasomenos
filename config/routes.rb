@@ -1,5 +1,5 @@
 Cmom::Application.routes.draw do
-  root :to => 'maps#show'
+  root :to => 'pages#index'
   match '/admin' => redirect("/admin/articulos")
 
   match "/cerrar" => "sessions#destroy", :as => :logout
@@ -18,4 +18,5 @@ Cmom::Application.routes.draw do
 #    resources :assets, :path => 'archivos'
   end
 
+  resources :navigations, :path => ''
 end

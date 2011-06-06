@@ -1,10 +1,10 @@
 module MapsHelper
 
-  def data_map_script(articles)
+  def data_map_script(articles, script_tag = true)
     output = []
     append_data(articles, output)
     data = "\nvar datamap_data = #{output.first.to_json};\n".html_safe
-    content_tag(:script, data)
+    script_tag ? content_tag(:script, data) : data
   end
 
   protected

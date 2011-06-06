@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.beta1'
+gem 'rails', '3.1.0.rc1'
 gem 'sqlite3'
 
 # Asset template engines
@@ -22,7 +22,7 @@ gem 'lorem'
 gem 'mysql2'
 
 group :test, :development do
-  gem 'unicorn'
+  gem 'mongrel', '1.2.0.pre2'
   gem 'test-unit'
   gem 'capistrano'
   gem 'ruby-debug19', :require => 'ruby-debug'

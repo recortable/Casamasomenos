@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %> :: Casa + o -</title>
+  <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "navigation" %>
+  <%= javascript_include_tag "navigation" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= controller.class.name[0..-11].downcase %>">
+<%= yield %>
+</body>
+</html>

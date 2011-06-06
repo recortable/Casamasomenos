@@ -1,14 +1,14 @@
 class CreateArticles < ActiveRecord::Migration
   def change
     create_table :articles do |t|
-      t.string      :name,            :limit => 300
+      t.string      :title,            :limit => 300
       t.text        :body
+      t.string      :lang, :limit => 6
       t.belongs_to  :author
-      t.string      :ancestry
-      t.integer     :ancestry_depth,  :default => 0
+      t.string :ancestry
       t.timestamps
     end
-    add_index :articles, :ancestry
     add_index :articles, :author_id
+    add_index :articles, :ancestry
   end
 end

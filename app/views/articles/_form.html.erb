@@ -1,12 +1,12 @@
 <div class="strip">
   <ul class="properties">
     <li><label>Autor:</label><%= article.author.name %></li>
-    <li><label>Es parte de:</label><%= article.parent.name if article.parent %></li>
+    <li><label>Está incluído en:</label><%= article.parent.title if article.parent %></li>
   </ul>
 </div>
 <%= simple_form_for(article) do |f| %>
     <%= f.input :parent_id, :as => :hidden %>
-    <%= f.input :name %>
+    <%= f.input :title %>
     <%= f.input :body, :as => :text %>
     <div class="actions">
       <%= button_submit_tag 'Guardar' %>

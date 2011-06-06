@@ -12,14 +12,12 @@
 <header id="app">
   <div class="session">
     <% if has_user? %>
-        <%= avatar_img(current_user) %> Eres <%= current_user.name %> :
-        <%= link_to 'Ver perfil' %> |
-        <%= link_to 'Salir' %>
+        <%= avatar_img(current_user) %> Eres <%= current_user.name %>
     <% else %>
         <%= link_to t('invitations.new.title'), '#' %>
     <% end %>
   </div>
-  <div class="cmom">casamasomenos.net</div>
+  <div class="cmom"><a href="/">casamasomenos.net</a></div>
 </header>
 <% flash.each do |name, msg| %>
     <%= content_tag :div, :class => "flash #{name}" do %>
@@ -29,7 +27,7 @@
 <% if controller.class != MapsController %>
     <div id="page" role="main">
       <header>
-        <%= link_to 'Mapa', root_path %>
+        <%#= link_to 'Mapa', root_path %>
         <%= link_to 'Participantes', users_path if current_user.admin? %>
         <%= link_to 'Articulos', articles_path if current_user.admin? %>
       </header>

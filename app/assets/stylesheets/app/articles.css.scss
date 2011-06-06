@@ -18,5 +18,10 @@ div.article div.render {
       h1 {font-size: 80%;}
       p {margin: 0.5em 0;}
     }
-    
+
+}
+
+div.strip ul.properties ul.ancestors {
+    width: 100%; overflow: hidden;
+    li {float: left;}
 }

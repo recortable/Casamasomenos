@@ -1,0 +1,16 @@
+<div id="page">
+  <div class="content">
+    <%= div_for article do %>
+        <%= title article.name %>
+        <%= render_body article %>
+    <% end %>
+  </div>
+
+  <div id="navigator">
+    <div id="map">
+
+    </div>
+  </div>
+</div>
+<%= data_map_script(article.subtree(:to_depth => 1).arrange(:order => :created_at)) %>
+
