@@ -22,8 +22,8 @@ gem 'lorem'
 gem 'mysql2'
 
 group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3'
-  gem 'pg'
+#  gem 'therubyracer-heroku', '0.8.1.pre3'
+#  gem 'pg'
 end
 
 group :test, :development do
