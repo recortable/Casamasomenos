@@ -11,8 +11,9 @@ div.article div.info {float: left; padding-right:10px;}
 div.nested_articles {border-left: 3px solid #efefef; padding-left: 10px;}
 
 div.article div.render {
-    width: 70%; margin: 20px auto; font-family: 'Merriweather', arial, serif;
-    
+    width: 70%; margin: 20px auto;
+
+    h1, h2, h3, h4 {font-family: 'Merriweather', arial, serif;}
     h1 {color: black;}
     div.body {
       h1 {font-size: 80%;}

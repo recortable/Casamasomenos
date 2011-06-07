@@ -33,14 +33,7 @@ div.strip ul.properties > li {width:100%;overflow:hidden;}
 div.strip ul.properties > li label {font-weight:bold;padding-right:0.5em;}
 div.strip ul.properties > li > ul {margin-left:10px;}
 
-/** FORM **/
-form {width: 95%; margin: 10px auto;}
-form label {display:block;}
-form div.button-group {margin-top:10px;}
-form input[type=text], form textarea {
-    width: 400px;
-    border: 1px solid $c-bg; padding: 2px;
-}
+
 
 /** TABLE **/
 table {width: 95%; margin: 10px auto; border-bottom: 1px solid $c-bg;}
