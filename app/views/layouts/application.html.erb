@@ -24,18 +24,15 @@
         <%= msg %>
     <% end %>
 <% end %>
-<% if controller.class != MapsController %>
-    <div id="page" role="main">
-      <header>
-        <%#= link_to 'Mapa', root_path %>
-        <%= link_to 'Participantes', users_path if current_user.admin? %>
-        <%= link_to 'Articulos', articles_path if current_user.admin? %>
-      </header>
-      <%= yield %>
-    </div>
-<% else %>
-    <%= yield %>
-    <%= javascript_include_tag "maps" %>
-<% end %>
+<div id="page" role="main">
+  <header>
+    <% if current_user.admin? %>
+        <%= link_to 'Articulos', articles_path %> |
+        <%= link_to 'Ficheros', mediafiles_path %> |
+        <%= link_to 'Participantes', users_path %>
+    <% end %>
+  </header>
+  <%= yield %>
+</div>
 </body>
 </html>

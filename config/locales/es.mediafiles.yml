@@ -1,0 +1,26 @@
+es:
+  mediafiles:
+    index:
+      title: "Ficheros"
+      add_file: "Subir fichero"
+    new:
+      title: "Subir fichero"
+      back: "Cancelar y volver"
+      parent: "Añadir a '%{title}'"
+    notice:
+      create: "Fichero creado."
+      destroy: "Fichero borrado,"
+    show:
+      back_to_resource: "Volver al artículo '%{title}'"
+      back_to_list: "Volver a la lista de ficheros"
+      edit: "Editar fichero"
+  simple_form:
+    labels:
+      mediafile:
+        title: 'Título'
+        description: 'Descripción'
+        file: 'Fichero a subir'
+    hints:
+      mediafile:
+        title: 'Tienes 300 caracteres'
+        description: 'Tienes 500 caracteres'

@@ -1,25 +1,32 @@
 <header>
-  <%= link_to 'Artículos', articles_path %> > <%= t 'activerecord.models.article' %>
   <%= title article.title %>
 </header>
 <div class="strip">
   <%= button_group do %>
       <%= add_button_link_to t('articles.append.title'), new_article_path(:parent_id => article.id) if can? :new, Article %>
       <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
+      <%= calendar_button_link_to 'Añadir imágen', new_mediafile_path(:p => article.id) %>
   <% end %>
   <ul class="properties">
     <li><label>Autor:</label><%= article.author.name %></li>
     <li><label>Está incluído en:</label>
-      <ul class="ancestors">
+      <ul class="ancestors list">
         <% article.ancestors.each do |parent| %>
         <li>&nbsp;&gt;&nbsp;<%= link_to parent.title, parent %></li>
         <% end %>
       </ul>
     </li>
     <li><label>Contiene:</label>
-      <ul>
+      <ul class="children list">
         <% article.children.each do |child| %>
-        <li>&nbsp;&gt;&nbsp;<%= link_to child.title, child %></li>
+        <li><%= link_to child.title, child %>&nbsp;|&nbsp;</li>
+        <% end %>
+      </ul>
+    </li>
+    <li><label>Ficheros asociados:</label>
+      <ul class="mediafiles list">
+        <% article.mediafiles.each do |mediafile| %>
+        <li><%= link_to mediafile.title, mediafile %>&nbsp;|&nbsp;</li>
         <% end %>
       </ul>
     </li>

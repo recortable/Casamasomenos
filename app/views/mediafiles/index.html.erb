@@ -1,0 +1,29 @@
+<header>
+  <%= title t('.title') %>
+</header>
+
+<div class="strip">
+  <%= button_group do %>
+      <%= add_button_link_to t('.add_file'), new_mediafile_path %>
+  <% end %>
+</div>
+
+<table class="mediafiles">
+  <% mediafiles.each do |mediafile| %>
+      <tr>
+        <td>
+          <div class="thumb"><%= render_mediafile mediafile %></div>
+        </td>
+        <td><%= link_to mediafile.title, mediafile %></td>
+        <td><%= link_to(mediafile.resource.title, mediafile.resource) if mediafile.resource_id? %></td>
+        <td><%= mediafile.description %></td>
+        <td><%= mediafile.file %></td>
+        <td><%= button_group do %>
+        <%= edit_button_link_to 'Editar', [:edit, mediafile] %>
+        <%= danger_remove_button_link_to 'Borrar', [mediafile], :method => :delete,
+        :confirm => "¿Estás segura de querer borrar '#{mediafile.title}'?"%>
+          <% end %></td>
+      </tr>
+  <% end %>
+</table>
+

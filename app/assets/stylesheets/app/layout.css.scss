@@ -28,7 +28,7 @@ div.flash {width: 960px; margin: 10px auto; padding: 5px; text-align:center; bor
 div.flash.notice {background-color:yellow;}
 
 div.strip div.button-group {}
-div.strip ul.properties {}
+div.strip ul.properties {margin-top: 10px;}
 div.strip ul.properties > li {width:100%;overflow:hidden;}
 div.strip ul.properties > li label {font-weight:bold;padding-right:0.5em;}
 div.strip ul.properties > li > ul {margin-left:10px;}

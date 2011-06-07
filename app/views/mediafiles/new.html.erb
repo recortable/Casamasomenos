@@ -1,0 +1,22 @@
+<header>
+  <%= title t('.title') %>
+  <%= content_tag :h2, t('.parent', :title => mediafile.resource.title) if mediafile.resource_id? %>
+</header>
+
+<div class="strip">
+  <%= button_group do %>
+      <%= arrowleft_button_link_to t('.back'), (mediafile.resource_id? ? [mediafile.resource] : mediafiles_path) %>
+  <% end %>
+</div>
+
+
+
+<%= simple_form_for mediafile do |form| %>
+    <%= form.input :resource_id, :as => :hidden %>
+    <%= form.input :resource_type, :as => :hidden %>
+    <%= form.input :title %>
+    <%= form.input :description %>
+    <%= form.input :file %>
+     <%= button_submit_tag 'Guardar' %>
+<% end %>
+

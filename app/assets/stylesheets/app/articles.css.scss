@@ -1,8 +1,4 @@
-/* 
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-  You can use Sass (SCSS) here: http://sass-lang.com/
-*/
+@import "variables.css.scss";
 
 div.articles {width: 95%; margin: 10px auto;}
 div.articles div.article {width: 100%; overflow:hidden;}
@@ -22,16 +18,20 @@ div.article.nested {
 div.article div.render {
     width: 70%; margin: 20px auto;
 
-    h1, h2, h3, h4 {font-family: 'Merriweather', arial, serif;}
+    h1, h2, h3, h4 {font-family: 'Merriweather', arial, serif; margin-top:1em;}
     h1 {color: black;}
     div.body {
       h1 {font-size: 80%;}
-      p {margin: 0.5em 0;}
+      p {margin: 0.75em 0; line-height:1.5em;}
+      a {color: $c-head;}
+      a:hover {color: black;}
     }
 
 }
 
-div.strip ul.properties ul.ancestors {
-    width: 100%; overflow: hidden;
-    li {float: left;}
+div.strip ul.properties {
+    ul.ancestors, ul.children {
+        width: 100%; overflow: hidden;
+        li {float: left;}
+    }
 }

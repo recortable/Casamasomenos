@@ -1,0 +1,23 @@
+<header>
+  <%= title mediafile.title %>
+</header>
+
+<div class="strip">
+  <%= button_group do %>
+      <% if mediafile.resource_id? %>
+          <%= arrowleft_button_link_to t('.back_to_resource', :title => mediafile.resource.title), [mediafile.resource] %>
+      <% end %>
+      <%= arrowup_button_link_to t('.back_to_list'), mediafiles_path %>
+      <%= edit_button_link_to t('.edit'), [:edit, mediafile] %>
+  <% end %>
+
+  <ul class="properties">
+    <li><label>Título:</label><%= mediafile.title %></li>
+    <li><label>Descripción:</label><%= mediafile.description %></li>
+    <li><label>URL del fichero subido:</label><%= mediafile.file %></li>
+  </ul>
+</div>
+
+<%= div_for mediafile, :class => 'preview' do %>
+    <%= render_mediafile mediafile %>
+<% end %>

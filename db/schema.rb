@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110505135504) do
+ActiveRecord::Schema.define(:version => 20110607110859) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",      :limit => 300
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(:version => 20110505135504) do
 
   add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"
   add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
+
+  create_table "assets", :force => true do |t|
+    t.string   "title",         :limit => 300
+    t.string   "description",   :limit => 512
+    t.string   "file",          :limit => 300
+    t.string   "url",           :limit => 300
+    t.integer  "user_id"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assets", ["resource_id"], :name => "index_assets_on_resource_id"
+  add_index "assets", ["resource_type"], :name => "index_assets_on_resource_type"
+  add_index "assets", ["user_id"], :name => "index_assets_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -39,6 +55,23 @@ ActiveRecord::Schema.define(:version => 20110505135504) do
   add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
   add_index "comments", ["resource_id"], :name => "index_comments_on_resource_id"
   add_index "comments", ["resource_type"], :name => "index_comments_on_resource_type"
+
+  create_table "mediafiles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.string   "title",         :limit => 300
+    t.string   "description",   :limit => 512
+    t.string   "file",          :limit => 300
+    t.string   "code",          :limit => 1024
+    t.string   "media_type",    :limit => 16
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mediafiles", ["resource_id"], :name => "index_mediafiles_on_resource_id"
+  add_index "mediafiles", ["resource_type"], :name => "index_mediafiles_on_resource_type"
+  add_index "mediafiles", ["user_id"], :name => "index_mediafiles_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name",       :limit => 100
