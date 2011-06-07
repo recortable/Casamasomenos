@@ -1,5 +1,8 @@
-<%= div_for article do %>
-    <div class="info">
-    </div>
+<%= div_for article, :class => 'nested' do %>
     <h2><%= link_to article.title, article %></h2>
+    <div class="info">
+      <% if Time.now - article.updated_at < 10000 %>
+          Actualizado hace<%= time_ago_in_words article.updated_at %>
+      <% end %>
+    </div>
 <% end %>
