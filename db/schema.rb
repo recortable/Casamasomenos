@@ -25,22 +25,6 @@ ActiveRecord::Schema.define(:version => 20110607110859) do
   add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"
   add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
 
-  create_table "assets", :force => true do |t|
-    t.string   "title",         :limit => 300
-    t.string   "description",   :limit => 512
-    t.string   "file",          :limit => 300
-    t.string   "url",           :limit => 300
-    t.integer  "user_id"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "assets", ["resource_id"], :name => "index_assets_on_resource_id"
-  add_index "assets", ["resource_type"], :name => "index_assets_on_resource_type"
-  add_index "assets", ["user_id"], :name => "index_assets_on_user_id"
-
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.integer  "author_id"
