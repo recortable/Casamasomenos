@@ -3,3 +3,11 @@ div.mediafile.preview {
     margin: 20px auto;
     text-align:center;
 }
+
+.mediafiles {
+    div.thumb {
+       width: 100px;
+
+       img {width: 100%;}
+    }
+}

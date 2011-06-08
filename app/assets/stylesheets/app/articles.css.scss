@@ -11,8 +11,8 @@ div.nested_articles {
 div.article.nested {
     width: 100%; overflow: hidden;
     color: gray;
-    h2 {float: left; color: black; margin-right:5px;}
-    div.info {margin-top: 3px;}
+    h2 {float: left; color: black; margin-right:5px; font-size: 120%;}
+    div.info {}
 }
 
 div.article div.render {

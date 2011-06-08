@@ -4,7 +4,7 @@
 
 <div class="strip">
   <%= button_group do %>
-      <%= add_button_link_to t('.add_file'), new_mediafile_path %>
+      <%= add_button_link_to t('.add_file'), new_mediafile_path if can? :new, Mediafile %>
   <% end %>
 </div>
 

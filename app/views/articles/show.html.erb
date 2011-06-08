@@ -5,7 +5,7 @@
   <%= button_group do %>
       <%= add_button_link_to t('articles.append.title'), new_article_path(:parent_id => article.id) if can? :new, Article %>
       <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
-      <%= calendar_button_link_to 'Añadir imágen', new_mediafile_path(:p => article.id) %>
+      <%= calendar_button_link_to 'Añadir imágen', new_mediafile_path(:p => article.id) if can? :new, Mediafile %>
   <% end %>
   <ul class="properties">
     <li><label>Autor:</label><%= article.author.name %></li>
