@@ -9,14 +9,14 @@ module ApplicationHelper
   def render_body(model)
     text = model.body
     text = RDiscount.new(text, :smart, :filter_html).to_html
-    text = replace_center_images(text)
     text  = replace_right_images(text)
+    text = replace_center_images(text)
     content_tag(:div, text.html_safe, :class => 'body')
   end
 
   protected
   def replace_center_images(text)
-    text.gsub /^\s*!@(\d+)/ do
+    text.gsub /!@(\d+)/ do
       image = Mediafile.find_by_id($1)
       if image
         content_tag(:div, render_mediafile(image), :class => 'mediafile')
