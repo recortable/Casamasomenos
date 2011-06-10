@@ -8,12 +8,16 @@ class MediafilesController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
     mediafile.resource = parent if parent.present?
   end
 
-  def show
+  def edit
   end
+
 
   def create
     authorize! :create, mediafile

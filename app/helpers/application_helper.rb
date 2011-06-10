@@ -1,10 +1,41 @@
+#encoding: utf-8
 module ApplicationHelper
   def title(text)
     content_for(:title) { text }
     content_tag(:h1, text)
   end
 
+
   def render_body(model)
-    content_tag(:div, RDiscount.new(model.body, :smart, :filter_html).to_html.html_safe, :class => 'body')
+    text = model.body
+    text = RDiscount.new(text, :smart, :filter_html).to_html
+    text = replace_center_images(text)
+    text  = replace_right_images(text)
+    content_tag(:div, text.html_safe, :class => 'body')
   end
+
+  protected
+  def replace_center_images(text)
+    text.gsub /^\s*!@(\d+)/ do
+      image = Mediafile.find_by_id($1)
+      if image
+        content_tag(:div, render_mediafile(image), :class => 'mediafile')
+      else
+        "<div class='notice'>Imágen no encontrada</div>"
+      end
+    end
+  end
+
+  def replace_right_images(text)
+    text.gsub /!!@(\d+)/ do
+      image = Mediafile.find_by_id($1)
+      if image
+        content_tag(:div, render_mediafile(image), :class => 'mediafile right')
+      else
+        "<div class='notice'>Imágen no encontrada</div>"
+      end
+    end
+  end
+
+
 end

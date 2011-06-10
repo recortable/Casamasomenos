@@ -20,11 +20,24 @@ div.article div.render {
 
     h1, h2, h3, h4 {font-family: 'Merriweather', arial, serif; margin-top:1em;}
     h1 {color: black;}
+
     div.body {
+       width:100%;overflow:hidden;
+
       h1 {font-size: 80%;}
       p {margin: 0.75em 0; line-height:1.5em;}
       a {color: $c-head;}
       a:hover {color: black;}
+
+      div.mediafile {
+        img {max-width:100%;}
+      }
+
+      div.mediafile.right {
+            float: right;clear: both;
+            width: 38%; margin-left:2%;
+      }
+
     }
 
 }

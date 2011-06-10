@@ -23,13 +23,7 @@
         <% end %>
       </ul>
     </li>
-    <li><label>Ficheros asociados:</label>
-      <ul class="mediafiles list">
-        <% article.mediafiles.each do |mediafile| %>
-        <li><%= link_to mediafile.title, mediafile %>&nbsp;|&nbsp;</li>
-        <% end %>
-      </ul>
-    </li>
+    <%= render :partial => 'mediafiles' %>
   </ul>
 </div>
 <%= render article %>

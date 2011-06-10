@@ -1,0 +1,7 @@
+<li><label>Ficheros asociados:</label>
+  <ul class="mediafiles list">
+    <% article.mediafiles.each do |mediafile| %>
+        <li><%= link_to "!@#{mediafile.id}", mediafile %>&nbsp;</li>
+    <% end %>
+  </ul>
+</li>

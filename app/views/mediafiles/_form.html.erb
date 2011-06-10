@@ -1,0 +1,8 @@
+<%= simple_form_for mediafile do |form| %>
+    <%= form.input :resource_id, :as => :hidden %>
+    <%= form.input :resource_type, :as => :hidden %>
+    <%= form.input :title %>
+    <%= form.input :description %>
+    <%= form.input :file %>
+    <%= button_submit_tag 'Guardar' %>
+<% end %>
