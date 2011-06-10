@@ -9,6 +9,17 @@
 </div>
 
 <table class="mediafiles">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Título</th>
+    <th>Ficha</th>
+    <th>Código</th>
+    <th>URL</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
   <% mediafiles.each do |mediafile| %>
       <tr>
         <td>
@@ -16,14 +27,15 @@
         </td>
         <td><%= link_to mediafile.title, mediafile %></td>
         <td><%= link_to(mediafile.resource.title, mediafile.resource) if mediafile.resource_id? %></td>
-        <td><%= mediafile.description %></td>
+        <td>!@<%= mediafile.id %></td>
         <td><%= mediafile.file %></td>
         <td><%= button_group do %>
-        <%= edit_button_link_to 'Editar', [:edit, mediafile] %>
-        <%= danger_remove_button_link_to 'Borrar', [mediafile], :method => :delete,
-        :confirm => "¿Estás segura de querer borrar '#{mediafile.title}'?"%>
+              <%= edit_button_link_to 'Editar', [:edit, mediafile] %>
+              <%= danger_remove_button_link_to 'Borrar', [mediafile], :method => :delete,
+                                               :confirm => "¿Estás segura de querer borrar '#{mediafile.title}'?" %>
           <% end %></td>
       </tr>
   <% end %>
+  </tbody>
 </table>
 

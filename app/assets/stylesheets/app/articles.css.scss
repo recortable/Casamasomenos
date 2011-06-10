@@ -43,7 +43,7 @@ div.article div.render {
 }
 
 div.strip ul.properties {
-    ul.ancestors, ul.children {
+    ul.ancestors, ul.children, ul.mediafiles {
         width: 100%; overflow: hidden;
         li {float: left;}
     }

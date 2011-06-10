@@ -2,8 +2,8 @@
   <ul class="properties">
     <li><label>Autor:</label><%= article.author.name %></li>
     <li><label>Está incluído en:</label><%= article.parent.title if article.parent %></li>
+    <%= render :partial => 'mediafiles' %>
   </ul>
-  <%= render :partial => 'mediafiles' %>
 </div>
 <%= simple_form_for(article) do |f| %>
     <%= f.input :parent_id, :as => :hidden %>
