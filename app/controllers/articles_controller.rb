@@ -3,17 +3,18 @@
 class ArticlesController < ApplicationController
   respond_to :html
   respond_to :js, :only => :show
-  expose(:root) { Article.find 1 }
+  expose(:articles) { Article.all }
   expose(:article)
-  expose(:parent) {  Article.find(params[:article] ? params[:article][:parent_id] : params[:parent_id]) }
   expose(:comment) { Comment.new(:resource => article) }
 
+
+  expose(:models) { Article.models.by_modification }
+  expose(:experiencies) { Article.experiencies }
+  expose(:pages) { Article.pages }
   def index
   end
 
   def new
-    article.parent = parent
-    article.author = current_user
     authorize! :new, article
   end
 

@@ -1,0 +1,36 @@
+
+
+@import "../variables.css.scss";
+
+
+/** LAYOUT **/
+#page {background: white;width: $s-width;margin: 20px auto;padding-bottom:30px;
+       -moz-box-shadow: 0px 0px 25px #555;-webkit-box-shadow: 0px 0px 25px #555;box-shadow: 0px 1px 5px #555;
+}
+
+header#app {width: $s-width; margin: 10px auto;}
+header#app div.info {float: left;}
+
+#page header {background: #F8F8F8;padding:5px 38px;}
+#page header a {color: $c-head;}
+#page div.pre-strip {background: #EAEAEA;padding: 13px 38px;border-top: 1px solid #CCC;border-bottom: 1px solid #CCC;}
+#page div.strip {padding: 10px 10%;border-top: 1px solid $c-line;border-bottom: 1px solid $c-line;}
+
+#page .content {
+    clear:both;
+    width: $s-content; margin: 0 auto; padding:20px 0 5px 0;
+    a {color: $c-link;}
+}
+
+
+div.flash {width: 960px; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px;}
+div.flash.notice {background-color:yellow;}
+
+div.strip div.button-group {}
+div.strip ul.properties {margin-top: 10px;}
+div.strip ul.properties > li {width:100%;overflow:hidden;}
+div.strip ul.properties > li label {font-weight:bold;padding-right:0.5em;}
+div.strip ul.properties > li > ul {margin-left:10px;}
+
+
+

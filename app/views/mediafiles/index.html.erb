@@ -17,7 +17,6 @@
         <td><%= link_to mediafile.title, mediafile %></td>
         <td><%= link_to(mediafile.resource.title, mediafile.resource) if mediafile.resource_id? %></td>
         <td><%= mediafile.description %></td>
-        <td><%= mediafile.file %></td>
         <td><%= button_group do %>
         <%= edit_button_link_to 'Editar', [:edit, mediafile] %>
         <%= danger_remove_button_link_to 'Borrar', [mediafile], :method => :delete,

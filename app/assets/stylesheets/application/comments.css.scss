@@ -1,0 +1,9 @@
+
+@import "../variables.css.scss";
+
+div.comment_area {border-top: 1px solid $c-line;}
+div.comment_area input[type=submit] {font-size: 80%;}
+div.comment {}
+div.nested_comments {margin: 10px 0;padding-left:10px;
+border-left: 3px solid #efefef;}
+textarea#comment_body {height: 3em; width: 100%;}

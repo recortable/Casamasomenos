@@ -1,4 +1,4 @@
-@import "variables.css.scss";
+@import "../variables.css.scss";
 
 div.articles {width: 95%; margin: 10px auto;}
 div.articles div.article {width: 100%; overflow:hidden;}
@@ -16,13 +16,11 @@ div.article.nested {
 }
 
 div.article div.render {
-    width: 70%; margin: 20px auto;
+    width: $s-content; margin: 20px auto;
 
-    h1, h2, h3, h4 {font-family: 'Merriweather', arial, serif; margin-top:1em;}
-    h1 {color: black;}
     div.body {
       h1 {font-size: 80%;}
-      p {margin: 0.75em 0; line-height:1.5em;}
+      p {text-align:justify; margin: 0.75em 0; line-height:1.5em;}
       a {color: $c-head;}
       a:hover {color: black;}
     }
@@ -33,5 +31,12 @@ div.strip ul.properties {
     ul.ancestors, ul.children {
         width: 100%; overflow: hidden;
         li {float: left;}
+    }
+}
+
+ul.articles {
+    li {
+        a {font-weight: bold;}
+        .time {color: #666;}
     }
 }
