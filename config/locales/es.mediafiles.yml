@@ -11,12 +11,13 @@ es:
       create: "Fichero creado."
       destroy: "Fichero borrado,"
     show:
-      back_to_resource: "Volver al artículo '%{title}'"
+      back_to_resource: "Ir al artículo '%{title}'"
       back_to_list: "Volver a la lista de ficheros"
-      edit: "Editar fichero"
+      edit: "Editar propiedades"
     edit:
       title: "Editar fichero"
       back: "Cancelar edición"
+      parent: "Incluído en '%{title}'"
   simple_form:
     labels:
       mediafile:

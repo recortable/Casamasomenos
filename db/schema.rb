@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110607110859) do
+ActiveRecord::Schema.define(:version => 20110618224221) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",      :limit => 300
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110607110859) do
     t.string   "ancestry"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category",   :limit => 32
   end
 
   add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"

@@ -1,16 +1,19 @@
 <header>
   <%= title 'Articulos' %>
 </header>
+<div class="content">
 
-<div class="strip">
-  <%= button_group do %>
-  <% end %>
-</div>
 
-<div class="articles">
-  <div class="nested_articles">
-    <%= nested_articles root.subtree.arrange(:order => :created_at) %>
-  </div>
+  <h2>Modelos teóricos</h2>
+  <ul class="articles">
+    <%= render :partial => 'info', :collection => models %>
+  </ul>
+
+  <h2>Experiencias previas</h2>
+  <ul class="articles">
+    <%= render :partial => 'info', :collection => experiencies %>
+  </ul>
+
 </div>
 
 

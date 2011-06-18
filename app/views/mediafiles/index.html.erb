@@ -23,12 +23,12 @@
   <% mediafiles.each do |mediafile| %>
       <tr>
         <td>
-          <div class="thumb"><%= render_mediafile mediafile %></div>
+          <div class="thumb"><%#= render_mediafile mediafile %></div>
         </td>
         <td><%= link_to mediafile.title, mediafile %></td>
         <td><%= link_to(mediafile.resource.title, mediafile.resource) if mediafile.resource_id? %></td>
         <td>!@<%= mediafile.id %></td>
-        <td><%= mediafile.file %></td>
+        <td><%= mediafile.description %></td>
         <td><%= button_group do %>
               <%= edit_button_link_to 'Editar', [:edit, mediafile] %>
               <%= danger_remove_button_link_to 'Borrar', [mediafile], :method => :delete,

@@ -1,29 +1,44 @@
-<header>
-  <%= title article.title %>
-</header>
-<div class="strip">
-  <%= button_group do %>
-      <%= add_button_link_to t('articles.append.title'), new_article_path(:parent_id => article.id) if can? :new, Article %>
-      <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
-      <%= calendar_button_link_to 'Añadir imágen', new_mediafile_path(:p => article.id) if can? :new, Mediafile %>
-  <% end %>
-  <ul class="properties">
-    <li><label>Autor:</label><%= article.author.name %></li>
-    <li><label>Está incluído en:</label>
-      <ul class="ancestors list">
-        <% article.ancestors.each do |parent| %>
-        <li>&nbsp;&gt;&nbsp;<%= link_to parent.title, parent %></li>
+<%= div_for article do %>
+    <% if has_user? %>
+        <div class="dark strip">
+          <%= button_group do %>
+              <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
+              <%= calendar_button_link_to 'Añadir imágen', new_mediafile_path(:p => article.id) if can? :new, Mediafile %>
+          <% end %>
+          <ul class="properties">
+            <li><label>Autor:</label><%= article.author.name %></li>
+            <li><label>Ficheros asociados:</label>
+              <% article.mediafiles.each do |mediafile| %>
+                  <%= link_to "!!@#{mediafile.id}", mediafile %>&nbsp;|&nbsp;
+              <% end %>
+            </li>
+          </ul>
+        </div>
+    <% else %>
+        <div class="content">
+          <%= link_to '&larr; &Iacute;ndice'.html_safe, articles_path %>
+        </div>
+    <% end %>
+
+    <div class="content">
+      <%= link_to article.parent.title, article.parent if article.parent %>
+      <%= title article.title %>
+    </div>
+
+
+    <div class="render">
+      <%= render_body article %>
+    </div>
+    <div class="content comment_area">
+      <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
+      <div class="comments">
+        <% article.comments.each do |comment| %>
+            <div class="nested_comments">
+              <%= nested_comments comment.subtree.arrange(:order => :created_at) %>
+            </div>
         <% end %>
-      </ul>
-    </li>
-    <li><label>Contiene:</label>
-      <ul class="children list">
-        <% article.children.each do |child| %>
-        <li><%= link_to child.title, child %>&nbsp;|&nbsp;</li>
-        <% end %>
-      </ul>
-    </li>
-    <%= render :partial => 'mediafiles' %>
-  </ul>
-</div>
-<%= render article %>
+      </div>
+    </div>
+<% end %>
+
+
