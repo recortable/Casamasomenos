@@ -1,5 +1,5 @@
 <%= div_for article do %>
-    <% if has_user? %>
+    <% if current_user? %>
         <div class="dark strip">
           <%= button_group do %>
               <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
@@ -16,12 +16,17 @@
         </div>
     <% else %>
         <div class="content">
-          <%= link_to '&larr; &Iacute;ndice'.html_safe, articles_path %>
+          <%= link_to '&larr; Todos los art&iacute;culos'.html_safe, articles_path %>
         </div>
     <% end %>
 
     <div class="content">
-      <%= link_to article.parent.title, article.parent if article.parent %>
+      <ul>
+        <% article.parents.each do |parent| %>
+            <li><%= link_to parent.title, parent %></li>
+        <% end %>
+      </ul>
+
       <%= title article.title %>
     </div>
 
@@ -29,6 +34,14 @@
     <div class="render">
       <%= render_body article %>
     </div>
+
+    <div class="content categorized">
+      <h3>En esta categoría:</h3>
+        <% article.children.each do |child| %>
+            <%= link_to child.title, child %>
+        <% end %>
+    </div>
+
     <div class="content comment_area">
       <h3>Comentarios</h3>
       <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>

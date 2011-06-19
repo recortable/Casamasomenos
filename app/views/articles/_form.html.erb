@@ -4,7 +4,6 @@
   <% end %>
   <ul class="properties">
     <li><label>Autor:</label><%= article.author.name %></li>
-    <li><label>Está incluído en:</label><%= article.parent.title if article.parent %></li>
     <%= render :partial => 'mediafiles' %>
   </ul>
 </div>

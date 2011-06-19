@@ -5,7 +5,7 @@ module AuthModule
     @current_user ||= session[:user_id].present? ? User.find(session[:user_id]) : User.find(2)
   end
 
-  def has_user?
+  def current_user?
     !current_user.anonymous?
   end
 

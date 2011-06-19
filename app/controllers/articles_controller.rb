@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    article.author = current_user
     authorize! :new, article
   end
 

@@ -22,6 +22,9 @@ header#app div.info {float: left;}
     width: $s-content; margin: 0 auto; padding:20px 0 5px 0;
     a {color: $c-link;}
 }
+#page .content.break {
+    border-top: 1px solid $c-line;
+}
 
 
 div.flash {width: $s-width; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px;}

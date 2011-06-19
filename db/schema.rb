@@ -10,37 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110618224221) do
+ActiveRecord::Schema.define(:version => 20110619001813) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",      :limit => 300
     t.text     "body"
     t.string   "lang",       :limit => 6
     t.integer  "author_id"
-    t.string   "ancestry"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category",   :limit => 32
   end
 
-  add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"
   add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
-
-  create_table "assets", :force => true do |t|
-    t.string   "title",         :limit => 300
-    t.string   "description",   :limit => 512
-    t.string   "file",          :limit => 300
-    t.string   "url",           :limit => 300
-    t.integer  "user_id"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "assets", ["resource_id"], :name => "index_assets_on_resource_id"
-  add_index "assets", ["resource_type"], :name => "index_assets_on_resource_type"
-  add_index "assets", ["user_id"], :name => "index_assets_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -73,6 +55,19 @@ ActiveRecord::Schema.define(:version => 20110618224221) do
   add_index "mediafiles", ["resource_id"], :name => "index_mediafiles_on_resource_id"
   add_index "mediafiles", ["resource_type"], :name => "index_mediafiles_on_resource_type"
   add_index "mediafiles", ["user_id"], :name => "index_mediafiles_on_user_id"
+
+  create_table "relations", :force => true do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.integer  "user_id"
+    t.string   "category",   :limit => 16
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relations", ["from_id"], :name => "index_relations_on_from_id"
+  add_index "relations", ["to_id"], :name => "index_relations_on_to_id"
+  add_index "relations", ["user_id"], :name => "index_relations_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name",       :limit => 100

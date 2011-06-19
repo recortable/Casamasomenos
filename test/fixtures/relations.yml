@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  from: 
+  to: 
+  category: MyString
+  user: 
+
+two:
+  from: 
+  to: 
+  category: MyString
+  user: 
