@@ -2,7 +2,7 @@ Cmom::Application.routes.draw do
   root :to => redirect('/articulos/1')
   match '/admin' => redirect("/admin/articulos")
 
-  match "/cerrar" => "sessions#destroy", :as => :logout
+  match "/salir" => "sessions#destroy", :as => :logout
   #match "/identificarse" => "sessions#new", :as => :login
   match "/enter/:id" => "sessions#enter", :as => :enter
 

@@ -4,5 +4,7 @@ es:
     names:
       direct:
         parent: 'incluye'
+        experiencie: 'es una experiencia de'
       inverse:
         parent: 'es un tipo de'
+        experiencie: 'es un modelo teoríco de'

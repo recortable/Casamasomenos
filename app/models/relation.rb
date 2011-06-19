@@ -7,13 +7,16 @@ class Relation < ActiveRecord::Base
   CATEGORIES = ['parent', 'experiencie']
   USER_CATEGORIES = ['parent', 'inverse_parent', 'experiencie', 'inverse_experiencie']
 
+  scope :aggregations, where(:category => 'parent')
+  scope :experiencies, where(:category => 'experiencie')
+
 
   validates :from_id, :presence => true
   validates :to_id, :presence => true
   validates :user_id, :presence => true
   validates :category, :presence => true
 
-  def normalize!
+  def normalize_category!
     if user_category =~ /^inverse_/
       self.category = user_category[8..-1]
       from = self.from

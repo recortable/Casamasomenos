@@ -41,17 +41,24 @@
     </div>
 
     <div class="content categorized">
-      <% if article.child_relations.size > 0 %>
+      <% if article.relations.aggregations.count > 0 %>
           <h3>Los siguientes modelos son <%= article.title.downcase %>:</h3>
           <ul class="articles">
-            <% article.child_relations.each do |relation| %>
-                <%= content_tag_for :li, relation do %>
-                    <%= link_to relation.to.title, relation.to %>
-                    <%= link_to '&larr; borrar'.html_safe, relation, :class => 'action' if can? :manage, relation %>
-                <% end %>
-            <% end %>
+            <%= render article.relations.aggregations %>
           </ul>
       <% end %>
+      <% if article.relations.experiencies.count > 0 %>
+          <h2>Modelos teóricos relacionados:</h2>
+          <ul class="articles">
+            <%= render article.relations.experiencies %>
+          </ul>
+      <% end %>
+      <% if article.inverse_relations.experiencies.count > 0 %>
+          <h2>Experiencias relacionadas:</h2>
+          <%= render :partial => 'relations/inverse', :collection => article.inverse_relations.experiencies %>
+      <% end %>
+
+
     </div>
 
     <div class="content comment_area">

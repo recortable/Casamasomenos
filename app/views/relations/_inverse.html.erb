@@ -1,0 +1,4 @@
+<%= content_tag_for :li, inverse do %>
+    <%= link_to inverse.from.title, inverse.from %>
+    <%= link_to '&larr; borrar'.html_safe, inverse, :class => 'action' if can? :manage, inverse %>
+<% end %>
