@@ -25,8 +25,8 @@
         <td>
           <div class="thumb"><%#= render_mediafile mediafile %></div>
         </td>
-        <td><%= link_to mediafile.title, mediafile %></td>
-        <td><%= link_to(mediafile.resource.title, mediafile.resource) if mediafile.resource_id? %></td>
+        <td><%= link_to "&rarr; #{mediafile.title}".html_safe, mediafile %></td>
+        <td><%= link_to(mediafile.resource.title, mediafile.resource) if mediafile.resource %></td>
         <td>!@<%= mediafile.id %></td>
         <td><%= mediafile.description %></td>
         <td><%= button_group do %>

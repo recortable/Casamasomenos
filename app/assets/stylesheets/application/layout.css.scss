@@ -24,7 +24,7 @@ header#app div.info {float: left;}
 }
 
 
-div.flash {width: 960px; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px;}
+div.flash {width: $s-width; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px;}
 div.flash.notice {background-color:yellow;}
 
 div.strip div.button-group {}

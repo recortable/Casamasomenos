@@ -1,4 +1,7 @@
-<div class="strip">
+<div class="dark strip">
+  <%= button_group do %>
+      <%= arrowleft_button_link_to 'Cancelar', (article.new_record? ? articles_path : article_path(article)) %>
+  <% end %>
   <ul class="properties">
     <li><label>Autor:</label><%= article.author.name %></li>
     <li><label>Está incluído en:</label><%= article.parent.title if article.parent %></li>
@@ -8,10 +11,7 @@
 <%= simple_form_for(article) do |f| %>
     <%= f.input :title %>
     <%= f.input :body, :as => :text %>
-    <div class="actions">
-      <%= button_submit_tag 'Guardar' %>
-      <%= link_to 'Cancelar', (article.new_record? ? articles_path : article_path(article)) %>
-    </div>
+    <%= button_submit_tag 'Guardar' %>
 <% end %>
 
 

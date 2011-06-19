@@ -13,7 +13,7 @@
 <header id="app">
   <div class="session">
     <% if has_user? %>
-        <%= avatar_img(current_user) %> Eres <%= current_user.name %>
+        <%= avatar_img(current_user) %> Eres <%= link_to current_user.name, current_user %>
     <% else %>
         Debes identificarte para poder editar
     <% end %>

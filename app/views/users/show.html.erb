@@ -1,14 +1,15 @@
+<% title user.name %>
 <header>
-  <h2><%= t 'activerecord.models.user ' %></h2>
-  <%= title user.name %>
+  <h1><%= user.name %></h1>
 </header>
-<div class="strip">
+<div class="dark strip">
+  <%= button_group do %>
+      <%= remove_button_link_to 'Salir', logout_path, :confirm => '¿Quieres salir?' %>
+      <%= edit_button_link_to 'Editar', edit_user_path(user) %>
+  <% end %>
   <ul class="properties">
     <li><label>Email:</label><%= user.email %></li>
   </ul>
-  <%= button_group do %>
-      <%= edit_button_link_to 'Editar', edit_user_path(user) %>
-  <% end %>
 </div>
 <div class="content">
 </div>

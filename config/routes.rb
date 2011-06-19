@@ -1,5 +1,5 @@
 Cmom::Application.routes.draw do
-  root :to => 'pages#index'
+  root :to => redirect('/articulos/1')
   match '/admin' => redirect("/admin/articulos")
 
   match "/cerrar" => "sessions#destroy", :as => :logout
