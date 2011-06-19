@@ -5,4 +5,4 @@ es:
       direct:
         parent: 'incluye'
       inverse:
-        parent: 'es de la categoría'
+        parent: 'es un tipo de'

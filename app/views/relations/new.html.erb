@@ -1,0 +1,16 @@
+<header>
+  <%= title t('.title', :title => relation.from.title) %>
+</header>
+<div class="dark strip">
+  <%= button_group do %>
+  <%= arrowleft_button_link_to 'Cancelar', relation.from %>
+  <% end %>
+</div>
+
+<%= simple_form_for relation do |form| %>
+    <%= relation.from.title %>
+    <%= form.input :from_id, :as => :hidden %>
+    <%= form.input :user_category, :collection => Relation::USER_CATEGORIES, :include_blank => false %>
+    <%= form.association :to %>
+    <%= form.submit %>
+<% end %>

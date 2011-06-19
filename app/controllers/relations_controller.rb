@@ -2,10 +2,26 @@
 
 class RelationsController < ApplicationController
   respond_to :html
-  expose(:relations) { Relation.all }
+  expose(:article) { params[:article_id].present? ? Article.find(params[:article_id]) : nil }
+  expose(:relations) { article ? article.relations : Relation.all }
   expose(:relation)
 
+
+  def index
+  end
+
   def show
+  end
+
+  def new
+  end
+
+  def create
+    authorize! :create, relation
+    relation.user = current_user
+    relation.normalize!
+    flash[:notice] = 'Artículos relacionados.' if relation.save
+    respond_with relation, :location => relation.from
   end
 
   def destroy

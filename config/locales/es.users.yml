@@ -1,1 +1,7 @@
 es:
+  users:
+    edit:
+     title: "Editar '%{name}'"
+  relations:
+    new:
+      title: "Relacionar '%{title}' con..."

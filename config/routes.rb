@@ -9,6 +9,7 @@ Cmom::Application.routes.draw do
 
   resources :articles, :path => 'articulos' do
     resources :comments, :path => 'comentarios'
+    resources :relations, :path => 'relaciones'
   end
   resources :comments, :path => 'respuestas'
   resources :relations, :path => 'relaciones'

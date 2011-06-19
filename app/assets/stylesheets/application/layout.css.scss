@@ -26,6 +26,7 @@ header#app div.info {float: left;}
     border-top: 1px solid $c-line;
 }
 
+#page .content li a.action {color: #666;}
 
 div.flash {width: $s-width; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px;}
 div.flash.notice {background-color:yellow;}

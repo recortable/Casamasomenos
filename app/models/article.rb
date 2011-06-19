@@ -3,6 +3,8 @@ class Article < ActiveRecord::Base
   has_many :comments, :as => :resource
   has_many :mediafiles, :as => :resource
 
+  has_many :relations, :class_name => 'Relation', :foreign_key => 'from_id', :dependent => :destroy
+  has_many :inverse_relations, :class_name => 'Relation', :foreign_key => 'to_id', :dependent => :destroy
   has_many :parent_relations, :class_name => 'Relation', :foreign_key => 'to_id',
            :conditions => {:category => 'parent'}
   has_many :parents, :through => :parent_relations, :source => :from
@@ -18,5 +20,8 @@ class Article < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :author_id, :presence => true
+  validates :category, :presence => true
+
+  CATEGORIES = ['model', 'experiencie', 'page']
 
 end

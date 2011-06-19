@@ -46,9 +46,11 @@ div.strip ul.properties {
     }
 }
 
-ul.articles {
-    li {
-        a {font-weight: bold;}
-        .time {color: #666;}
+#page .content {
+    ul.articles {
+        li {
+            a {font-weight: bold;}
+            a.action {color: #666; font-weight:normal;}
+        }
     }
 }

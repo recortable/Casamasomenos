@@ -1,0 +1,32 @@
+<header>
+  <%= title 'Relaciones' unless article %>
+  <%= title "Relaciones de '#{article.title}'" if article %>
+</header>
+<div class="dark strip">
+  <%= button_group do %>
+      <%= arrowleft_button_link_to 'Volver', (article ? article : relations_path) %>
+  <% end %>
+</div>
+
+<div class="content">
+  <ul>
+    <% relations.each do |relation| %>
+        <li><span>&rArr;</span>
+          <%= link_to relation.from.title, relation.from %>
+          <%= t("relations.names.direct.#{relation.category}") %>
+          <%= link_to relation.to.title, relation.to %>
+          <%= link_to '&larr; borrar'.html_safe, relation, :class => 'action' if can? :manage, relation %>
+        </li>
+    <% end %>
+    <% if article %>
+        <% article.inverse_relations.each do |relation| %>
+            <li><span>&rArr;</span>
+              <%= link_to relation.to.title, relation.to %>
+              <%= t("relations.names.inverse.#{relation.category}") %>
+              <%= link_to relation.from.title, relation.from %>
+              <%= link_to '&larr; borrar'.html_safe, relation, :class => 'action' if can? :manage, relation %>
+            </li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>

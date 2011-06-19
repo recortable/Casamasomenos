@@ -40,4 +40,8 @@ class ArticlesController < ApplicationController
     respond_with article
   end
 
+  def destroy
+    flash[:notice] = 'Hemos borrado el artículo' if article.destroy
+    respond_with article, :location => root_path
+  end
 end

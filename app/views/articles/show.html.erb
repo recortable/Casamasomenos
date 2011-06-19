@@ -4,15 +4,20 @@
           <%= button_group do %>
               <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
               <%= calendar_button_link_to 'Añadir imágen', new_mediafile_path(:p => article.id) if can? :new, Mediafile %>
+              <%= fork_button_link_to 'Relacionar con...', new_article_relation_path(article) if can? :manage, article %>
+              <%= danger_remove_button_link_to 'Borrar', article, :confirm => "ESTO NO SE PUEDE DESHACER. TAMBIEN SE BORRARÁN TODAS LAS RELACIONES CON ESTE ARTÍCULO. ¿Seguro que quieres borrar '#{article.title}' ?",
+                                               :method => :delete if can? :manage, article %>
           <% end %>
           <ul class="properties">
-            <li><label>Autor:</label><%= article.author.name %></li>
-            <li><label>Ficheros asociados:</label>
+            <li><label>Por:</label><%= article.author.name %></li>
+            <li><label>Imágenes asociadas:</label>
               <% article.mediafiles.each do |mediafile| %>
                   <%= link_to "!!@#{mediafile.id}", mediafile %>&nbsp;|&nbsp;
               <% end %>
             </li>
+            <li><label>Relaciones:</label><%= link_to 'mostrar', article_relations_path(article) %></li>
           </ul>
+
         </div>
     <% else %>
         <div class="content">
@@ -37,12 +42,12 @@
 
     <div class="content categorized">
       <% if article.child_relations.size > 0 %>
-          <h3>En esta categoría:</h3>
-          <ul>
+          <h3>Los siguientes modelos son <%= article.title.downcase %>:</h3>
+          <ul class="articles">
             <% article.child_relations.each do |relation| %>
                 <%= content_tag_for :li, relation do %>
                     <%= link_to relation.to.title, relation.to %>
-                    <%= link_to '&rarr;'.html_safe, relation, :class => 'action' if can? :manage, relation %>
+                    <%= link_to '&larr; borrar'.html_safe, relation, :class => 'action' if can? :manage, relation %>
                 <% end %>
             <% end %>
           </ul>
