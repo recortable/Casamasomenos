@@ -1,0 +1,8 @@
+
+es:
+  relations:
+    names:
+      direct:
+        parent: 'incluye'
+      inverse:
+        parent: 'es de la categoría'

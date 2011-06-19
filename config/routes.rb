@@ -11,7 +11,7 @@ Cmom::Application.routes.draw do
     resources :comments, :path => 'comentarios'
   end
   resources :comments, :path => 'respuestas'
-
+  resources :relations, :path => 'relaciones'
   resources :mediafiles, :path => 'ficheros'
 
   scope "/admin" do

@@ -36,10 +36,17 @@
     </div>
 
     <div class="content categorized">
-      <h3>En esta categoría:</h3>
-        <% article.children.each do |child| %>
-            <%= link_to child.title, child %>
-        <% end %>
+      <% if article.child_relations.size > 0 %>
+          <h3>En esta categoría:</h3>
+          <ul>
+            <% article.child_relations.each do |relation| %>
+                <%= content_tag_for :li, relation do %>
+                    <%= link_to relation.to.title, relation.to %>
+                    <%= link_to '&rarr;'.html_safe, relation, :class => 'action' if can? :manage, relation %>
+                <% end %>
+            <% end %>
+          </ul>
+      <% end %>
     </div>
 
     <div class="content comment_area">

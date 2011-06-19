@@ -1,0 +1,22 @@
+<header>
+  <%= title 'Relación entre artículos' %>
+</header>
+<div class="dark strip">
+  <%= button_group do %>
+  <%= danger_remove_button_link_to 'Borrar', relation, :method => :delete,
+      :confirm => '¿Deseas eliminar esa relación?' if can? :destroy, relation %>
+  <% end %>
+</div>
+
+<div class="content">
+  <div class="direct relation">
+  <%= link_to relation.from.title, relation.from %>
+  <%= t("relations.names.direct.#{relation.category}") %>
+  <%= link_to relation.to.title, relation.to %>
+    </div>
+  <div class="inverse relation">
+  <%= link_to relation.to.title, relation.to %>
+  <%= t("relations.names.inverse.#{relation.category}") %>
+  <%= link_to relation.from.title, relation.from %>
+    </div>
+</div>
