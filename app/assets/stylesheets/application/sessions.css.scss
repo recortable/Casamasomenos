@@ -5,5 +5,8 @@
 */
 
 
-#app div.session {float: right;}
+#app div.session {
+    float: right; padding: 5px 10px;
+    background-color:#EFEFEF; border-radius: 3px;
+}
 #app div.session img.avatar {border:0; float: left;margin: 0px 2px 0 0;}
