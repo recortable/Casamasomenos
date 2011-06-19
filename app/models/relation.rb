@@ -15,6 +15,7 @@ class Relation < ActiveRecord::Base
   validates :to_id, :presence => true
   validates :user_id, :presence => true
   validates :category, :presence => true
+  validates :user_category, :presence => true
 
   def normalize_category!
     if user_category =~ /^inverse_/

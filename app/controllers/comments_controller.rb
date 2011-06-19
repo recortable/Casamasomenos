@@ -24,4 +24,10 @@ class CommentsController < ApplicationController
       respond_with comment, :location => resource
     end
   end
+
+  def destroy
+    authorize! :destroy, comment
+    flash[:notice] = 'Comentario borrado' if comment.destroy
+    respond_with comment, :location => resource
+  end
 end

@@ -19,7 +19,7 @@ class RelationsController < ApplicationController
   def create
     authorize! :create, relation
     relation.user = current_user
-    relation.normalize!
+    relation.normalize_category!
     flash[:notice] = 'Artículos relacionados.' if relation.save
     respond_with relation, :location => relation.from
   end

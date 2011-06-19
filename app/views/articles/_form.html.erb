@@ -9,7 +9,7 @@
 </div>
 <%= simple_form_for(article) do |f| %>
     <%= f.input :title %>
-    <%= f.input :category, :collection => Article::CATEGORIES %>
+    <%= f.input :category, :collection => Article::CATEGORIES, :include_blanck => false %>
     <%= f.input :body, :as => :text %>
     <%= button_submit_tag 'Guardar' %>
 <% end %>

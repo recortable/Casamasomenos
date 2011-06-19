@@ -3,14 +3,18 @@
 </header>
 <div class="dark strip">
   <%= button_group do %>
-  <%= arrowleft_button_link_to 'Cancelar', relation.from %>
+      <%= arrowleft_button_link_to 'Cancelar', relation.from %>
   <% end %>
 </div>
 
 <%= simple_form_for relation do |form| %>
-    <%= relation.from.title %>
-    <%= form.input :from_id, :as => :hidden %>
-    <%= form.input :user_category, :collection => Relation::USER_CATEGORIES, :include_blank => false %>
-    <%= form.association :to %>
+      <%= form.input :from_id, :as => :hidden %>
+      <div class="input">
+        <label>* 1. Artículo</label>
+        <%= relation.from.title %>
+      </div>
+      <%= form.input :user_category, :collection => tc('relations.categories', Relation::USER_CATEGORIES),
+                     :value_method => :first, :label_method => :last, :include_blank => false %>
+      <%= form.association :to %>
     <%= form.submit %>
 <% end %>

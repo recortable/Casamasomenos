@@ -17,10 +17,11 @@ header#app div.info {float: left;}
 #page div.strip {padding: 10px 10%;border-top: 1px solid $c-line;border-bottom: 1px solid $c-line;}
 #page div.strip.dark {padding: 10px 38px; background: #EAEAEA;}
 
+#page a {color: $c-link;}
+
 #page .content {
     clear:both;
     width: $s-content; margin: 0 auto; padding:20px 0 5px 0;
-    a {color: $c-link;}
 }
 #page .content.break {
     border-top: 1px solid $c-line;

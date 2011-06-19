@@ -39,6 +39,7 @@ form {
 
     div.input {margin-bottom:10px;}
     .hint {color: gray;}
+    .error {display: block;color:#c00;}
 
     input[type=text], textarea {
         width: 100%;

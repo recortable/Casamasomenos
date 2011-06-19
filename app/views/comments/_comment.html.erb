@@ -1,7 +1,11 @@
 <%= div_for comment do %>
     <div class="info">
-      <%= comment.author.name %>:
+      <%= avatar_img comment.author %><%= link_to comment.author.name, comment.author %>
+      hace <%= time_ago_in_words comment.created_at %>:
     </div>
-    <%= comment.body %>
-    <%= link_to t('.reply'), new_comment_path(:parent_id => comment) %>
+    <div class="body">
+      <%= comment.body %>
+    </div>
+    <%#= link_to t('.reply'), new_comment_path(:parent_id => comment) %>
+    <%= link_to 'Borrar', [comment.resource, comment], :method => :delete, :confirm => '¿Borrar comentario?' if can? :manage, comment %>
 <% end %>

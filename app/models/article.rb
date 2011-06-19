@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   belongs_to :author, :class_name => 'User'
-  has_many :comments, :as => :resource
+  has_many :comments, :as => :resource, :order => 'id DESC'
   has_many :mediafiles, :as => :resource
 
   has_many :relations, :class_name => 'Relation', :foreign_key => 'from_id', :dependent => :destroy

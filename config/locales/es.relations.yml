@@ -8,3 +8,15 @@ es:
       inverse:
         parent: 'es un tipo de'
         experiencie: 'es un modelo teoríco de'
+
+    categories:
+      parent: 'es la categoría de'
+      inverse_parent: 'es un tipo de'
+      experiencie: 'es una experiencia de'
+      inverse_experiencie: 'es modelo teórico de'
+
+  simple_form:
+    labels:
+      relation:
+        user_category: '2. Tipo de relación'
+        to: '3. Relacionado con'

@@ -8,7 +8,14 @@ div.comment_area {
     div.input {margin: 0;}
     input[type=submit] {font-size: 80%;}
 }
-div.comment {}
+
+#page div.comment {
+    div.info {
+        display: block; float: none; color: $c-gray;
+        a {font-weight: bold; color: black;}
+    }
+}
+
 div.nested_comments {margin: 10px 0;padding-left:10px;
 border-left: 3px solid #efefef;}
 textarea#comment_body {height: 3em; width: 100%;}

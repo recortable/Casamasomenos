@@ -5,3 +5,13 @@ div.relation {
     margin: 10px 0;
 }
 
+form.relation {
+    div.input {
+
+        label {float: left; margin-right: 0.5em;
+            width: 12em;
+            font-weight: bold;
+        }
+    }
+}
+

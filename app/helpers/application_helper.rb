@@ -5,6 +5,11 @@ module ApplicationHelper
     content_tag(:h1, text)
   end
 
+  # translate collection
+  def tc(prefix, collection)
+    collection.map {|i| [i, I18n.t("#{prefix}.#{i}")]}
+  end
+
 
   def render_body(model)
     text = model.body

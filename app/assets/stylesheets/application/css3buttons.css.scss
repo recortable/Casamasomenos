@@ -6,7 +6,7 @@ Licensed under Unlicense
 
 /* ------------------------------------------------------------------------------------------------------------- BUTTON */
 
-.button {
+@mixin button {
     position: relative;
     overflow: visible;
     display: inline-block;
@@ -36,6 +36,13 @@ Licensed under Unlicense
     *display: inline;
 }
 
+.button {
+    @include button;
+}
+
+form input[type=submit] {@include button;}
+
+form input[type=submit]:active,
 .button:hover,
 .button:focus,
 .button:active {
