@@ -32,8 +32,9 @@ module AuthModule
     end
   end
 
-  def store_location
-    session[:return_to] = request.fullpath
+  def store_location(location = nil)
+    location ||= request.fullpath
+    session[:return_to] = location
   end
 
   def stored_or(default_path)

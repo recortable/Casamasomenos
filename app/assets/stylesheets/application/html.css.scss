@@ -38,10 +38,10 @@ form {
     div.button-group {margin-top:10px;}
 
     div.input {margin-bottom:10px;}
-    .hint {color: gray;}
+    .hint {display: block; color: gray;}
     .error {display: block;color:#c00;}
 
-    input[type=text], textarea {
+    input[type=text], input[type=password], input[type=email], textarea {
         width: 100%;
         border: 1px solid $c-bg; padding: 2px 3px;
     }

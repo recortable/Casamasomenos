@@ -1,7 +1,7 @@
 <%= simple_form_for user do |form| %>
     <%= form.input :name %>
     <%= form.input :email %>
-    <%= button_group do %>
-        <%= submit_button_tag t('.submit') %>
-    <% end %>
+    <%= form.input :password  %>
+    <%= form.input :password_confirmation %>
+    <%= form.submit %>
 <% end %>

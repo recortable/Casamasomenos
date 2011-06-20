@@ -29,14 +29,18 @@ header#app div.info {float: left;}
 
 #page .content li a.action {color: #666;}
 
-div.flash {width: $s-width; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px;}
+div.flash {width: $s-width; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px; margin-top: 20px;cursor:pointer;}
 div.flash.notice {background-color:yellow;}
 
-div.strip div.button-group {}
-div.strip ul.properties {margin-top: 10px;}
-div.strip ul.properties > li {width:100%;overflow:hidden;}
-div.strip ul.properties > li label {font-weight:bold;padding-right:0.5em;}
-div.strip ul.properties > li > ul {margin-left:10px;}
+div.strip {
+    a.logout {float: right;}
+div.button-group {}
+ul.properties {margin-top: 10px;}
+ul.properties > li {width:100%;overflow:hidden;}
+ul.properties > li label {font-weight:bold;padding-right:0.5em;}
+ul.properties > li > ul {margin-left:10px;}
+
+}
 
 
 

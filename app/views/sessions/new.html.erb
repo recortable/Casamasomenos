@@ -1,0 +1,22 @@
+<header>
+  <%= title 'Entrar en casamasomenos.net' %>
+</header>
+
+<div class="dark strip">
+  En estos momentos casa+o- funciona por invitación. No se pueden crear cuentas nuevas.
+</div>
+
+
+<%= form_tag create_session_path do %>
+    <div class="input">
+      <label>Dirección de correo electrónico:</label>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="input">
+      <label>Contraseña:</label>
+      <%= password_field_tag :password %>
+    </div>
+    <%= submit_tag 'Entrar' %>
+<% end %>
+
+

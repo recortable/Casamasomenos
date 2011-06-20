@@ -5,3 +5,14 @@ es:
   relations:
     new:
       title: "Relacionar '%{title}' con..."
+
+  simple_form:
+    labels:
+      user:
+        name: 'Nombre'
+        email: 'Dirección de correo electrónico'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+    hints:
+      password: 'Déjalo en blanco si no quieres cambiarla'
+      password_confirmation: 'Debe coincidir con la constraseña'

@@ -1,4 +1,10 @@
 es:
+  article:
+    categories:
+      model: 'Modelo teórico'
+      experience: 'Experiencia'
+      page: 'Artículo'
+
   simple_form:
     labels:
       article:

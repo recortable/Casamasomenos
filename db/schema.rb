@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110619001813) do
+ActiveRecord::Schema.define(:version => 20110620140202) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",      :limit => 300
@@ -70,11 +70,12 @@ ActiveRecord::Schema.define(:version => 20110619001813) do
   add_index "relations", ["user_id"], :name => "index_relations_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "name",       :limit => 100
-    t.string   "email",      :limit => 300
-    t.string   "rol",        :limit => 16
+    t.string   "name",            :limit => 100
+    t.string   "email",           :limit => 300
+    t.string   "rol",             :limit => 16
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
