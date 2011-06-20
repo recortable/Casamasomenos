@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
   has_many :children, :through => :child_relations, :source => :to
 
   scope :models, where(:category => 'model')
-  scope :experiencies, where(:category => 'experience')
+  scope :experiences, where(:category => 'experience')
   scope :pages, where(:category => 'page')
 
   scope :by_modification, order('updated_at DESC')
@@ -24,6 +24,6 @@ class Article < ActiveRecord::Base
   validates :author_id, :presence => true
   validates :category, :presence => true
 
-  CATEGORIES = ['model', 'experiencie', 'page']
+  CATEGORIES = ['model', 'experience', 'page']
 
 end
