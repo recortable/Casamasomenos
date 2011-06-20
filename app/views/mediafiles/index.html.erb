@@ -2,7 +2,7 @@
   <%= title t('.title') %>
 </header>
 
-<div class="strip">
+<div class="dark strip">
   <%= button_group do %>
       <%= add_button_link_to t('.add_file'), new_mediafile_path if can? :new, Mediafile %>
   <% end %>
