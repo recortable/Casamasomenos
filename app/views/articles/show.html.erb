@@ -59,15 +59,6 @@
               <%= render values %>
           <% end %>
       <% end %>
-      <h2>Todas las relaciones:</h2>
-      <% article.all_relations.each do |relation| %>
-          <li>
-            From: <%= link_to relation.from.title, relation.from %> (<%= relation.from.category %>)
-            &lArr;&rArr;
-            To: <%= link_to relation.to.title, relation.to %> (<%= relation.to.category %>)
-          </li>
-      <% end %>
-      </ul>
     </div>
 
     <div class="content comment_area">
@@ -81,6 +72,7 @@
         <% end %>
       </div>
     </div>
+
 <% end %>
 
 
