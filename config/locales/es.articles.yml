@@ -1,12 +1,27 @@
 es:
   article:
     categories:
-      model: 'Modelo teórico'
-      experience: 'Experiencia'
-      page: 'Artículo'
-      area: 'Línea de trabajo'
-      concept: 'Concepto'
-      strategy: 'Estragia'
+      singular:
+        model: 'Modelo teórico'
+        typological: 'Modelo tipológico'
+        management: 'Modo de gestión'
+        participatory: 'Proceso participativo'
+        experience: 'Experiencia'
+        page: 'Artículo'
+        area: 'Línea de trabajo'
+        concept: 'Concepto'
+        strategy: 'Estrategia'
+      prural:
+        model: 'Modelos teóricos'
+        typological: 'Modelos tipológicos'
+        management: 'Modos de gestión'
+        participatory: 'Procesos participativos'
+        experience: 'Experiencias'
+        page: 'Artículos'
+        area: 'Líneas de trabajo'
+        concept: 'Conceptos'
+        strategy: 'Estrategias'
+
 
   simple_form:
     labels:

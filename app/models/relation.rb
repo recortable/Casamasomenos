@@ -10,6 +10,7 @@ class Relation < ActiveRecord::Base
   scope :aggregations, where(:category => 'parent')
   scope :experiencies, where(:category => 'experiencie')
 
+  scope :from_category, lambda {|category| (joins(:from) & Article.by_category(category)) }
 
   validates :from_id, :presence => true
   validates :to_id, :presence => true

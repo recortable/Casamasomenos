@@ -12,7 +12,7 @@
           <% end %>
           <ul class="properties">
             <li><label>Por:</label><%= article.author.name %></li>
-            <li><label>Tipo:</label><%= t("article.categories.#{article.category}") %></li>
+            <li><label>Tipo:</label><%= t("article.categories.singular.#{article.category}") %></li>
             <li><label>Imágenes asociadas:</label>
               <% article.mediafiles.each do |mediafile| %>
                   <%= link_to "!!@#{mediafile.id}", mediafile %>&nbsp;|&nbsp;
@@ -44,24 +44,16 @@
     </div>
 
     <div class="content categorized">
-      <% if article.relations.aggregations.count > 0 %>
-          <h3>Los siguientes modelos son <%= article.title.downcase %>:</h3>
-          <ul class="articles">
-            <%= render article.relations.aggregations %>
-          </ul>
+      <% Article::CATEGORIES.each do |category| %>
+          <div class="relations">
+            <% i18n = t("article.categories.#{category}") %>
+            <h3><%=  i18n %>s</h3>
+            <ul class="articles">
+               <%= render article.relations.from_category(category) %>
+            </ul>
+            <%= link_to "Relacionar con un #{i18n}", new_article_relation_path(article, :c => category) %>
+          </div>
       <% end %>
-      <% if article.relations.experiencies.count > 0 %>
-          <h2>Es una experiencia de:</h2>
-          <ul class="articles">
-            <%= render article.relations.experiencies %>
-          </ul>
-      <% end %>
-      <% if article.inverse_relations.experiencies.count > 0 %>
-          <h2>Experiencias relacionadas:</h2>
-          <%= render :partial => 'relations/inverse', :collection => article.inverse_relations.experiencies %>
-      <% end %>
-
-
     </div>
 
     <div class="content comment_area">

@@ -14,6 +14,8 @@ class Article < ActiveRecord::Base
            :conditions => {:category => 'parent'}
   has_many :children, :through => :child_relations, :source => :to
 
+  scope :by_category, lambda {|category| where(:category => category) }
+
   scope :models, where(:category => 'model')
   scope :experiences, where(:category => 'experience')
   scope :pages, where(:category => 'page')
@@ -24,6 +26,6 @@ class Article < ActiveRecord::Base
   validates :author_id, :presence => true
   validates :category, :presence => true
 
-  CATEGORIES = ['page', 'area', 'concept', 'strategy', 'model', 'experience']
+  CATEGORIES = ['page', 'area', 'concept', 'strategy', 'model', 'typological', 'management', 'participatory', 'experience']
 
 end
