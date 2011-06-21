@@ -4,6 +4,7 @@ div.articles {width: 95%; margin: 10px auto;}
 div.articles div.article {width: 100%; overflow:hidden;}
 div.article div.info {float: left; padding-right:10px;}
 
+
 div.nested_articles {
     border-left: 3px solid #efefef; padding-left: 10px;
 }
@@ -15,7 +16,13 @@ div.article.nested {
     div.info {}
 }
 
+div.article {
+}
+
 div.article div.render {
+
+
+
     width: $s-content; margin: 20px auto;
 
     div.body {

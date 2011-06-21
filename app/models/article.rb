@@ -34,13 +34,15 @@ class Article < ActiveRecord::Base
   end
 
   def grouped_relations
-    relations = {}
-    CATEGORIES.each { |category| relations[category] = [] }
-    all_relations.each do |relation|
-      relation = relation.reverse if relation.to_id == self.id
-      relations[relation.to.category] << relation
+    if @relations.blank?
+      @relations = {}
+      CATEGORIES.each { |category| @relations[category] = [] }
+      all_relations.each do |relation|
+        relation = relation.reverse if relation.to_id == self.id
+        @relations[relation.to.category] << relation
+      end
     end
-    relations
+    @relations
   end
 
 end

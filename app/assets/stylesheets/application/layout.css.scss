@@ -4,6 +4,8 @@
 
 
 /** LAYOUT **/
+.container {width:100%;overflow: hidden;}
+
 #page {background: white;width: $s-width;margin: 20px auto;padding-bottom:30px;
        -moz-box-shadow: 0px 0px 25px #555;-webkit-box-shadow: 0px 0px 25px #555;box-shadow: 0px 1px 5px #555;
 }

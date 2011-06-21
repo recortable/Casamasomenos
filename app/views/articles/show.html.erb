@@ -42,7 +42,10 @@
         <% end %>
       </ul>
 
-      <%= title article.title %>
+      <div class="container">
+        <%= title "#{singular_category(article.category)}: #{article.title}" %>
+        <h4><%=  %> </h4>
+      </div>
     </div>
 
 
@@ -54,8 +57,8 @@
 
     <div class="content categorized">
       <% article.grouped_relations.each do |category, values| %>
-          <% if values.length > 0 %>
-              <h3><%= t("article.categories.prural.#{category}") %> relacionados: </h3>
+          <% unless category == 'page' or values.length == 0 %>
+              <h3><%= t("article.categories.prural.#{category}") %>: </h3>
               <%= render values %>
           <% end %>
       <% end %>
