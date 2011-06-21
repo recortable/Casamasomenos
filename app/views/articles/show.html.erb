@@ -18,6 +18,13 @@
                   <%= link_to "!!@#{mediafile.id}", mediafile %>&nbsp;|&nbsp;
               <% end %>
             </li>
+            <li>
+              <label>Relacionar con:</label>
+              <% Article::CATEGORIES.each do |category| %>
+                  <% singular = t("article.categories.singular.#{category}") %>
+                  <%= link_to "&rarr; #{singular}".html_safe, new_article_relation_path(article, :c => category) %>
+              <% end %>
+            </li>
             <li><label>Relaciones:</label><%= link_to 'mostrar', article_relations_path(article) %></li>
           </ul>
 
@@ -43,17 +50,21 @@
       <%= render_body article %>
     </div>
 
+
+
     <div class="content categorized">
-      <% Article::CATEGORIES.each do |category| %>
-          <div class="relations">
-            <% i18n = t("article.categories.singular.#{category}") %>
-            <h3><%=  i18n %>s</h3>
-            <ul class="articles">
-               <%= render article.relations.from_category(category) %>
-            </ul>
-            <%= link_to "Relacionar con un #{i18n}", new_article_relation_path(article, :c => category) %>
-          </div>
-      <% end %>
+      <h3>Modelos tipológicos relacionados:</h3>
+      <%= render article.relations.to_category('typological') %>
+      <ul>
+        <h2>Todas las relaciones:</h2>
+        <% article.all_relations.each do |relation| %>
+            <li>
+              <%= link_to relation.from.title, relation.from %> (<%= relation.from.category %>)
+              &lArr;&rArr;
+              <%= link_to relation.to.title, relation.to %> (<%= relation.to.category %>)
+            </li>
+        <% end %>
+      </ul>
     </div>
 
     <div class="content comment_area">

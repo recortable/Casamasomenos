@@ -10,7 +10,10 @@ class Relation < ActiveRecord::Base
   scope :aggregations, where(:category => 'parent')
   scope :experiencies, where(:category => 'experiencie')
 
-  scope :from_category, lambda {|category| (joins(:from) & Article.by_category(category)) }
+
+  scope :from_category, lambda {|category| (joins(:from).merge(Article.by_category(category))) }
+  scope :to_category, lambda {|category| (joins(:to).merge(Article.by_category(category))) }
+  scope :of_article, lambda {|article_id| where(['from_id = ? OR to_id = ?', article_id, article_id]) }
 
   validates :from_id, :presence => true
   validates :to_id, :presence => true

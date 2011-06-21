@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
   has_many :comments, :as => :resource, :order => 'id DESC'
   has_many :mediafiles, :as => :resource
 
+
   has_many :relations, :class_name => 'Relation', :foreign_key => 'from_id', :dependent => :destroy
   has_many :inverse_relations, :class_name => 'Relation', :foreign_key => 'to_id', :dependent => :destroy
 
@@ -26,6 +27,10 @@ class Article < ActiveRecord::Base
   validates :author_id, :presence => true
   validates :category, :presence => true
 
-  CATEGORIES = ['page', 'area', 'concept', 'strategy', 'model', 'typological', 'management', 'participatory', 'experience']
+  CATEGORIES = ['page', 'area', 'concept', 'strategy', 'typological', 'management', 'participatory', 'experience']
+
+  def all_relations
+    Relation.of_article(self)
+  end
 
 end
