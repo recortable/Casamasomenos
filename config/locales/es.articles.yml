@@ -4,6 +4,9 @@ es:
       model: 'Modelo teórico'
       experience: 'Experiencia'
       page: 'Artículo'
+      area: 'Línea de trabajo'
+      concept: 'Concepto'
+      strategy: 'Estragia'
 
   simple_form:
     labels:
