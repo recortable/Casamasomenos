@@ -6,22 +6,12 @@
       <%= add_button_link_to 'Añadir artículo', new_article_path %>
     </div>
 <% end %>
+
 <div class="content">
-  <h2>Artículos</h2>
-  <ul class="articles">
-    <%= render :partial => 'info', :collection => pages %>
-  </ul>
-
-  <h2>Modelos teóricos</h2>
-  <ul class="articles">
-    <%= render :partial => 'info', :collection => models %>
-  </ul>
-
-  <h2>Experiencias previas</h2>
-  <ul class="articles">
-    <%= render :partial => 'info', :collection => experiences %>
-  </ul>
-
+<% Article::CATEGORIES.each do |category| %>
+<h2><%= t("article.categories.#{category}")%>s</h2>
+      <%= render :partial => 'info', :collection => Article.find_all_by_category(category) %>
+<% end %>
 </div>
 
 

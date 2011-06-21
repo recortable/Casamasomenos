@@ -24,6 +24,6 @@ class Article < ActiveRecord::Base
   validates :author_id, :presence => true
   validates :category, :presence => true
 
-  CATEGORIES = ['model', 'experience', 'page', 'concept', 'strategy', 'area']
+  CATEGORIES = ['page', 'area', 'concept', 'strategy', 'model', 'experience']
 
 end
