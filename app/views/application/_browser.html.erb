@@ -1,0 +1,18 @@
+<div id="browser">
+  <ul>
+    <li>
+      <%= link_to_unless_current 'Casa + o -', root_path %>
+      <ul>
+        <li><%= link_to_unless_current 'Base teórica', category_path('teorica') %></li>
+      </ul>
+    </li>
+    <li>
+      <%= link_to_unless_current 'Mapa de posibilidades', diagram_path('posibilidades') %>
+      <ul>
+        <% Article.by_category(:area).each do |article| %>
+            <li><%= link_to_unless_current article.title, article %></li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+</div>

@@ -1,14 +1,15 @@
 Cmom::Application.routes.draw do
-  root :to => redirect('/articulos/1')
-  match '/admin' => redirect("/admin/articulos")
+  root :to => "articles#welcome"
 
   match "/salir" => "sessions#destroy", :as => :logout
   match "/sesion" => "sessions#create", :as => :create_session
   match "/entrar" => "sessions#new", :as => :login
   match "/enter/:id" => "sessions#enter", :as => :enter
 
+  match "/mapa/:id" => "diagrams#show", :as => :diagram
+  match "/articulos/:category" => "articles#index", :as => :category
 
-  resources :articles, :path => 'articulos' do
+  resources :articles, :path => 'articulo', :except => :index do
     resources :comments, :path => 'comentarios'
     resources :relations, :path => 'relaciones'
   end

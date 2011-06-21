@@ -61,3 +61,14 @@ div.strip ul.properties {
         }
     }
 }
+
+.categorized {
+    ul.relations {
+        margin-bottom: 10px;
+        width: 30%; float: left; margin-right: 3%;
+
+        li {
+               a { font-weight: bold;}
+         }
+    }
+}

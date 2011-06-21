@@ -6,14 +6,17 @@
 /** LAYOUT **/
 .container {width:100%;overflow: hidden;}
 
-#page {background: white;width: $s-width;margin: 20px auto;padding-bottom:30px;
-       -moz-box-shadow: 0px 0px 25px #555;-webkit-box-shadow: 0px 0px 25px #555;box-shadow: 0px 1px 5px #555;
+#playground {width: $s-width + $s-browser;; margin: 0 auto;}
+#page {background: white;width: $s-width;margin-left: $s-browser;padding-bottom:30px;
+       @include box-shadow;
+       overflow: hidden;
 }
 
-header#app {width: $s-width; margin: 10px auto;}
+header#app {width: 100%;; margin: 10px 0 10px 0; padding: 10px 0;}
 header#app div.info {float: left;}
+header#app  div.cmom {margin-left: $s-browser;}
 
-#page header {background: #F8F8F8;padding:5px 38px;}
+#page header {background: #F8F8F8;padding:5px 38px; ;}
 #page header a {color: $c-head;}
 #page div.pre-strip {background: #EAEAEA;padding: 13px 38px;border-top: 1px solid #CCC;border-bottom: 1px solid #CCC;}
 #page div.strip {padding: 10px 10%;border-top: 1px solid $c-line;border-bottom: 1px solid $c-line;}
@@ -31,7 +34,7 @@ header#app div.info {float: left;}
 
 #page .content li a.action {color: #666;}
 
-div.flash {width: $s-width; margin: 10px auto; padding: 5px; text-align:center; border-radius:3px; margin-top: 20px;cursor:pointer;}
+div.flash { margin: 10px auto; padding: 5px; text-align:center; border-radius:3px; margin-top: 20px;cursor:pointer;}
 div.flash.notice {background-color:yellow;}
 
 div.strip {

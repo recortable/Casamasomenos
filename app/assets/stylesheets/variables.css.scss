@@ -10,4 +10,10 @@ $c-head: #333;
 $c-line: #CCC;
 
 $s-width: 760px;
+$s-browser: 120px;
 $s-content: 80%;
+
+
+@mixin box-shadow {
+    -moz-box-shadow: 0px 0px 25px #555;-webkit-box-shadow: 0px 0px 25px #555;box-shadow: 0px 1px 5px #555;
+}

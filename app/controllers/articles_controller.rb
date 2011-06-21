@@ -14,6 +14,11 @@ class ArticlesController < ApplicationController
   def index
   end
 
+  def welcome
+    params[:id] = 1
+    render 'show'
+  end
+
   def new
     article.author = current_user
     authorize! :new, article
