@@ -21,6 +21,10 @@ class Relation < ActiveRecord::Base
   validates :category, :presence => true
   validates :user_category, :presence => true
 
+  def reverse
+    Relation.new(:from => self.to, :to=> self.from, :user => self.user)
+  end
+
   def normalize_category!
     if user_category =~ /^inverse_/
       self.category = user_category[8..-1]

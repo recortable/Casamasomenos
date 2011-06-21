@@ -53,17 +53,20 @@
 
 
     <div class="content categorized">
-      <h3>Modelos tipológicos relacionados:</h3>
-      <%= render article.relations.to_category('typological') %>
-      <ul>
-        <h2>Todas las relaciones:</h2>
-        <% article.all_relations.each do |relation| %>
-            <li>
-              <%= link_to relation.from.title, relation.from %> (<%= relation.from.category %>)
-              &lArr;&rArr;
-              <%= link_to relation.to.title, relation.to %> (<%= relation.to.category %>)
-            </li>
-        <% end %>
+      <% article.grouped_relations.each do |category, values| %>
+          <% if values.length > 0 %>
+              <h3><%= t("article.categories.prural.#{category}") %> relacionados: </h3>
+              <%= render values %>
+          <% end %>
+      <% end %>
+      <h2>Todas las relaciones:</h2>
+      <% article.all_relations.each do |relation| %>
+          <li>
+            From: <%= link_to relation.from.title, relation.from %> (<%= relation.from.category %>)
+            &lArr;&rArr;
+            To: <%= link_to relation.to.title, relation.to %> (<%= relation.to.category %>)
+          </li>
+      <% end %>
       </ul>
     </div>
 

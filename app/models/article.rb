@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
            :conditions => {:category => 'parent'}
   has_many :children, :through => :child_relations, :source => :to
 
-  scope :by_category, lambda {|category| where(:category => category) }
+  scope :by_category, lambda { |category| where(:category => category) }
 
   scope :models, where(:category => 'model')
   scope :experiences, where(:category => 'experience')
@@ -31,6 +31,16 @@ class Article < ActiveRecord::Base
 
   def all_relations
     Relation.of_article(self)
+  end
+
+  def grouped_relations
+    relations = {}
+    CATEGORIES.each { |category| relations[category] = [] }
+    all_relations.each do |relation|
+      relation = relation.reverse if relation.to_id == self.id
+      relations[relation.to.category] << relation
+    end
+    relations
   end
 
 end
