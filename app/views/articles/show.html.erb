@@ -46,7 +46,7 @@
     <div class="content categorized">
       <% Article::CATEGORIES.each do |category| %>
           <div class="relations">
-            <% i18n = t("article.categories.#{category}") %>
+            <% i18n = t("article.categories.singular.#{category}") %>
             <h3><%=  i18n %>s</h3>
             <ul class="articles">
                <%= render article.relations.from_category(category) %>
