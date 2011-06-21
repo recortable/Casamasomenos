@@ -31,7 +31,7 @@
         </div>
     <% else %>
         <div class="content">
-          <%= link_to '&larr; Todos los art&iacute;culos'.html_safe, category_path('todos') %>
+          <%#= link_to '&larr; Todos los art&iacute;culos'.html_safe, category_path('todos') %>
         </div>
     <% end %>
 
@@ -42,10 +42,8 @@
         <% end %>
       </ul>
 
-      <div class="container">
         <%= title article.title %>
         <h4><%#=  singular_category(article.category)%> </h4>
-      </div>
     </div>
 
 

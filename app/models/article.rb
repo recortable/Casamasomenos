@@ -45,4 +45,8 @@ class Article < ActiveRecord::Base
     @relations
   end
 
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+
 end

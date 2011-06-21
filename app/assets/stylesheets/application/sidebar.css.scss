@@ -1,0 +1,35 @@
+
+@import "../variables.css.scss";
+
+
+#browser {
+    float: left;
+    width: $s-browser - 20;
+
+    color: $c-link;
+    h3 {font-size: 18px; padding: 3px 5px 0 5px; background-color: $c-header; font-weight: normal;}
+
+    background-color: white; @include box-shadow;
+
+    ul {
+        margin: 0px 0px 10px 5px;
+        li a {display: block; padding: 0;color: #333;}
+        li a:hover {}
+        ul { font-size: 80%;  }
+    }
+}
+
+#sidebar {
+    float: right;
+    width: $s-browser - 20;
+
+    .group {
+        h3 {line-height: 1em;}
+        margin-bottom: 1em;
+
+        ul {
+            li {background-color: white; margin: 8px 0; @include box-shadow;}
+            li a {display: block; padding: 2px 5px; color: $c-link;}
+        }
+    }
+}

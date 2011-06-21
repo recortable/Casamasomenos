@@ -6,17 +6,16 @@
 /** LAYOUT **/
 .container {width:100%;overflow: hidden;}
 
-#playground {width: $s-width + $s-browser;; margin: 0 auto;}
+#playground {width: $s-width + $s-browser + $s-sidebar; margin: 0 auto 40px auto;}
 #page {background: white;width: $s-width;margin-left: $s-browser;padding-bottom:30px;
        @include box-shadow;
        overflow: hidden;
 }
 
-header#app {width: 100%;; margin: 10px 0 10px 0; padding: 10px 0;}
+header#app {width: $s-width; margin: 10px auto; padding: 10px 0;}
 header#app div.info {float: left;}
-header#app  div.cmom {margin-left: $s-browser;}
 
-#page header {background: #F8F8F8;padding:5px 38px; ;}
+#page header {background: $c-header;padding:5px 38px; ;}
 #page header a {color: $c-head;}
 #page div.pre-strip {background: #EAEAEA;padding: 13px 38px;border-top: 1px solid #CCC;border-bottom: 1px solid #CCC;}
 #page div.strip {padding: 10px 10%;border-top: 1px solid $c-line;border-bottom: 1px solid $c-line;}
