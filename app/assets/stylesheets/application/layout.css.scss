@@ -6,7 +6,7 @@
 .container {width:100%;overflow: hidden;}
 
 
-$br-height: 154px;
+$br-height: 119px;
 
 div#page {
     width: $s-width;
@@ -27,7 +27,7 @@ div#page {
         width: $s-width - $s-browser - 1;
         height: $br-height;
         border-left: 1px solid $c-gray;
-        background-color: lighten($c-orange, 30);
+        background-color: #feeaad;
 
          div.inside {padding: 10px 10px 0 50px;}
     }
