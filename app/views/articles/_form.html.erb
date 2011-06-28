@@ -8,7 +8,7 @@
 </div>
 <%= simple_form_for(article) do |f| %>
     <%= f.input :title %>
-    <%= f.input :category,:collection => tc('article.categories.singular', Article::CATEGORIES),
+    <%= f.input :category,:collection => tc('article.categories.singular', Category::CATEGORIES),
                      :value_method => :first, :label_method => :last, :include_blank => false %>
     <%= f.input :body, :as => :text %>
     <%= button_submit_tag 'Guardar' %>

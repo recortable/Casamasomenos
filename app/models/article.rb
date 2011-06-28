@@ -27,7 +27,6 @@ class Article < ActiveRecord::Base
   validates :author_id, :presence => true
   validates :category, :presence => true
 
-  CATEGORIES = ['page', 'area', 'concept', 'strategy', 'typological', 'management', 'participatory', 'experience']
 
   def all_relations
     Relation.of_article(self)
@@ -36,7 +35,7 @@ class Article < ActiveRecord::Base
   def grouped_relations
     if @relations.blank?
       @relations = {}
-      CATEGORIES.each { |category| @relations[category] = [] }
+      Category::CATEGORIES.each { |category| @relations[category] = [] }
       all_relations.each do |relation|
         relation = relation.reverse if relation.to_id == self.id
         @relations[relation.to.category] << relation
