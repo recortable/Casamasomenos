@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   expose(:models) { Article.models.by_modification }
   expose(:experiences) { Article.experiences }
   expose(:pages) { Article.pages }
+
   def index
   end
 

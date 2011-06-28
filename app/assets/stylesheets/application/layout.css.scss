@@ -2,49 +2,51 @@
 
 @import "../variables.css.scss";
 
-
 /** LAYOUT **/
 .container {width:100%;overflow: hidden;}
 
-#playground {width: $s-width + $s-browser + $s-sidebar; margin: 0 auto 40px auto;}
-#page {background: white;width: $s-width;margin-left: $s-browser;padding-bottom:30px;
-       @include box-shadow;
-       overflow: hidden;
+
+$br-height: 154px;
+
+div#page {
+    width: $s-width;
+    margin: 30px auto;
+    border: 1px solid $c-gray;
+
+    #logo {
+        float: left;
+        width: $s-browser;
+        height: $br-height;
+        background: $c-orange url('/assets/logo.png') no-repeat;
+        text-indent: -1000px;
+        overflow: hidden;
+    }
+
+    #head {
+        float: left;
+        width: $s-width - $s-browser - 1;
+        height: $br-height;
+        border-left: 1px solid $c-gray;
+        background-color: lighten($c-orange, 30);
+    }
+
+    #browser {
+        float: left;
+        width: $s-browser;
+     }
+
+    #main {
+        float: left;
+        width: $s-width - $s-browser - 1;
+        border-left: 1px solid $c-gray;
+    }
+
+
 }
 
-header#app {width: $s-width; margin: 10px auto; padding: 10px 0;}
-header#app div.info {float: left;}
 
-#page header {background: $c-header;padding:5px 38px; ;}
-#page header a {color: $c-head;}
-#page div.pre-strip {background: #EAEAEA;padding: 13px 38px;border-top: 1px solid #CCC;border-bottom: 1px solid #CCC;}
-#page div.strip {padding: 10px 10%;border-top: 1px solid $c-line;border-bottom: 1px solid $c-line;}
-#page div.strip.dark {padding: 10px 38px; background: #EAEAEA;}
 
-#page a {color: $c-link;}
 
-#page .content {
-    clear:both;
-    width: $s-content; margin: 0 auto; padding:20px 0 5px 0;
-}
-#page .content.break {
-    border-top: 1px solid $c-line;
-}
-
-#page .content li a.action {color: #666;}
-
-div.flash { margin: 10px auto; padding: 5px; text-align:center; border-radius:3px; margin-top: 20px;cursor:pointer;}
-div.flash.notice {background-color:yellow;}
-
-div.strip {
-    a.logout {float: right;}
-div.button-group {}
-ul.properties {margin-top: 10px;}
-ul.properties > li {width:100%;overflow:hidden;}
-ul.properties > li label {font-weight:bold;padding-right:0.5em;}
-ul.properties > li > ul {margin-left:10px;}
-
-}
 
 
 

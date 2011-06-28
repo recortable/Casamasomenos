@@ -1,19 +1,30 @@
-<div id="browser" class="side">
-  <h3>Indice</h3>
-  <ul class="index">
-    <li>
-      <%= link_to_unless_current 'Casa + o -', root_path %>
+<ul class="index">
+  <li>
+    <%= link_to_unless_current '¿Qué es casa + o -?', root_path %>
+    <ul>
+      <li><%= link_to_unless_current 'Base teórica', category_path('teorica') %></li>
+      <li><%= link_to_unless_current 'Referencias', category_path('teorica') %></li>
+      <li><%= link_to_unless_current 'Glosario', category_path('teorica') %></li>
+    </ul>
+  </li>
+  <li>
+    <%= link_to_unless_current 'Tipologías de viviendas en proceso', diagram_path('posibilidades') %>
+    <ul>
+      <li><%= link_to 'Modelos tipológicos', article_path('2-algo-aqui') %></li>
+      <li><%= link_to 'Estrategias para la flexibilidad', article_path('2-algo-aqui') %></li>
       <ul>
-        <li><%= link_to_unless_current 'Base teórica', category_path('teorica') %></li>
+        <li><%= link_to 'Estrategias cualitativas', article_path('2-algo-aqui') %></li>
+        <li><%= link_to 'Estrategias adaptables', article_path('2-algo-aqui') %></li>
+        <li><%= link_to 'Estrategias elásticas', article_path('2-algo-aqui') %></li>
       </ul>
-    </li>
-    <li>
-      <%= link_to_unless_current 'Mapa de posibilidades', diagram_path('posibilidades') %>
+      <li><%= link_to 'Gestión de viviendas en proceso', article_path('2-algo-aqui') %></li>
       <ul>
-        <% Article.by_category(:area).each do |article| %>
-            <li><%= link_to_unless_current article.title, article %></li>
-        <% end %>
+        <li><%= link_to 'Modelos de gestión', article_path('2-algo-aqui') %></li>
       </ul>
-    </li>
-  </ul>
-</div>
+      <li><%= link_to 'Gestión de viviendas en proceso', article_path('2-algo-aqui') %></li>
+      <ul>
+        <li><%= link_to 'Modelos de gestión', article_path('2-algo-aqui') %></li>
+      </ul>
+    </ul>
+  </li>
+</ul>

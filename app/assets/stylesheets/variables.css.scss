@@ -1,7 +1,7 @@
 
 /** VARIABLES **/
 $c-bg: #D6D6D6;
-$c-gray: gray;
+$c-gray: #CCC;
 $c-red: #CA0202;
 $c-orange: #f19c03;
 $c-blue: #40cafc;
@@ -10,10 +10,8 @@ $c-head: #333;
 $c-line: #CCC;
 $c-header: #F8F8F8;
 
-$s-width: 660px;
-$s-browser: 150px;
-$s-sidebar: 150px;
-$s-content: 80%;
+$s-width: 960px;
+$s-browser: 291px;
 
 
 @mixin box-shadow {

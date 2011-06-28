@@ -8,7 +8,7 @@ Cmom::Application.routes.draw do
   match "/enter/:id" => "sessions#enter", :as => :enter
 
   match "/mapa/:id" => "diagrams#show", :as => :diagram
-  match "/articulos/:category" => "articles#index", :as => :category
+  match "/articulos" => "articles#index", :as => :category
 
   resources :articles, :path => 'articulo', :except => :index do
     resources :comments, :path => 'comentarios'
@@ -24,5 +24,4 @@ Cmom::Application.routes.draw do
 #    resources :assets, :path => 'archivos'
   end
 
-  resources :navigations, :path => ''
 end

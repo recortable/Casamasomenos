@@ -1,30 +1,12 @@
 @import "../variables.css.scss";
 
-div.articles {width: 95%; margin: 10px auto;}
-div.articles div.article {width: 100%; overflow:hidden;}
-div.article div.info {float: left; padding-right:10px;}
 
-
-div.nested_articles {
-    border-left: 3px solid #efefef; padding-left: 10px;
-}
-
-div.article.nested {
-    width: 100%; overflow: hidden;
-    color: gray;
-    h2 {float: left; color: black; margin-right:5px; font-size: 120%;}
-    div.info {}
-}
 
 div.article {
+    padding: 10px;
 }
 
 div.article div.render {
-
-
-
-    width: $s-content; margin: 20px auto;
-
     div.body {
        width:100%;overflow:hidden;
 
@@ -46,29 +28,3 @@ div.article div.render {
 
 }
 
-div.strip ul.properties {
-    ul.ancestors, ul.children, ul.mediafiles {
-        width: 100%; overflow: hidden;
-        li {float: left;}
-    }
-}
-
-#page .content {
-    ul.articles {
-        li {
-            a {font-weight: bold;}
-            a.action {color: #666; font-weight:normal;}
-        }
-    }
-}
-
-.categorized {
-    ul.relations {
-        margin-bottom: 10px;
-        width: 30%; float: left; margin-right: 3%;
-
-        li {
-               a { font-weight: bold;}
-         }
-    }
-}

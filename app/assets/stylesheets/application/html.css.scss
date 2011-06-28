@@ -2,9 +2,11 @@
 @import '../variables.css.scss';
 
 /** ELEMENTS **/
-html {background-color:$c-bg;
-font: 13px/1.5 Helvetica Neue,Arial,Helvetica,'Liberation Sans',FreeSans,sans-serif;
-/*font-size: 12px;font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;*/}
+html {
+     background-color:white;
+    font: 13px/1.5 Helvetica Neue,Arial,Helvetica,'Liberation Sans',FreeSans,sans-serif;
+/*font-size: 12px;font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;*/
+}
 a {text-decoration:none; color:black;}
 a:hover {text-decoration:underline;}
 
@@ -32,7 +34,7 @@ table tr .button-group .button {
 }
 
 form {
-    width: $s-content; margin: 10px auto;
+     margin: 10px auto;
 
     label {display:block;}
     div.button-group {margin-top:10px;}

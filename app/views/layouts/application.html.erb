@@ -10,36 +10,43 @@
 </head>
 <body class="<%= controller.class.name[0..-11].downcase %>">
 
-<div id="playground">
-  <header id="app">
-    <div class="session">
-      <% if current_user? %>
-          <%= avatar_img(current_user) %> <%= link_to current_user.name, current_user %>
-          <%#= link_to '&larr; Salir'.html_safe, logout_path, :confirm => '¿Quieres salir?' %>
-      <% else %>
-          <%= link_to 'Entrar', login_path(:p => request.url) %>
+<div class="flashes">
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, :class => "flash #{name}" do %>
+          <%= msg %>
       <% end %>
-    </div>
-    <div class="cmom"><a href="/">casamasomenos.net</a></div>
-    <% flash.each do |name, msg| %>
-        <%= content_tag :div, :class => "flash #{name}" do %>
-            <%= msg %>
-        <% end %>
-    <% end %>
-  </header>
-  <%= render 'browser' %>
-  <%= render 'sidebar' %>
+  <% end %>
+</div>
 
-  <div id="page" role="main">
-    <% if current_user.admin? %>
-        <header>
-          <%= link_to 'Articulos', articles_path %> |
-          <%= link_to 'Ficheros', mediafiles_path %> |
-          <%= link_to 'Participantes', users_path %>
-        </header>
-    <% end %>
-    <%= yield %>
+<div id="page" role="main">
+  <div class="container">
+    <div id="logo">Casa más o menos</div>
+    <div id="head"><%= content_for :head %></div>
   </div>
+  <div class="container">
+    <div id="browser">
+      <%= render 'browser' %>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+<div class="session">
+  <% if current_user? %>
+      <%= avatar_img(current_user) %> <%= link_to current_user.name, current_user %>
+      <%#= link_to '&larr; Salir'.html_safe, logout_path, :confirm => '¿Quieres salir?' %>
+      <% if current_user.admin? %>
+          <header>
+            <%= link_to 'Articulos', articles_path %> |
+            <%= link_to 'Ficheros', mediafiles_path %> |
+            <%= link_to 'Participantes', users_path %>
+          </header>
+      <% end %>
+  <% else %>
+      <%= link_to 'Entrar', login_path(:p => request.url) %>
+  <% end %>
 </div>
 </body>
 </html>
