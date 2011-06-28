@@ -12,7 +12,17 @@ class ArticlesController < ApplicationController
   expose(:experiences) { Article.experiences }
   expose(:pages) { Article.pages }
 
+  expose(:category) do
+    if params[:category] == 'experiencias'
+      experiencies
+    else
+      articles
+    end
+  end
+
+
   def index
+
   end
 
   def welcome

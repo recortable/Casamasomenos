@@ -1,30 +1,29 @@
 <ul class="index">
-  <li>
-    <%= link_to_unless_current '¿Qué es casa + o -?', root_path %>
+  <li> <%= link_to_unless_current '¿Qué es casa + o -?', root_path %></li>
+  <ul>
+    <li><%= link_to_unless_current 'Base teórica', article_path('1-que-es-casa-mas-o-menos') %></li>
+    <li><%= link_to_unless_current 'Referencias', category_path('teorica') %></li>
+    <li><%= link_to_unless_current 'Glosario', category_path('teorica') %></li>
+  </ul>
+
+  <li> <%= link_to_unless_current 'Tipologías de viviendas en proceso', article_path('36-tiplogias') %></li>
+  <ul>
+    <li><%= link_to_unless_current 'Modelos tipológicos', category_path('tipologicos') %></li>
+    <li><%= link_to_unless_current 'Estrategias para la flexibilidad', article_path('2-algo-aqui') %></li>
     <ul>
-      <li><%= link_to_unless_current 'Base teórica', category_path('teorica') %></li>
-      <li><%= link_to_unless_current 'Referencias', category_path('teorica') %></li>
-      <li><%= link_to_unless_current 'Glosario', category_path('teorica') %></li>
+      <li><%= link_to_unless_current 'Estrategias cualitativas', article_path('2-algo-aqui') %></li>
+      <li><%= link_to_unless_current 'Estrategias adaptables', article_path('2-algo-aqui') %></li>
+      <li><%= link_to_unless_current 'Estrategias elásticas', article_path('2-algo-aqui') %></li>
     </ul>
-  </li>
-  <li>
-    <%= link_to_unless_current 'Tipologías de viviendas en proceso', diagram_path('posibilidades') %>
-    <ul>
-      <li><%= link_to 'Modelos tipológicos', article_path('2-algo-aqui') %></li>
-      <li><%= link_to 'Estrategias para la flexibilidad', article_path('2-algo-aqui') %></li>
-      <ul>
-        <li><%= link_to 'Estrategias cualitativas', article_path('2-algo-aqui') %></li>
-        <li><%= link_to 'Estrategias adaptables', article_path('2-algo-aqui') %></li>
-        <li><%= link_to 'Estrategias elásticas', article_path('2-algo-aqui') %></li>
-      </ul>
-      <li><%= link_to 'Gestión de viviendas en proceso', article_path('2-algo-aqui') %></li>
-      <ul>
-        <li><%= link_to 'Modelos de gestión', article_path('2-algo-aqui') %></li>
-      </ul>
-      <li><%= link_to 'Gestión de viviendas en proceso', article_path('2-algo-aqui') %></li>
-      <ul>
-        <li><%= link_to 'Modelos de gestión', article_path('2-algo-aqui') %></li>
-      </ul>
-    </ul>
-  </li>
+  </ul>
+  <li><%= link_to_unless_current 'Gestión de viviendas en proceso', article_path('2-algo-aqui') %></li>
+  <ul>
+    <li><%= link_to_unless_current 'Modelos de gestión', article_path('2-algo-aqui') %></li>
+  </ul>
+  <li><%= link_to_unless_current 'Participación en procesos de vivienda', article_path('2-algo-aqui') %></li>
+  <ul>
+    <li><%= link_to_unless_current 'Técnicas participativas', article_path('2-algo-aqui') %></li>
+    <li><%= link_to_unless_current 'Métodos de diseño participativo', article_path('2-algo-aqui') %></li>
+  </ul>
+  <li><%= link_to_unless_current 'Experiencias', category_path('experiencias') %></li>
 </ul>

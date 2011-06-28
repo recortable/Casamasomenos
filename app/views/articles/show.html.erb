@@ -9,8 +9,6 @@
 
 <% if current_user? %>
     <div class="dark strip">
-      <%= link_to 'Cerrar sesión', logout_path(:p => request.url), :class => 'logout',
-                  :confirm => '¿Segurx que quieres cerrar tu sesión?' %>
       <%= button_group do %>
           <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
           <%= calendar_button_link_to 'Añadir imágen', new_mediafile_path(:p => article.id) if can? :new, Mediafile %>
@@ -18,23 +16,6 @@
           <%= danger_remove_button_link_to 'Borrar', article, :confirm => "ESTO NO SE PUEDE DESHACER. TAMBIEN SE BORRARÁN TODAS LAS RELACIONES CON ESTE ARTÍCULO. ¿Seguro que quieres borrar '#{article.title}' ?",
                                            :method => :delete if can? :manage, article %>
       <% end %>
-      <ul class="properties">
-        <li><label>Por:</label><%= article.author.name %></li>
-        <li><label>Tipo:</label><%= t("article.categories.singular.#{article.category}") %></li>
-        <li><label>Imágenes asociadas:</label>
-          <% article.mediafiles.each do |mediafile| %>
-              <%= link_to "!!@#{mediafile.id}", mediafile %>&nbsp;|&nbsp;
-          <% end %>
-        </li>
-        <li>
-          <label>Relacionar con:</label>
-          <% Article::CATEGORIES.each do |category| %>
-              <% singular = t("article.categories.singular.#{category}") %>
-              <%= link_to "&rarr; #{singular}".html_safe, new_article_relation_path(article, :c => category) %>
-          <% end %>
-        </li>
-        <li><label>Relaciones:</label><%= link_to 'mostrar', article_relations_path(article) %></li>
-      </ul>
     </div>
 <% end %>
 

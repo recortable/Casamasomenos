@@ -1,6 +1,7 @@
-<header>
-  <%= title 'Casa + o -' %>
-</header>
+<% content_for :head do %>
+  <%= title 'Artículos' %>
+<% end %>
+
 <% if current_user? %>
     <div class="dark strip">
       <%= add_button_link_to 'Añadir artículo', new_article_path %>

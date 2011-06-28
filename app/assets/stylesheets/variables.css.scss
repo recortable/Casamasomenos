@@ -3,7 +3,7 @@
 $c-bg: #D6D6D6;
 $c-gray: #CCC;
 $c-red: #CA0202;
-$c-orange: #f19c03;
+$c-orange: #F5A32A; /*#f19c03;*/
 $c-blue: #40cafc;
 $c-link: $c-orange;
 $c-head: #333;
@@ -11,7 +11,7 @@ $c-line: #CCC;
 $c-header: #F8F8F8;
 
 $s-width: 960px;
-$s-browser: 291px;
+$s-browser: 300px;
 
 
 @mixin box-shadow {
