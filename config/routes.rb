@@ -10,7 +10,6 @@ Cmom::Application.routes.draw do
   match "/mapa/:id" => "diagrams#show", :as => :diagram
   match "/articulos" => "articles#index", :as => :index
 
-  resources :categories, :path => 'categoria'
   resources :articles, :path => 'articulo', :except => :index do
     resources :comments, :path => 'comentarios'
     resources :relations, :path => 'relaciones'
