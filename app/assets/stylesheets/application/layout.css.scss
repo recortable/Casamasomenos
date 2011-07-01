@@ -17,9 +17,14 @@ div#page {
         float: left;
         width: $s-browser;
         height: $br-height;
-        background: $c-orange url('/assets/logo300.png') no-repeat;
-        text-indent: -1000px;
-        overflow: hidden;
+        background-color: $c-orange;
+
+        h1 {
+            width: 219px; height: 98px; margin: 0 auto;
+            background: $c-orange url('/assets/logo.png') no-repeat;
+            text-indent: -1000px;
+            overflow: hidden;
+        }
     }
 
     #head {
@@ -27,7 +32,7 @@ div#page {
         width: $s-width - $s-browser - 1;
         height: $br-height;
         border-left: 1px solid $c-gray;
-        background-color: #feeaad;
+        background-color: $c-orange-lt;
 
          div.inside {padding: 10px 10px 0 50px;}
     }
