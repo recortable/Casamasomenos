@@ -49,6 +49,21 @@ div#page {
     }
 }
 
+div#session {
+    position: fixed; left: 0; right: 0; top: 0;
+    background-color: #333; color: white;
+    img.avatar {border: 0; margin:0 0 -3px 0;}
+    padding: 3px;
+}
+
+div#flashes {
+    margin: 3em auto 0 auto;
+    width: $s-width;
+
+    .notice {background-color: $c-orange; color: black; padding: 2px 10px; border-radius: 3px;}
+}
+
+
 
 
 ul.index {

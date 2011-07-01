@@ -9,9 +9,9 @@ module AuthModule
     !current_user.anonymous?
   end
 
-  def require_super
+  def require_admin
     if current_user
-      raise CanCan::AccessDenied unless current_user.super?
+      raise CanCan::AccessDenied unless current_user.admin?
     elsif
       store_location
       redirect_to login_path
@@ -19,14 +19,7 @@ module AuthModule
   end
 
   def require_user
-    unless current_user
-      store_location
-      redirect_to login_path
-    end
-  end
-
-  def require_admin
-    unless current_user
+    if current_user.anonymous?
       store_location
       redirect_to login_path
     end

@@ -3,6 +3,8 @@
 class ArticlesController < ApplicationController
   respond_to :html
   respond_to :js, :only => :show
+  before_filter :require_user, :except => [:show, :welcome]
+
   expose(:articles) { Article.all }
   expose(:article)
   expose(:comment) { Comment.new(:resource => article) }
