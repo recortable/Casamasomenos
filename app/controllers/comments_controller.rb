@@ -21,6 +21,7 @@ class CommentsController < ApplicationController
       params[:comment][:author_id] = resource.author_id
       comment = resource.comments.build(params[:comment])
       flash[:notice] = t('comments.notice.create') if comment.save
+      AdminMailer.comment_email(comment).deliver
       respond_with comment, :location => resource
     end
   end
