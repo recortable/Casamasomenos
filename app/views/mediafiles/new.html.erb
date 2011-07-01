@@ -1,7 +1,7 @@
-<header>
-  <%= title t('.title') %>
-  <%= content_tag :h2, t('.parent', :title => mediafile.resource.title) if mediafile.resource_id? %>
-</header>
+<% content_for :head do %>
+    <%= title t('.title') %>
+    <%= content_tag :h2, t('.parent', :title => mediafile.resource.title) if mediafile.resource_id? %>
+<% end %>
 
 <div class="strip">
   <%= button_group do %>

@@ -1,6 +1,8 @@
-<header>
-  <%= title t('articles.edit.title') %>
-</header>
+<% content_for :head do %>
+    <%= title t('articles.edit.title') %>
+<% end %>
+
+
 
 <%= render 'form' %>
 

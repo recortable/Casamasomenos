@@ -1,6 +1,6 @@
-<header>
-  <%= title t('.title') %>
-</header>
+<% content_for :head do %>
+    <%= title t('.title') %>
+<% end %>
 
 <div class="strip">
   <ul class="properties">

@@ -1,6 +1,7 @@
-<header>
-  <%= title t('.title', :title => relation.from.title) %>
-</header>
+<% content_for :head do %>
+    <%= title t('.title', :title => relation.from.title) %>
+<% end %>
+
 <div class="dark strip">
   <%= button_group do %>
       <%= arrowleft_button_link_to 'Cancelar', relation.from %>
@@ -15,6 +16,6 @@
       </div>
       <%= form.input :user_category, :collection => tc('relations.categories', Relation::USER_CATEGORIES),
                      :value_method => :first, :label_method => :last, :include_blank => false %>
-      <%= form.association :to %>
+      <%= form.association :to,  :collection => Article.all(:order => 'title')%>
     <%= form.submit %>
 <% end %>
