@@ -1,3 +1,4 @@
+
 <% content_for :head do %>
     <ul>
       <% article.parents.each do |parent| %>
@@ -5,6 +6,20 @@
       <% end %>
     </ul>
     <%= title article.title %>
+
+        <div class="content categorized">
+      <div class="container">
+        <% article.grouped_relations.each do |category, values| %>
+            <% unless category == 'page' or values.length == 0 %>
+                <ul class="relations">
+                  <li><label><%= t("article.categories.prural.#{category}") %></label></li>
+                  <%= render values %>
+                </ul>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+
 <% end %>
 
 <% if current_user? %>
@@ -13,7 +28,7 @@
           <%= arrowleft_button_link_to 'Volver', index_path %>
           <%= edit_button_link_to 'Editar', edit_article_path(article) if can? :edit, article %>
           <%= calendar_button_link_to 'Añadir imágen', new_mediafile_path(:p => article.id) if can? :new, Mediafile %>
-          <%= fork_button_link_to 'Relacionar con...', new_article_relation_path(article) if can? :manage, article %>
+          <%= fork_button_link_to 'Relacionar con...', article_relations_path(article) if can? :manage, article %>
           <%= danger_remove_button_link_to 'Borrar', article, :confirm => "ESTO NO SE PUEDE DESHACER. TAMBIEN SE BORRARÁN TODAS LAS RELACIONES CON ESTE ARTÍCULO. ¿Seguro que quieres borrar '#{article.title}' ?",
                                            :method => :delete if can? :manage, article %>
       <% end %>
@@ -25,18 +40,7 @@
       <%= render_body article %>
     </div>
 
-    <div class="content categorized">
-      <div class="container">
-        <% article.grouped_relations.each do |category, values| %>
-            <% unless category == 'page' or values.length == 0 %>
-                <ul class="relations">
-                  <h3><%= t("article.categories.prural.#{category}") %> </h3>
-                  <%= render values %>
-                </ul>
-            <% end %>
-        <% end %>
-      </div>
-    </div>
+
 
     <div class="content comment_area">
       <h3>Comentarios</h3>

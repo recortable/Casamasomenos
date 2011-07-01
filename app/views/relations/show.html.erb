@@ -1,6 +1,7 @@
-<header>
-  <%= title 'Relación entre artículos' %>
-</header>
+<% content_for :head do %>
+    <%= title 'Relaciones entre artículos' %>
+<% end %>
+
 <div class="dark strip">
   <%= button_group do %>
   <%= danger_remove_button_link_to 'Borrar', relation, :method => :delete,
@@ -20,3 +21,4 @@
   <%= link_to relation.from.title, relation.from %>
     </div>
 </div>
+

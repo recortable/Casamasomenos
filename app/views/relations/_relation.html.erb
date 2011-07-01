@@ -1,4 +1,3 @@
 <%= content_tag_for :li, relation do %>
     <%= link_to relation.to.title, relation.to %>
-    <%= link_to '&larr; borrar'.html_safe, relation, :class => 'action' if can? :manage, relation %>
 <% end %>

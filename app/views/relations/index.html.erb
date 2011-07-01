@@ -1,7 +1,7 @@
-<header>
+<% content_for :head do %>
   <%= title 'Relaciones' unless article %>
   <%= title "Relaciones de '#{article.title}'" if article %>
-</header>
+<% end %>
 <div class="dark strip">
   <%= button_group do %>
       <%= arrowleft_button_link_to 'Volver', (article ? article : relations_path) %>
@@ -30,3 +30,6 @@
     <% end %>
   </ul>
 </div>
+
+<h2>Añadir una nueva relación</h2>
+<%= render :partial => 'form' %>
