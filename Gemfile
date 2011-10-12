@@ -24,7 +24,7 @@ gem 'css3buttons'
 gem 'fog'
 gem 'carrierwave'
 
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
 
 gem 'lorem'
 gem 'mysql2'
