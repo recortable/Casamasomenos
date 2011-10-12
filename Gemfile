@@ -13,6 +13,7 @@ end
 gem 'jquery-rails'
 
 gem 'sqlite3'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'cancan'
 gem 'ancestry'
@@ -22,6 +23,8 @@ gem 'rdiscount', :require => 'rdiscount'
 gem 'css3buttons'
 gem 'fog'
 gem 'carrierwave'
+
+gem 'twitter-bootstrap-rails'
 
 gem 'lorem'
 gem 'mysql2'

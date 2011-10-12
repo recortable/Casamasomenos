@@ -18,6 +18,16 @@ role :app, "recortable.net"
 role :web, "recortable.net"
 role :db,  "recortable.net", :primary => true
 
+# Add RVM's lib directory to the load path.
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+
+# Load RVM's capistrano plugin.
+require "rvm/capistrano"
+
+set :rvm_ruby_string, '1.9.2@rails31'
+set :rvm_type, :user  # Don't use system-wide RVM
+
+
 after "deploy:update_code", "config:copy_shared_configurations"
 after "deploy", "deploy:cleanup"
 
@@ -42,7 +52,7 @@ namespace :assets do
   end
 end
 
-after :deploy, "assets:precompile"
+#after :deploy, "assets:precompile"
 after "assets:precompile", "deploy:restart"
 
 
