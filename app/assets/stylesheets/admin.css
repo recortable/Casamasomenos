@@ -1,5 +1,5 @@
 /*
- * FIXME: Introduce SCSS & Sprockets
  *= require_self
  *= require_tree ./admin
+ *= require ./lib/bootstrap.min.css
 */
