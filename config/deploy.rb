@@ -52,7 +52,7 @@ namespace :assets do
   end
 end
 
-#after :deploy, "assets:precompile"
+after :deploy, "assets:precompile"
 after "assets:precompile", "deploy:restart"
 
 
