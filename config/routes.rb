@@ -18,10 +18,16 @@ Cmom::Application.routes.draw do
   resources :relations, :path => 'relaciones'
   resources :mediafiles, :path => 'ficheros'
 
-  scope "/admin" do
-    resources :users, :path => 'participantes'
+
+  namespace :admin do
+    root to: 'users#index'
+    resources :users, path: 'participantes'
+  end
+
+#  scope "/admin" do
+#    resources :users, :path => 'participantes'
 #    resources :datamaps, :path => 'mapas'
 #    resources :assets, :path => 'archivos'
-  end
+#  end
 
 end
