@@ -1,13 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
-gem 'sqlite3'
+gem "rails", "3.1.1"
 
-# Asset template engines
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.4"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
+
 gem 'jquery-rails'
+
+gem 'sqlite3'
 
 gem 'cancan'
 gem 'ancestry'
@@ -21,16 +26,21 @@ gem 'carrierwave'
 gem 'lorem'
 gem 'mysql2'
 
-group :production do
-#  gem 'therubyracer-heroku', '0.8.1.pre3'
-#  gem 'pg'
-end
+gem 'newrelic_rpm'
 
 group :test, :development do
-  gem 'mongrel', '1.2.0.pre2'
-  gem 'test-unit'
+  gem 'rspec-rails'
+  gem 'yaml_db'
   gem 'capistrano'
-  gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'turn', :require => false
-  gem 'database_cleaner'
+#  gem 'mongrel', '1.2.0.pre2'
 end
+
+group :test do
+  gem 'sqlite3'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'turn', :require => false
+  gem "cucumber-rails", ">= 1.0.2"
+  gem 'ruby-debug19', :require => 'ruby-debug'
+end
+

@@ -5,14 +5,14 @@ Cmom::Application.configure do
   config.cache_classes = true
 
   # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = true
 
   # Compress both stylesheets and JavaScripts
-  config.assets.js_compressor  = :uglifier
+  config.assets.js_compressor = :uglifier
   # Using sass-rails plugin: compress by default in production
   # config.assets.css_compressor = :scss
 
@@ -37,6 +37,7 @@ Cmom::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
+  # config.assets.precompile += ['admin.css', 'admin.js', 'backend.css', 'backend.js']
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -61,6 +62,15 @@ Cmom::Application.configure do
       :password => 'viviendaenproceso',
       :authentication => 'plain'
   }
+
+  # Compress JavaScripts and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline if a precompiled asset is missed
+  config.assets.compile = false
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
 
 
 end

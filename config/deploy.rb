@@ -31,6 +31,20 @@ namespace :config do
   end
 end
 
+# Assets management
+namespace :assets do
+  task :precompile, :roles => :web do
+    run "cd #{current_path} && RAILS_ENV=production bundle exec rake assets:precompile"
+  end
+
+  task :cleanup, :roles => :web do
+    run "cd #{current_path} && RAILS_ENV=production bundle exec rake assets:clean"
+  end
+end
+
+after :deploy, "assets:precompile"
+after "assets:precompile", "deploy:restart"
+
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
@@ -73,7 +87,5 @@ namespace :mysql do
       puts data
     end
     get file, "tmp/#{filename}"
-    #`mysql -u root -p booka < tmp/#{filename}`
-    # delete file
   end
 end
