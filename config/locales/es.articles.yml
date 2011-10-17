@@ -22,6 +22,9 @@ es:
         concept: 'Conceptos'
         strategy: 'Estrategias'
 
+    flash:
+      updated: 'Se ha guardado el artículo. Gracias!'
+
 
   simple_form:
     labels:

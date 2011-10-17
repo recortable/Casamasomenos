@@ -24,6 +24,9 @@ gem 'css3buttons'
 gem 'fog'
 gem 'carrierwave'
 
+gem 'ancestry'
+gem 'acts_as_list'
+
 #gem 'twitter-bootstrap-rails'
 
 gem 'lorem'

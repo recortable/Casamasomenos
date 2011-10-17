@@ -9,9 +9,9 @@
 <% end %>
 
 <div class="content">
-<% Category::CATEGORIES.each do |category| %>
-<h2><%= t("article.categories.prural.#{category}")%></h2>
-      <%= render :partial => 'info', :collection => Article.find_all_by_category(category) %>
+<% categories.each do |category| %>
+<h2><%= t("article.categories.prural.#{category.name}")%></h2>
+      <%= render :partial => 'info', :collection => category.articles %>
 <% end %>
 </div>
 

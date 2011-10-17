@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, resource] do |form| %>
+
+    <% attributes.each do |attr| %>
+        <%= form.input attr %>
+    <% end %>
+
+    <%= form.submit %>
+<% end %>

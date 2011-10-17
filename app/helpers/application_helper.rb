@@ -1,8 +1,10 @@
 #encoding: utf-8
 module ApplicationHelper
-  def title(text)
+  def title(text, options = {})
+    tag = options[:tag] || :h1
     content_for(:title) { text }
-    content_tag(:h1, text, :class => 'title')
+    text = raw("#{text}<small>&nbsp;#{options[:small]}</small>") if options[:small].present?
+    content_tag(tag, text, :class => 'title')
   end
 
   # translate collection

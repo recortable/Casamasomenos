@@ -11,9 +11,9 @@ class Relation < ActiveRecord::Base
   scope :experiencies, where(:category => 'experiencie')
 
 
-  scope :from_category, lambda {|category| (joins(:from).merge(Article.by_category(category))) }
-  scope :to_category, lambda {|category| (joins(:to).merge(Article.by_category(category))) }
-  scope :of_article, lambda {|article_id| where(['from_id = ? OR to_id = ?', article_id, article_id]) }
+  scope :from_category, lambda { |category| (joins(:from).merge(Article.by_category(category))) }
+  scope :to_category, lambda { |category| (joins(:to).merge(Article.by_category(category))) }
+  scope :of_article, lambda { |article_id| where(['from_id = ? OR to_id = ?', article_id, article_id]) }
 
   validates :from_id, :presence => true
   validates :to_id, :presence => true
@@ -24,6 +24,20 @@ class Relation < ActiveRecord::Base
   def reverse
     Relation.new(:from => self.to, :to=> self.from, :user => self.user)
   end
+
+  # related_to
+  # find the article related to the given article
+  def related_to(article)
+    article_id = article.id
+    if to_id == article_id
+      from
+    elsif from_id == article_id
+      to
+    else
+      nil
+    end
+  end
+
 
   def normalize_category!
     if user_category =~ /^inverse_/

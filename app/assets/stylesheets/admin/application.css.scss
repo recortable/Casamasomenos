@@ -2,6 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, body {
+    background-color: #EEE;
+}
+
 body {
-    padding-top: 50px;
+    padding-top: 40px;
+}
+
+.content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 0 0 6px 6px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.page-header {
+    background-color: whiteSmoke;
+    padding: 20px 20px 10px;
+    margin: -20px -20px 20px;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+}
+
+#flashes {
+    text-align: center;
+
+    .flash {
+        padding: 3px 0;
+    }
+
+    .flash.notice {background-color: yellow;}
+}
+
+
+ul.descendants, ul.relations {
+    width: 100%; overflow: hidden;
+    margin: 0;
+    li {
+        margin: 0 5px 5px 0;
+        padding: 2px 5px;
+        background-color: #efefef;
+        list-style: none;
+        float: left;
+        border-radius: 3px;
+    }
+}
+
+ul.descendants {
+    margin: -10px 0 20px 0;
 }

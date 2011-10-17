@@ -9,7 +9,13 @@
 #  t.string   "category",   :limit => 32
 #
 class Article < ActiveRecord::Base
+  has_ancestry cache_depth: true
+  acts_as_list scope: 'ancestry = \'#{ancestry}\''
+  scope :ordered, order: "ancestry_depth,position DESC"
+
+
   belongs_to :author, :class_name => 'User'
+  belongs_to :category
   has_many :comments, :as => :resource, :order => 'id DESC'
   has_many :mediafiles, :as => :resource
 
@@ -35,7 +41,10 @@ class Article < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :author_id, :presence => true
-  validates :category, :presence => true
+  validates :category_id, :presence => true
+  validates :state, presence: true
+
+  STATES = [:published, :draft, :hidden]
 
 
   def all_relations

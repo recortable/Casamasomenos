@@ -17,12 +17,16 @@ Cmom::Application.routes.draw do
   resources :comments, :path => 'respuestas'
   resources :relations, :path => 'relaciones'
   resources :mediafiles, :path => 'ficheros'
+  resources :users, path: 'participantes'
 
 
   namespace :admin do
-    root to: 'users#index'
+    root to: 'navigations#show'
+    resource :navigation, path: 'navegacion'
     resources :users, path: 'participantes'
     resources :articles, path: 'entradas'
+    resources :categories, path: 'categorias'
+    resources :relations, path: 'relaciones'
   end
 
 #  scope "/admin" do

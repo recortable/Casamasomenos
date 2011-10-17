@@ -1,0 +1,8 @@
+
+<%= simple_form_for [:admin, article] do |form| %>
+    <%= form.input :title %>
+    <%= form.input :parent_id, :collection => Article.order(:title) %>
+    <%= form.association :category %>
+    <%= form.input :body %>
+    <%= form.submit class: 'btn' %>
+<% end %>

@@ -1,9 +1,9 @@
 class Admin::ArticlesController < Admin::ResourceController
   resource :article
-  expose(:articles) { Article.all }
+  expose(:articles) { Article.ordered }
   expose(:article)
 
-  def index
+  def show
 
   end
 end

@@ -1,0 +1,44 @@
+<div class="page-header">
+  <%= link_to raw('&larr; Volver'), [:admin, resource_class] %>
+  <%= link_to 'Editar', [:edit, :admin, article] %>
+</div>
+
+
+<h3><%= link_to article.parent.title, [:admin, article.parent] if article.parent %></h3>
+<%= title article.title %>
+<ul class="descendants">
+  <% article.descendants.all.each do |children| %>
+      <%= content_tag_for :li, children do %>
+          <%= link_to children.title, [:admin, children] %>
+      <% end %>
+  <% end %>
+</ul>
+
+
+
+<h3>Información</h3>
+<dl class="properties">
+  <dt>Tipo:</dt>
+  <dd><%= article.category.name %></dd>
+  <dt>Por:</dt>
+  <dd><%= article.author.name %></dd>
+  <dt>Posición:</dt>
+  <dd><%= article.position %></dd>
+</dl>
+
+<h3>Artículos asociados
+  <small><%= article.all_relations.count %></small>
+</h3>
+<ul class="relations">
+  <% article.all_relations.each do |relation| %>
+      <%= content_tag_for :li, relation do %>
+          <% related = relation.related_to(article) %>
+          <%= link_to related.title, [:admin, related] %>
+      <% end %>
+  <% end %>
+</ul>
+
+
+
+
+<%#= render 'show', attributes: resource_class.attribute_names %>

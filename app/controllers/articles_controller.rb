@@ -13,14 +13,7 @@ class ArticlesController < ApplicationController
   expose(:models) { Article.models.by_modification }
   expose(:experiences) { Article.experiences }
   expose(:pages) { Article.pages }
-
-  expose(:category) do
-    if params[:category] == 'experiencias'
-      experiencies
-    else
-      articles
-    end
-  end
+  expose(:categories) { Category.all }
 
 
   def index

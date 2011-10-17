@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,19 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110620140202) do
+ActiveRecord::Schema.define(:version => 20111017122157) do
 
   create_table "articles", :force => true do |t|
-    t.string   "title",      :limit => 300
+    t.string   "title",          :limit => 300
     t.text     "body"
-    t.string   "lang",       :limit => 6
+    t.string   "lang",           :limit => 6
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category",   :limit => 32
+    t.integer  "category_id"
+    t.string   "ancestry",       :limit => 300
+    t.integer  "ancestry_depth",                :default => 0
+    t.integer  "position"
+    t.string   "state",          :limit => 16
   end
 
+  add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"
   add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
+
+  create_table "categories", :force => true do |t|
+    t.string   "name",       :limit => 32
+    t.string   "es_name",    :limit => 64
+    t.string   "en_name",    :limit => 64
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.text     "body"
