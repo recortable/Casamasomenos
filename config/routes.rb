@@ -22,6 +22,7 @@ Cmom::Application.routes.draw do
   namespace :admin do
     root to: 'users#index'
     resources :users, path: 'participantes'
+    resources :articles, path: 'entradas'
   end
 
 #  scope "/admin" do

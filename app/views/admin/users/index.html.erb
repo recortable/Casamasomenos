@@ -1,1 +1,18 @@
 <%= title 'Participantes' %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Correo</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

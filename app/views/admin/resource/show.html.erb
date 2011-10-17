@@ -1,0 +1,5 @@
+<%= title "Ver  #{resource_class.model_name.human}" %>
+
+<%= link_to raw('&larr; Volver'), [:admin, resource_class] %>
+
+<%= render 'show', attributes: resource_class.attribute_names %>

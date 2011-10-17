@@ -1,3 +1,13 @@
+# Article
+#
+#  t.string   "title",      :limit => 300
+#  t.text     "body"
+#  t.string   "lang",       :limit => 6
+#  t.integer  "author_id"
+#  t.datetime "created_at"
+#  t.datetime "updated_at"
+#  t.string   "category",   :limit => 32
+#
 class Article < ActiveRecord::Base
   belongs_to :author, :class_name => 'User'
   has_many :comments, :as => :resource, :order => 'id DESC'

@@ -23,9 +23,8 @@
     <div class="container">
       <a class="brand" href="#">Casamasomenos</a>
       <ul class="nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <%= nav_link_to 'Participantes', admin_users_path %>
+        <%= nav_link_to 'Entradas', admin_articles_path %>
       </ul>
     </div>
   </div>
@@ -33,17 +32,14 @@
 
 <div class="container">
 
-  <div class="content">
-    <div class="row">
-      <div class="span10">
-      </div>
-      <div class="span4">
-      </div>
+  <div class="container">
+    <div class="content">
+      <%= yield %>
     </div>
   </div>
 
   <footer>
-    <p>&copy; Company 2011</p>
+    <p>lahabitacion.net</p>
   </footer>
 
 </div>
