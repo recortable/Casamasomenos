@@ -40,20 +40,17 @@ class Article < ActiveRecord::Base
 
 
   def all_relations
-    Relation.of_article(self)
+    @all ||= Relation.of_article(self)
   end
 
   def grouped_relations
-    if @relations.blank?
-      @relations = {}
-      Category::CATEGORIES.each { |category| @relations[category] = [] }
-      all_relations.each do |relation|
-        relation = relation.reverse if relation.to_id == self.id
-        @relations[relation.to.category] << relation
-      end
-    end
-    @relations
+    @grouped ||= all_relations.map do |relation|
+      other_id = relation.from_id == self.id ? relation.to_id : relation.from_id
+      relation.other = Article.find other_id
+      relation
+    end.group_by {|r| r.other.category }
   end
+
 
   def to_param
     "#{id}-#{title.parameterize}"

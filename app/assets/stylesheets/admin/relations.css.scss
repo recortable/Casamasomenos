@@ -1,0 +1,21 @@
+
+form#new_relation {
+    width: 70%;
+
+    span {display: block;}
+
+    div.articles {
+        width: 100%; overflow: hidden;
+        margin: 10px 0;
+
+        div.article {
+            float: left;
+            width: 250px; height: 300px;
+            padding: 5px; margin: 0 20px 0 0;
+            border: 1px solid #AAA;
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+            box-shadow: 0 1px 2px rgba(0,0,0,.15);
+        }
+
+    }
+}

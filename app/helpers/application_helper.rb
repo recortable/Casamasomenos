@@ -14,7 +14,7 @@ module ApplicationHelper
 
 
   def render_body(model)
-    text = model.body
+    text = model.body.present? ? model.body : '*aún no tiene contenido*'
     text = RDiscount.new(text, :smart, :filter_html).to_html
     text = replace_right_images(text)
     text = replace_right_text(text)

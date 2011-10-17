@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to raw('&larr; Volver'), [:admin, article] if article %>
+</div>
+<%= title 'Añadir relación' %>
+
+<%= simple_form_for [:admin, relation] do |form| %>
+    <%= form.input :from_id, :as => :hidden %>
+    <div class="articles">
+      <div class="article from">
+        <%= form.association :from, :collection => articles %>
+        <%#= form.association :from_category, :collection => categories %>
+      </div>
+      <div class="article to">
+        <%= form.association :to, :collection => articles %>
+        <%#= form.association :to_category, :collection => categories %>
+      </div>
+    </div>
+    <%= form.submit 'Crear relación', class: 'btn' %>
+<% end %>
+

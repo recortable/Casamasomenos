@@ -1,26 +1,22 @@
 <div class="page-header">
-  <%= link_to raw('&larr; Volver'), [:admin, resource_class] %>
+  <%= link_to raw('&larr; Volver'), [:admin, resource_class] %> /
+  <%= link_to 'Ver en la web', article %> /
   <%= link_to 'Editar', [:edit, :admin, article] %>
 </div>
 
 <div class="row">
   <div class="span10">
-    <h3><%= link_to article.parent.title, [:admin, article.parent] if article.parent %></h3>
-    <%= title article.title %>
+    <%= div_for article do %>
+        <h3><%= link_to article.parent.title, [:admin, article.parent] if article.parent %></h3>
+        <%= title article.title, small: "Por #{article.author.name}" %>
 
-
-    <h3>Información</h3>
-    <dl class="properties">
-      <dt>Tipo:</dt>
-      <dd><%= article.category.name %></dd>
-      <dt>Por:</dt>
-      <dd><%= article.author.name %></dd>
-      <dt>Posición:</dt>
-      <dd><%= article.position %></dd>
-    </dl>
-
+        <div class="render">
+          <%= render_body article %>
+        </div>
+    <% end %>
   </div>
-  <div class="span4">
+
+  <div class="side span4">
     <h3>Sub navegación
       <small><%= article.children.count %></small>
     </h3>
@@ -35,14 +31,33 @@
     <h3>Artículos asociados
       <small><%= article.all_relations.count %></small>
     </h3>
-    <ul class="relations">
-      <% article.all_relations.each do |relation| %>
-          <%= content_tag_for :li, relation do %>
-              <% related = relation.related_to(article) %>
-              <%= link_to related.title, [:admin, related] %>
-          <% end %>
+    <div class="links">
+      <%= link_to '+ Añadir relación', [:new, :admin, article, :relation] %>
+    </div>
+    <ul class="relation_groups">
+      <% article.grouped_relations.each do |category, group| %>
+          <li>
+            <%= category.es_name %>:
+            <ul class="relations">
+              <% group.each do |relation| %>
+                  <li><%= link_to relation.other.title, [:admin, relation.other] %>
+                    <%= link_to 'x', '#', class: 'mini alert' %>
+                  </li>
+              <% end %>
+            </ul>
+          </li>
       <% end %>
     </ul>
+
+    <h3>Ficheros
+      <small><%= article.mediafiles.count %></small>
+      <ul class="mediafiles">
+        <% article.mediafiles.each do |mf| %>
+            <li><%= mf.title %>
+            </li>
+        <% end %>
+      </ul>
+    </h3>
   </div>
 </div>
 

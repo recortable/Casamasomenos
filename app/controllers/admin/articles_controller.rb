@@ -1,7 +1,11 @@
 class Admin::ArticlesController < Admin::ResourceController
   resource :article
-  expose(:articles) { Article.ordered }
+  expose(:articles) { Article.order('title ASC') }
   expose(:article)
+
+  def index
+
+  end
 
   def sort
     params[:article].each_with_index do |id, index|

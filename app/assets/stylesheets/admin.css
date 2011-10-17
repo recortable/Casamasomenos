@@ -1,5 +1,7 @@
 /*
  *= require_self
  *= require ./lib/bootstrap.min.css
+ *= require_directory ./common
  *= require_directory ./admin
+ *= require ./lib/css3buttons
 */

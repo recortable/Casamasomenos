@@ -18,6 +18,13 @@ body {
     box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 
+.content .span4 {
+    margin-left: 10px;
+    padding-left: 9px;
+    border-left: 1px solid #EEE;
+    min-height: 500px;
+}
+
 .page-header {
     background-color: whiteSmoke;
     padding: 20px 20px 10px;
@@ -39,8 +46,13 @@ footer {
     .flash.notice {background-color: yellow;}
 }
 
+h3 + div.links {
+    margin: -7px 0 12px 0;
+    font-size: 90%;
+    border-top: 1px solid #EEE;
+}
 
-ul.descendants, ul.relations {
+ul.descendants, ul.relation_groups {
     width: 100%; overflow: hidden;
     margin: 0;
     li {
@@ -50,5 +62,15 @@ ul.descendants, ul.relations {
         list-style: none;
         border-radius: 3px;
     }
+
+    ul.relations {
+        li {margin: 0;}
+    }
 }
 
+a.mini {
+    font-size: 80%;
+}
+a.alert {
+    color: #c00;
+}

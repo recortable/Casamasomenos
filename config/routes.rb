@@ -24,10 +24,13 @@ Cmom::Application.routes.draw do
     root to: 'navigations#show'
     resources :articles, path: 'entradas' do
       collection { post :sort }
+      resources :relations, path: 'relaciones'
+      resources :mediafiles, :path => 'ficheros'
     end
     resource :navigation, path: 'navegacion'
     resources :users, path: 'participantes'
     resources :categories, path: 'categorias'
     resources :relations, path: 'relaciones'
+    resources :mediafiles, :path => 'ficheros'
   end
 end

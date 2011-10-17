@@ -1,13 +1,9 @@
-
 <% content_for :head do %>
     <ul>
-      <% article.parents.each do |parent| %>
-          <li><%= link_to parent.title, parent %></li>
-      <% end %>
     </ul>
     <%= title article.title %>
 
-        <div class="content categorized">
+    <div class="content categorized">
       <div class="container">
       </div>
     </div>
