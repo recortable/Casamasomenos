@@ -15,7 +15,7 @@ class CreateCategories < ActiveRecord::Migration
 
     Article.all.each do |article|
       category = Category.find_by_name(article.category)
-      article.update_attribute(:category_id, category.id) if category
+      article.update_attribute(:category_id, category.id)
     end
 
     remove_column :articles, :category

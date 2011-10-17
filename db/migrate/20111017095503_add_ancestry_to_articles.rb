@@ -10,8 +10,5 @@ class AddAncestryToArticles < ActiveRecord::Migration
       relation.to.save
       relation.destroy
     end
-
-
-
   end
 end
