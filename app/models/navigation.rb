@@ -1,6 +1,6 @@
 class Navigation
   def tree
-    @tree ||= Article.arrange(order: 'position')
+    @tree ||= Article.arrange(order: 'position ASC')
   end
 end
 

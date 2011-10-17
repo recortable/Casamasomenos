@@ -3,42 +3,48 @@
   <%= link_to 'Editar', [:edit, :admin, article] %>
 </div>
 
+<div class="row">
+  <div class="span10">
+    <h3><%= link_to article.parent.title, [:admin, article.parent] if article.parent %></h3>
+    <%= title article.title %>
 
-<h3><%= link_to article.parent.title, [:admin, article.parent] if article.parent %></h3>
-<%= title article.title %>
-<ul class="descendants">
-  <% article.descendants.all.each do |children| %>
-      <%= content_tag_for :li, children do %>
-          <%= link_to children.title, [:admin, children] %>
+
+    <h3>Información</h3>
+    <dl class="properties">
+      <dt>Tipo:</dt>
+      <dd><%= article.category.name %></dd>
+      <dt>Por:</dt>
+      <dd><%= article.author.name %></dd>
+      <dt>Posición:</dt>
+      <dd><%= article.position %></dd>
+    </dl>
+
+  </div>
+  <div class="span4">
+    <h3>Sub navegación
+      <small><%= article.children.count %></small>
+    </h3>
+    <ul id="descendants" class="descendants" data-update-url="<%= sort_admin_articles_url %>">
+      <% article.children.ordered.all.each do |children| %>
+          <%= content_tag_for :li, children do %>
+              <%= link_to children.title, [:admin, children] %>
+          <% end %>
       <% end %>
-  <% end %>
-</ul>
+    </ul>
 
-
-
-<h3>Información</h3>
-<dl class="properties">
-  <dt>Tipo:</dt>
-  <dd><%= article.category.name %></dd>
-  <dt>Por:</dt>
-  <dd><%= article.author.name %></dd>
-  <dt>Posición:</dt>
-  <dd><%= article.position %></dd>
-</dl>
-
-<h3>Artículos asociados
-  <small><%= article.all_relations.count %></small>
-</h3>
-<ul class="relations">
-  <% article.all_relations.each do |relation| %>
-      <%= content_tag_for :li, relation do %>
-          <% related = relation.related_to(article) %>
-          <%= link_to related.title, [:admin, related] %>
+    <h3>Artículos asociados
+      <small><%= article.all_relations.count %></small>
+    </h3>
+    <ul class="relations">
+      <% article.all_relations.each do |relation| %>
+          <%= content_tag_for :li, relation do %>
+              <% related = relation.related_to(article) %>
+              <%= link_to related.title, [:admin, related] %>
+          <% end %>
       <% end %>
-  <% end %>
-</ul>
-
-
+    </ul>
+  </div>
+</div>
 
 
 <%#= render 'show', attributes: resource_class.attribute_names %>

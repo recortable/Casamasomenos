@@ -9,7 +9,7 @@ module Admin::ApplicationHelper
     content_tag :ul do
       articles.map do |article, children|
         content_tag :li do
-          link_to(article.title, [:edit, :admin, article]) +
+          link_to(article.title, [:admin, article]) +
               admin_nested_articles(children)
         end
       end.join.html_safe

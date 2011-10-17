@@ -11,7 +11,7 @@
 class Article < ActiveRecord::Base
   has_ancestry cache_depth: true
   acts_as_list scope: 'ancestry = \'#{ancestry}\''
-  scope :ordered, order: "ancestry_depth,position DESC"
+  scope :ordered, order: "ancestry_depth,position ASC"
 
 
   belongs_to :author, :class_name => 'User'
@@ -22,14 +22,6 @@ class Article < ActiveRecord::Base
 
   has_many :relations, :class_name => 'Relation', :foreign_key => 'from_id', :dependent => :destroy
   has_many :inverse_relations, :class_name => 'Relation', :foreign_key => 'to_id', :dependent => :destroy
-
-  has_many :parent_relations, :class_name => 'Relation', :foreign_key => 'to_id',
-           :conditions => {:category => 'parent'}
-  has_many :parents, :through => :parent_relations, :source => :from
-
-  has_many :child_relations, :class_name => 'Relation', :foreign_key => 'from_id',
-           :conditions => {:category => 'parent'}
-  has_many :children, :through => :child_relations, :source => :to
 
   scope :by_category, lambda { |category| where(:category => category) }
 

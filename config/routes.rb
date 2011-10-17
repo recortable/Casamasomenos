@@ -22,17 +22,12 @@ Cmom::Application.routes.draw do
 
   namespace :admin do
     root to: 'navigations#show'
+    resources :articles, path: 'entradas' do
+      collection { post :sort }
+    end
     resource :navigation, path: 'navegacion'
     resources :users, path: 'participantes'
-    resources :articles, path: 'entradas'
     resources :categories, path: 'categorias'
     resources :relations, path: 'relaciones'
   end
-
-#  scope "/admin" do
-#    resources :users, :path => 'participantes'
-#    resources :datamaps, :path => 'mapas'
-#    resources :assets, :path => 'archivos'
-#  end
-
 end
