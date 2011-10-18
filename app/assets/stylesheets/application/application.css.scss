@@ -1,3 +1,6 @@
+
+$orange: #ff8a00;
+
 html, body {
     background-color: #EEE;
 }
@@ -7,7 +10,7 @@ body {
 }
 
 a {
-    color: orange;
+    color: #ff8a00;
 }
 
 a:hover {
@@ -34,7 +37,7 @@ a:hover {
     #logo {
         float: left;
         width: 219px; height: 98px; margin: 10px auto 0 auto;
-        background: url('/images/logo.png') no-repeat;
+        background: url('/images/logo-n.png') no-repeat;
         text-indent: -1000px;
         overflow: hidden;
     }
@@ -50,22 +53,44 @@ a:hover {
 
 .sidebar {
     ul {
-        margin-left: 10px;
-        padding-bottom: 10px;
+        margin: 0;
+        padding: 0;
 
         li {
             list-style-type: none;
-            border-bottom: 1px solid #EEE;
+            padding: 0; margin: 0;
+
+            a {
+                display: block;
+                padding: 3px 5px 2px 5px;
+                border-bottom: 1px solid transparent;
+                border-radius: 3px;
+                color: #555;
+            }
+
+            a:hover {
+                background-color: #ffe;
+                border-bottom: 1px solid $orange;
+                text-decoration: none;
+            }
+
         }
 
+        li.selected {
+            color: $orange;
+            span {display: block; padding: 3px 5px;}
+        }
+
+
         li.depth-0 {
-            font-size: 14px;
-            font-weight: bold;
         }
 
         li.depth-1 {
-            font-size: 14px;
+            a {padding-left: 18px;}
         }
+
+        li.depth-2 a, li.depth-2 span {padding-left: 25px;}
+        li.depth-3 a, li.depth-3 span {padding-left: 30px;}
 
 
     }

@@ -12,21 +12,12 @@ module ApplicationHelper
     collection.map { |i| [i, I18n.t("#{prefix}.#{i}")] }
   end
 
-  def tree_articles(articles)
-    if articles.size > 0
-      content_tag :ul do
-        articles.map do |article, children|
-          content_tag(:li, link_to(article.title, article),
-                      class: "depth-#{article.ancestry_depth}") +
-              tree_articles(children)
-        end.join.html_safe
-      end
-    end
-  end
+
 
 
   def render_body(model)
     text = model.body.present? ? model.body : '*aún no tiene contenido*'
+    text.gsub!(/^#/, '##')
     text = RDiscount.new(text, :smart, :filter_html).to_html
     text = replace_right_images(text)
     text = replace_right_text(text)

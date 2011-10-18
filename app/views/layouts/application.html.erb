@@ -28,36 +28,16 @@
       <% end %>
     </div>
     <div class="content">
-      <div class="page-header">
-        <div class="row">
-          <div class="span4">
-            <h3 id="logo">Casa más o menos</h3>
-          </div>
-          <div class="span10">
-            <h1><%= yield :title %></h1>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="sidebar span4">
-          <%= tree_articles Site.tree %>
-        </div>
-        <div class="span10 main">
-          <%= yield %>
-        </div>
-      </div>
+      <%= yield %>
     </div>
+
+    <footer>
+      <p>casamasomenos.net</p>
+    </footer>
+
   </div>
-
-  <footer>
-    <p>casamasomenos.net</p>
-  </footer>
-
+  <!-- /container -->
 </div>
-<!-- /container -->
-
-
-
 
 <%= render :partial => '/layouts/ga' %>
 </body>

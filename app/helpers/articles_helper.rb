@@ -1,4 +1,18 @@
 module ArticlesHelper
+
+  def article_tree(articles, depth = 0)
+    if articles.size > 0
+      content_tag(:ul, class: "depth-#{depth}") do
+        articles.map do |article, children|
+          content_tag(:li, link_to(article.title, article),
+                      class: "depth-#{article.ancestry_depth} link_to-#{article.id} #{'visible' if article.always_visible_on_tree}") +
+              article_tree(children, depth + 1)
+        end.join.html_safe
+      end
+    end
+  end
+
+
   def nested_articles(articles)
     articles.map do |article, sub_articles|
       render(:partial => 'nested', :locals => {:article => article}) +

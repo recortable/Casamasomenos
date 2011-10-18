@@ -3,6 +3,7 @@
     <%= form.input :title %>
     <%= form.input :parent_id, :collection => Article.order(:title) %>
     <%= form.association :category %>
+    <%= form.input :always_visible_on_tree %>
     <%= form.input :body %>
     <%= form.submit class: 'btn' %>
 <% end %>

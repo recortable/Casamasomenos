@@ -11,20 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111017195936) do
+ActiveRecord::Schema.define(:version => 20111018145216) do
 
   create_table "articles", :force => true do |t|
-    t.string   "title",          :limit => 300
+    t.string   "title",                  :limit => 300
     t.text     "body"
-    t.string   "lang",           :limit => 6
+    t.string   "lang",                   :limit => 6
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
-    t.string   "ancestry",       :limit => 300
-    t.integer  "ancestry_depth",                :default => 0
+    t.string   "ancestry",               :limit => 300
+    t.integer  "ancestry_depth",                        :default => 0
     t.integer  "position"
-    t.string   "state",          :limit => 16
+    t.string   "state",                  :limit => 16
+    t.boolean  "always_visible_on_tree",                :default => false
   end
 
   add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"

@@ -1,21 +1,37 @@
-<% title article.title %>
-
-
-<%= div_for article do %>
-    <div class="render">
-      <%= render_body article %>
+<div class="page-header">
+  <div class="row">
+    <div class="span4">
+      <a href="/">
+        <h3 id="logo">Casa más o menos</h3>
+      </a>
     </div>
-<% end %>
-
-<div class="comment_block">
-  <h3>Comentarios</h3>
-  <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
-  <div class="comments">
-    <% article.comments.each do |comment| %>
-        <div class="nested_comments">
-          <%= nested_comments comment.subtree.arrange(:order => :created_at) %>
-        </div>
-    <% end %>
+    <div class="span10">
+      <h1><%= title article.title %></h1>
+    </div>
   </div>
 </div>
-
+<div class="row">
+  <div class="sidebar span4">
+    <div id="article_tree" style="display: none;">
+      <%= article_tree Site.tree %>
+    </div>
+  </div>
+  <div class="span10 main">
+    <%= div_for article do %>
+        <div class="render">
+          <%= render_body article %>
+        </div>
+    <% end %>
+    <div class="comment_block">
+      <h3>Comentarios</h3>
+      <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
+      <div class="comments">
+        <% article.comments.each do |comment| %>
+            <div class="nested_comments">
+              <%= nested_comments comment.subtree.arrange(:order => :created_at) %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
