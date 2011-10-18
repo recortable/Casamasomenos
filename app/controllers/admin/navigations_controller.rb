@@ -1,5 +1,5 @@
 class Admin::NavigationsController < Admin::ApplicationController
-  expose(:navigation) { Navigation.new }
+  expose(:navigation) { Site }
 
   def show
 

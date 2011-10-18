@@ -1,6 +1,5 @@
 Cmom::Application.routes.draw do
-#  root :to => "articles#welcome"
-  root :to => "pages#index"
+  root :to => "articles#index"
 
   match "/salir" => "sessions#destroy", :as => :logout
   match "/sesion" => "sessions#create", :as => :create_session

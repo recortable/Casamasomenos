@@ -45,8 +45,11 @@ group :test do
   gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'turn', :require => false
+  gem 'turn', require: false
   gem "cucumber-rails", ">= 1.0.2"
+  gem "spork", "> 0.9.0.rc"
+  gem "guard-spork"
+  gem "capybara", ">= 1.0.1"
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 

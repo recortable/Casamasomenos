@@ -1,12 +1,16 @@
 # Article
 #
-#  t.string   "title",      :limit => 300
+#  t.string   "title",          :limit => 300
 #  t.text     "body"
-#  t.string   "lang",       :limit => 6
+#  t.string   "lang",           :limit => 6
 #  t.integer  "author_id"
 #  t.datetime "created_at"
 #  t.datetime "updated_at"
-#  t.string   "category",   :limit => 32
+#  t.integer  "category_id"
+#  t.string   "ancestry",       :limit => 300
+#  t.integer  "ancestry_depth",                :default => 0
+#  t.integer  "position"
+#  t.string   "state",          :limit => 16
 #
 class Article < ActiveRecord::Base
   has_ancestry cache_depth: true

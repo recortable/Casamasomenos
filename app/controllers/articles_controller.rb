@@ -17,10 +17,6 @@ class ArticlesController < ApplicationController
 
 
   def index
-
-  end
-
-  def welcome
     params[:id] = 1
     render 'show'
   end
@@ -37,7 +33,6 @@ class ArticlesController < ApplicationController
   def edit
     authorize! :edit, article
   end
-
 
   def create
     article.author = current_user

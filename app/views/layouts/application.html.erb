@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
   <title><%= yield :title %> :: Casa + o -</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   <link rel="shortcut icon" href="/casamasomenos.ico" type="image/x-icon"/>
   <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag "application" %>
@@ -10,58 +18,47 @@
 </head>
 <body class="<%= controller.class.name[0..-11].downcase %>">
 
-  <% if current_user? %>
-    <div id="session">
-      <%= avatar_img(current_user) %> <%= link_to current_user.name, current_user %>
-      <%= link_to '&lArr; Salir'.html_safe, logout_path, :confirm => '¿Quieres salir?' %> |
-      <% if current_user.admin? %>
-          <%= link_to 'Articulos', index_path %> |
-          <%= link_to 'Ficheros', mediafiles_path %> |
-          <%= link_to 'Participantes', users_path %>
+<div class="container">
+  <div class="container">
+    <div id="flashes">
+      <% flash.each do |name, msg| %>
+          <%= content_tag :div, :class => "flash #{name}" do %>
+              <%= msg %>
+          <% end %>
       <% end %>
     </div>
-  <% end %>
-
-<div id="flashes">
-  <% flash.each do |name, msg| %>
-      <%= content_tag :div, :class => "flash #{name}" do %>
-          <%= msg %>
-      <% end %>
-  <% end %>
-</div>
-
-<div id="page" role="main">
-  <div class="container">
-    <div id="logo"><h1>Casa más o menos</h1></div>
-    <div id="head">
-      <div class="inside"><%= content_for :head %></div>
+    <div class="content">
+      <div class="page-header">
+        <div class="row">
+          <div class="span4">
+            <h3 id="logo">Casa más o menos</h3>
+          </div>
+          <div class="span10">
+            <h1><%= yield :title %></h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="sidebar span4">
+          <%= tree_articles Site.tree %>
+        </div>
+        <div class="span10 main">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="container">
-    <div id="browser">
-      <%= render 'browser' %>
-    </div>
-    <div id="main">
-      <div class="inside"><%= yield %></div>
-    </div>
-  </div>
+
+  <footer>
+    <p>casamasomenos.net</p>
+  </footer>
+
 </div>
+<!-- /container -->
 
 
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-11032039-6']);
-    _gaq.push(['_trackPageview']);
 
-    (function() {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
 
-</script>
+<%= render :partial => '/layouts/ga' %>
 </body>
 </html>

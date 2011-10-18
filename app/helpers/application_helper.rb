@@ -9,7 +9,19 @@ module ApplicationHelper
 
   # translate collection
   def tc(prefix, collection)
-    collection.map {|i| [i, I18n.t("#{prefix}.#{i}")]}
+    collection.map { |i| [i, I18n.t("#{prefix}.#{i}")] }
+  end
+
+  def tree_articles(articles)
+    if articles.size > 0
+      content_tag :ul do
+        articles.map do |article, children|
+          content_tag(:li, link_to(article.title, article),
+                      class: "depth-#{article.ancestry_depth}") +
+              tree_articles(children)
+        end.join.html_safe
+      end
+    end
   end
 
 
