@@ -1,4 +1,3 @@
-
 module AuthModule
   protected
   def current_user
@@ -10,10 +9,12 @@ module AuthModule
   end
 
   def require_admin
-    if current_user
-      raise CanCan::AccessDenied unless current_user.admin?
-    elsif
-      store_location
+    if current_user?
+      unless current_user.admin?
+        flash[:notice] = "No eres admin."
+        redirect_to root_path
+      end
+    elsif store_location
       redirect_to login_path
     end
   end
