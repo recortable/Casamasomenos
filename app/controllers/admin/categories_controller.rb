@@ -1,4 +1,4 @@
-class Admin::CategoriesController < Admin::ResourceController
+class Admin::CategoriesController < Admin::ZapController
   resource :category
   expose(:categories) { Category.all }
   expose(:category)

@@ -1,4 +1,4 @@
-class Admin::ArticlesController < Admin::ResourceController
+class Admin::ArticlesController < Admin::ZapController
   resource :article
   expose(:articles) { Article.order('title ASC') }
   expose(:article)

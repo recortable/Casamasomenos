@@ -1,6 +1,6 @@
 class MapsController < ApplicationController
   expose(:article) {Article.first}
-  expose(:comment) { Comment.new(:resource => article) }
+  expose(:comment) { Comment.new(:zap => article) }
 
   def show
     #max_age = 2 * 60 * 60

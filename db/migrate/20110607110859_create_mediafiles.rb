@@ -2,7 +2,7 @@ class CreateMediafiles < ActiveRecord::Migration
   def change
     create_table :mediafiles do |t|
       t.belongs_to :user
-      t.belongs_to :resource, :polymorphic => true
+      t.belongs_to :zap, :polymorphic => true
 
       t.string :title, :limit => 300
       t.string :description, :limit => 512

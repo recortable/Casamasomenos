@@ -1,0 +1,25 @@
+<table class="common-table zebra-striped">
+  <thead>
+  <tr>
+    <% attributes.each do |attribute| %>
+        <th><%= zap_class.human_attribute_name(attribute) %></th>
+    <% end %>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% zaps.each do |zap| %>
+      <tr>
+        <% attributes.each do |attribute| %>
+            <% value = zap.public_send(attribute).to_s %>
+            <td><%= value.truncate(20) if value %></td>
+        <% end %>
+        <td>
+          <%= link_to 'show', [:admin, zap] %>
+          <%= link_to 'edit', [:edit, :admin, zap] %>
+          <%= link_to 'destroy', [:admin, zap], method: :delete, confirm: "Are you sure?" %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

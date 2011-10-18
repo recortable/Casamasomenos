@@ -1,8 +1,0 @@
-<div class="page-header">
-  <%= link_to raw('&larr; Volver'), [:admin, resource_class] %>
-  <%= link_to 'Editar', [:edit, :admin, resource] %>
-</div>
-
-<%= title "Ver  #{resource_class.model_name.human}" %>
-
-<%= render 'show', attributes: resource_class.attribute_names %>

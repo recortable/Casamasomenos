@@ -1,0 +1,8 @@
+<div class="page-header">
+  <%= link_to raw('&larr; Volver'), [:admin, zap_class] %>
+  <%= link_to 'Editar', [:edit, :admin, zap] %>
+</div>
+
+<%= title "Ver  #{zap_class.model_name.human}" %>
+
+<%= render 'show', attributes: zap_class.attribute_names %>

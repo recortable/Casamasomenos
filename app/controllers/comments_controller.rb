@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   respond_to :html
-  expose(:resource) { Article.find params[:article_id] }
-  expose(:comments) { resource.comments }
+  expose(:parent) { Article.find params[:article_id] }
+  expose(:comments) { parent.comments }
   expose(:comment)
   expose(:replied) { Comment.find params[:parent_id] }
   expose(:reply) { Comment.new(:parent => replied) }
@@ -18,8 +18,8 @@ class CommentsController < ApplicationController
       flash[:notice] = t('comments.notice.replied') if resp.save
       respond_with resp, :location => resp.root.resource
     else
-      params[:comment][:author_id] = resource.author_id
-      comment = resource.comments.build(params[:comment])
+      params[:comment][:author_id] = parent.author_id
+      comment = parent.comments.build(params[:comment])
       flash[:notice] = t('comments.notice.create') if comment.save
       AdminMailer.comment_email(comment).deliver
       respond_with comment, :location => resource

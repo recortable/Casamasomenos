@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.text :body
       t.belongs_to :author
-      t.belongs_to :resource, :polymorphic => true
+      t.belongs_to :zap, :polymorphic => true
       t.string :ancestry
       t.timestamps
     end
