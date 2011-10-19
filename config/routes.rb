@@ -5,6 +5,7 @@ Cmom::Application.routes.draw do
   match "/sesion" => "sessions#create", :as => :create_session
   match "/entrar" => "sessions#new", :as => :login
   match "/enter/:id" => "sessions#enter", :as => :enter
+  resources :sessions
 
   match "/mapa/:id" => "diagrams#show", :as => :diagram
   match "/articulos" => "articles#index", :as => :index

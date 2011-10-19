@@ -1,22 +1,14 @@
-<% content_for :head do %>
-    <%= title 'Entrar en casamasomenos.net' %>
-<% end %>
+<div class="page-header">
+  <%= title 'Entrar en casamasomenos.net' %>
 
-<div class="dark strip">
-  En estos momentos casa+o- funciona por invitación. No se pueden crear cuentas nuevas.
+  <p> En estos momentos casa+o- funciona por invitación. No se pueden crear cuentas nuevas.</p>
 </div>
 
 
-<%= form_tag create_session_path do %>
-    <div class="input">
-      <label>Dirección de correo electrónico:</label>
-      <%= text_field_tag :email %>
-    </div>
-    <div class="input">
-      <label>Contraseña:</label>
-      <%= password_field_tag :password %>
-    </div>
-    <%= submit_tag 'Entrar' %>
+<%= simple_form_for user_session do |form| %>
+    <%= form.input :email %>
+    <%= form.input :password %>
+    <%= form.submit 'Entrar', class: 'btn' %>
 <% end %>
 
 

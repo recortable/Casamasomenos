@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class SessionsController < ApplicationController
+  expose(:user_session) { Session.new(params[:session]) }
+
   def destroy
     url = params[:p]
     url ||= root_path
@@ -13,9 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    if user_session.save
+      session[:user_id] = user_session.user.id
       redirect_to stored_or(root_url), :notice => "Bienvenidx!"
     else
       flash.now.notice = "La dirección de correo electrónico o la contraseña no son correctas."
