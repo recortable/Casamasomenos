@@ -1,7 +1,7 @@
 
 <dl>
   <% attributes.each do |attr| %>
-      <dt><%= resource_class.human_attribute_name(attr) %></dt>
-      <dd><%= resource.public_send(attr) %></dd>
+      <dt><%= zap_class.human_attribute_name(attr) %></dt>
+      <dd><%= zap.public_send(attr) %></dd>
   <% end %>
-</dl>[
+</dl>

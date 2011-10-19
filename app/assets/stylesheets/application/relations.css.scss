@@ -1,0 +1,22 @@
+
+.article-header {
+    ul.relations {
+        margin: 0;
+
+        width: 100%; overflow: hidden;
+
+        li {
+            display: block; float: left;
+            list-style: none;
+            margin-right: 0.5em;
+        }
+
+        span {display: block; float: left; margin-right: 0.5em;}
+
+        li.category {
+            width: 100%; overflow: hidden;
+        }
+
+        ul {margin: 0;}
+    }
+}

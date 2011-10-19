@@ -21,7 +21,7 @@ class Admin::ZapController < Admin::ApplicationController
   def update
     data = params[zap_resource_name]
     #render text: data.inspect
-    result = resource.update_attributes(data) ? 'updated' : 'update_error'
+    result = zap.update_attributes(data) ? 'updated' : 'update_error'
     flash[:notice] = t("#{zap_resource_name}.flash.#{result}")
     respond_with zap, location: [:admin, zap]
   end
