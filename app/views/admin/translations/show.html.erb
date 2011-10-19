@@ -1,0 +1,11 @@
+<div class="page-header">
+  <%= link_to raw('&larr; Volver'), [:admin, article] %>
+  <%= link_to raw('Editar'), [:edit, :admin, article, translation] %>
+</div>
+
+<%= title 'Traducción' %>
+
+<h2><%= translation.title %></h2>
+<div class="render">
+  <%= render_body translation %>
+</div>

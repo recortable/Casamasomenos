@@ -1,0 +1,11 @@
+es:
+  activerecord:
+    models:
+      category: 'categoría'
+      translation: 'traducción'
+
+  simple_form:
+    labels:
+      title: 'Título'
+      lang: 'Idioma'
+      body: 'Texto'

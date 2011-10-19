@@ -2,7 +2,7 @@
   <%= link_to raw('&larr; Volver'), [:admin, article] %>
 </div>
 
-<%= title "Añadir traducción a '#{article.title}'" %>
+<%= title "Editar traducción de '#{article.title}'" %>
 
 
 <%= render 'form', attributes: editable_attributes(translation) %>

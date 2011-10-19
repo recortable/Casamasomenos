@@ -67,7 +67,11 @@
     </div>
     <ul class="translations">
       <% article.translations.each do |trans| %>
-      <li><%= trans.lang %> <%= link_to trans.title, [:admin, article, trans] %></li>
+      <li>(<%= trans.lang %>) <%= link_to trans.title, [:admin, article, trans] %>
+        <%= link_to raw('&#9998;'), [:edit, :admin, article, trans], class: 'mini edit' %>
+        <%= link_to 'x', '#', class: 'mini alert' %>
+
+      </li>
       <% end %>
     </ul>
   </div>

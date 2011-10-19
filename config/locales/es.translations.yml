@@ -1,0 +1,5 @@
+es:
+  translation:
+    flash:
+      updated: 'Traducción guardada. Gracias!'
+      created: 'Hemos añadido la tradución. Gracias!'

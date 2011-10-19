@@ -4,8 +4,12 @@ class Admin::TranslationsController < Admin::ZapController
   expose(:translation)
 
 
-  def new
+  def create
+    create! { [:admin, article] }
+  end
 
+  def update
+    update! { [:admin, article] }
   end
 end
 

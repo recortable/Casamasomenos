@@ -6,6 +6,7 @@
   <div class="span8">
     <%= simple_form_for [:admin, article, translation] do |form| %>
         <%= form.input :title %>
+        <%= form.input :lang, collection: [['English', :en]], include_blank: false %>
         <%= form.input :body %>
         <%= form.submit %>
     <% end %>

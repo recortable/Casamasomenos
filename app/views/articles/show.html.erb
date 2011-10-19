@@ -13,7 +13,7 @@
               <span><%= category.es_name %>:</span>
               <ul class="related">
                 <% group.each do |relation| %>
-                    <li><%= link_to relation.other.title, [:admin, relation.other] %>
+                    <li><%= link_to relation.other.title, relation.other %>
                     </li>
                 <% end %>
               </ul>
@@ -35,16 +35,6 @@
           <%= render_body article %>
         </div>
     <% end %>
-    <div class="comment_block">
-      <h3>Comentarios</h3>
-      <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
-      <div class="comments">
-        <% article.comments.each do |comment| %>
-            <div class="nested_comments">
-              <%= nested_comments comment.subtree.arrange(:order => :created_at) %>
-            </div>
-        <% end %>
-      </div>
-    </div>
+    <%#= render 'comments/comments' %>
   </div>
 </div>

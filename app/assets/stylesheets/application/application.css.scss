@@ -1,12 +1,15 @@
 
 $orange: #ff8a00;
+$gray: #EEE;
+$grayline: #CCC;
 
 html, body {
-    background-color: #EEE;
+    background-color: white;
 }
 
 body {
     padding-top: 0px;
+    color: black;
 }
 
 a {
@@ -17,20 +20,22 @@ a:hover {
     color: #f57602;
 }
 
+h1, h2, h3, h4, h5, h6 {font-family: Georgia,serif; font-style: italic;}
+h1 {font-size: 36px;}
 .content {
     background-color: white;
     padding: 20px;
+    overflow: hidden;
     border-radius: 0 0 6px 6px;
-    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+//    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+//    box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 
 .page-header {
     width: 100%; overflow: hidden;
-    background-color: whiteSmoke;
+    background-color: white;
     padding: 10px 20px;
     margin: -20px -20px 20px;
-    border-top: 1px solid #DDD;
 
     .span4 {margin-right: 19px;}
 
@@ -47,7 +52,7 @@ a:hover {
 .content .sidebar {
     margin-right: 10px;
     padding-right: 9px;
-    border-right: 1px solid #EEE;
+    border-right: 1px solid $grayline;
     min-height: 500px;
     padding-bottom: 10000px;
     margin-bottom: -10000px;
@@ -67,12 +72,12 @@ a:hover {
                 padding: 3px 5px 2px 5px;
                 border-bottom: 1px solid transparent;
                 border-radius: 3px;
-                color: #555;
+                color: black;
             }
 
             a:hover {
-                background-color: #ffe;
-                border-bottom: 1px solid $orange;
+                background-color: #eec;
+                border-bottom: 1px solid transparent;
                 text-decoration: none;
             }
 

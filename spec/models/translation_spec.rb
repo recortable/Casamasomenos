@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Translation do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should update article languages" do
+    article = FactoryGirl.create(:article)
+    article.should_not nil?
+  end
 end

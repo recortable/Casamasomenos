@@ -23,15 +23,30 @@ class Admin::ZapController < Admin::ApplicationController
   end
 
   def update
+    update! { [:admin, zap] }
+  end
+
+  def create
+    create! { [:admin, zap] }
+  end
+
+  protected
+  def create!
+    zap.author = current_user if zap.respond_to? :author
+    result = zap.save ? 'created' : 'create_error'
+    flash[:notice] = t("#{zap_resource_name}.flash.#{result}")
+    respond_with zap, location: yield
+  end
+
+  def update!
     data = params[zap_resource_name]
     #render text: data.inspect
     result = zap.update_attributes(data) ? 'updated' : 'update_error'
     flash[:notice] = t("#{zap_resource_name}.flash.#{result}")
-    respond_with zap, location: [:admin, zap]
+    respond_with zap, location: yield
   end
 
 
-  protected
   def self.resource(resource_name)
     define_method 'zap_resource_name' do
       resource_name.to_s

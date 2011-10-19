@@ -11,5 +11,9 @@ class Admin::CategoriesController < Admin::ZapController
   def new
 
   end
+
+  def update
+    update! { [:admin, :categories] }
+  end
 end
 
