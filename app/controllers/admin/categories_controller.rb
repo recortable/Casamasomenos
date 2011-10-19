@@ -4,16 +4,8 @@ class Admin::CategoriesController < Admin::ZapController
   expose(:category)
 
 
-  def index
-
-  end
-
-  def new
-
-  end
-
   def update
-    update! { [:admin, :categories] }
+    update! [:admin, :categories]
   end
 end
 

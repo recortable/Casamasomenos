@@ -1,4 +1,30 @@
 <%= title "Categorías", small: zaps.count %>
 
+<div class="strip">
+  <%= link_to icon(:new, 'Añadir categoría'), [:new, :admin, :category] %>
+</div>
 
-<%= render 'index', attributes: zap_class.attribute_names %>
+<table class="common-table zebra-striped">
+  <thead>
+  <tr>
+    <th>Categoría</th>
+    <th>Núm. artículos</th>
+    <th>Castellano</th>
+    <th>Inglés</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% categories.each do  |category| %>
+  <tr>
+    <td><%= link_to category.es_name, [:admin, category] %></td>
+    <td><%= category.articles.count %></td>
+    <td><%= category.es_name %></td>
+    <td><%= category.en_name %></td>
+    <td>
+      <%= link_to icon(:edit), [:edit, :admin, category] %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

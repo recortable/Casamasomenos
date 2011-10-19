@@ -17,7 +17,9 @@ module Admin::ApplicationHelper
   end
 
   ICONS = {view: '&#9758;', new: '+', edit: '&#9998;',
-           delete: '&#10008;', delete_alt: '&#9986;'}
+           delete: '&#10008;', delete_alt: '&#9986;',
+           back: '&larr;'}
+
   def icon(name, label = '')
     raw("#{ICONS[name]} #{label}")
   end

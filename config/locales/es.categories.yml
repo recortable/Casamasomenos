@@ -2,3 +2,6 @@ es:
   category:
     flash:
       updated: 'Categoría actualizada. Gracias!'
+      destroyed: 'Categoría borrada.'
+      created: 'Categoría creada'
+      error: 'Hay errores. Revisa los datos.'

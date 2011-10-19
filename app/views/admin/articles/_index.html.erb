@@ -1,0 +1,32 @@
+
+<table class="common-table zebra-striped">
+  <thead>
+  <tr>
+    <th>Artículo</th>
+    <th>Categoría</th>
+    <th>Cmm/Rel/Fil</th>
+    <th>Modificado hace...</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% articles.each do |article| %>
+      <tr>
+        <td>
+          <h5><%= link_to article.title, [:admin, article] %>
+            <small>Por <%= article.author.name %>
+            </small>
+          </h5>
+        </td>
+        <td><%= article.category.es_name %></td>
+        <td><%= article.comments.count %>/<%= article.relations.count %>/<%= article.mediafiles.count %></td>
+        <td><%= time_ago_in_words article.updated_at %></td>
+        <td>
+          <%= link_to icon(:edit), [:edit, :admin, article], class: 'edit' %>
+          <%= link_to icon(:delete), [:admin, article], method: :delete, class: 'alert',
+                      confirm: "Esta acción no se puede deshacer: ¿Quieres borrar el artículo?" if article.children.count == 0 %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,30 +1,3 @@
 <%= title 'Entradas', small: articles.count %>
 
-<table class="common-table zebra-striped">
-  <thead>
-  <tr>
-    <th>Título</th>
-    <th>Categoría</th>
-    <th>Cmm/Rel/Fil</th>
-    <th>Modificado hace...</th>
-    <th>&nbsp;</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% articles.each do |article| %>
-      <td>
-        <h5><%= link_to article.title, [:admin, article] %>
-      <small>Por <%= article.author.name %></small></h5>
-      </td>
-      <td><%= article.category.es_name %></td>
-      <td><%= article.comments.count %>/<%= article.relations.count %>/<%= article.mediafiles.count %></td>
-      <td><%= time_ago_in_words article.updated_at %></td>
-      <td>
-        <%= link_to 'Ver', [article] %>&nbsp;
-        <%= link_to 'Editar', [:edit, :admin, article] %>&nbsp;
-        <%= link_to 'Borrar', [:admin, article], method: :delete, confirm: "¿Quieres borrar el artículo?" %>
-      </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render 'index' %>

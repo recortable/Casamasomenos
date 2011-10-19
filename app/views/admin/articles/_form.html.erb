@@ -1,10 +1,29 @@
+<div class="row">
+  <div class="span10">
+    <%= simple_form_for [:admin, article] do |form| %>
+        <%= form.input :title %>
+        <%= form.input :parent_id, :collection => Article.order(:title) %>
+        <%= form.association :category %>
+        <%= form.input :always_visible_on_tree %>
+        <%= form.input :body %>
+        <%= form.submit class: 'btn' %>
+    <% end %>  </div>
+  <div class="sidebar span4">
+    <h3>Títulos</h3>
 
+    <p># Título grande<br/>
+      ## Título mediano<br/>
+      ### Título pequeño</p>
 
-<%= simple_form_for [:admin, article] do |form| %>
-    <%= form.input :title %>
-    <%= form.input :parent_id, :collection => Article.order(:title) %>
-    <%= form.association :category %>
-    <%= form.input :always_visible_on_tree %>
-    <%= form.input :body %>
-    <%= form.submit class: 'btn' %>
-<% end %>
+    <h3>Formato</h3>
+
+    <p>*itálica*<br/>
+      **negrita**</p>
+
+    <h3>Listas</h3>
+
+    <h3>Insertar</h3>
+
+  </div>
+</div>
+

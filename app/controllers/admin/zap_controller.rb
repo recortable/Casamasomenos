@@ -40,8 +40,12 @@ class Admin::ZapController < Admin::ApplicationController
   protected
   def create!(url)
     zap.author = current_user if zap.respond_to? :author
-    result = zap.save ? 'created' : 'create_error'
-    flash[:notice] = t("#{zap_resource_name}.flash.#{result}")
+    if zap.save
+      flash[:notice] = t("#{zap_resource_name}.flash.created")
+    else
+      flash[:notice] = t("common.flash.error")
+    end
+
     respond_with zap, location: url
   end
 

@@ -1,0 +1,13 @@
+<h4>Categoría</h4>
+<%= title "#{category.es_name} / #{category.en_name}", small: category.articles.count %>
+
+<div class="strip">
+  <%= link_to icon(:edit, 'Editar'), [:edit, :admin, category] %> /
+  <%= link_to icon(:delete, 'Borrar'), [:admin, category], method: :delete,
+              confirm: "Esto no se puede deshacer: ¿Quieres borrar la categoría '#{category.es_name}'?",
+              class: 'alert' if category.articles.count == 0 %>
+</div>
+
+<h2>Artículos en esta categoría</h2>
+
+<%= render 'admin/articles/index', articles: category.articles %>

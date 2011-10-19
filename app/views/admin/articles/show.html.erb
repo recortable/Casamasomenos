@@ -1,5 +1,7 @@
-<div class="page-header">
-  <%= link_to raw('&larr; Volver'), [:admin, :articles] %> /
+<h3>Artículo</h3>
+<%= title article.title, small: "Por #{article.author.name}" %>
+
+<div class="strip">
   <%= link_to icon(:view, 'Ver en la web'), article %> /
   <%= link_to icon(:edit, 'Editar'), [:edit, :admin, article] %>
 </div>
@@ -8,7 +10,6 @@
   <div class="span10">
     <%= div_for article do %>
         <h3><%= link_to article.parent.title, [:admin, article.parent] if article.parent %></h3>
-        <%= title article.title, small: "Por #{article.author.name}" %>
 
         <div class="render">
           <%= render_body article %>

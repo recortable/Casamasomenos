@@ -1,4 +1,4 @@
 
 jQuery ->
-    $(".flash").live 'click', ->
+    $(".flash").css('cursor', 'pointer').live 'click', ->
         $(this).slideUp()
