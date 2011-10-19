@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="span7">
+    <h3><%= article.title %></h3>
+    <%= simple_format article.body %>
+  </div>
+  <div class="span8">
+    <%= simple_form_for [:admin, article, translation] do |form| %>
+        <%= form.input :title %>
+        <%= form.input :body %>
+        <%= form.submit %>
+    <% end %>
+  </div>
+</div>

@@ -14,6 +14,10 @@ class Admin::ZapController < Admin::ApplicationController
     respond_with zap
   end
 
+  def new
+    respond_with zap
+  end
+
   def edit
     respond_with zap
   end
