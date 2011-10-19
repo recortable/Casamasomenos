@@ -3,6 +3,7 @@ es:
     models:
       category: 'categoría'
       translation: 'traducción'
+      mediafile: 'fichero'
 
   simple_form:
     labels:

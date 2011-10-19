@@ -15,4 +15,10 @@ module Admin::ApplicationHelper
       end.join.html_safe
     end
   end
+
+  ICONS = {view: '&#9758;', new: '+', edit: '&#9998;',
+           delete: '&#10008;', delete_alt: '&#9986;'}
+  def icon(name, label = '')
+    raw("#{ICONS[name]} #{label}")
+  end
 end

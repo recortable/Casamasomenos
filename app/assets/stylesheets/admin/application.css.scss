@@ -52,7 +52,8 @@ h3 + div.links {
     border-top: 1px solid #EEE;
 }
 
-ul.descendants, ul.relation_groups, ul.translations {
+
+.sidebar ul {
     width: 100%; overflow: hidden;
     margin: 0;
     li {

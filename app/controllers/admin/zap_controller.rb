@@ -23,27 +23,40 @@ class Admin::ZapController < Admin::ApplicationController
   end
 
   def update
-    update! { [:admin, zap] }
+    url = article.present? ? [:admin, article, zap] : [:admin, zap]
+    update!(url)
   end
 
   def create
-    create! { [:admin, zap] }
+    url = article.present? ? [:admin, article, zap] : [:admin, zap]
+    create!(url)
+  end
+
+  def destroy
+    url = article.present? ? [:admin, article, zap_class] : [:admin, zap_class]
+    destroy!(url)
   end
 
   protected
-  def create!
+  def create!(url)
     zap.author = current_user if zap.respond_to? :author
     result = zap.save ? 'created' : 'create_error'
     flash[:notice] = t("#{zap_resource_name}.flash.#{result}")
-    respond_with zap, location: yield
+    respond_with zap, location: url
   end
 
-  def update!
+  def update!(url)
     data = params[zap_resource_name]
     #render text: data.inspect
     result = zap.update_attributes(data) ? 'updated' : 'update_error'
     flash[:notice] = t("#{zap_resource_name}.flash.#{result}")
-    respond_with zap, location: yield
+    respond_with zap, location: url
+  end
+
+  def destroy!(url)
+    result = zap.destroy ? 'destroyed' : 'destroy_error'
+    flash[:notice] = t("#{zap_resource_name}.flash.#{result}")
+    respond_with zap, location: url
   end
 
 

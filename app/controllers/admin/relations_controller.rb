@@ -21,7 +21,10 @@ class Admin::RelationsController < Admin::ZapController
     relation.user = current_user
     relation.from_category = relation.from.category if relation.from.present?
     relation.to_category = relation.to.category if relation.to.present?
-    relation.save
-    respond_with relation, location: [:admin, relation.from]
+    create! [:admin, relation.from]
+  end
+
+  def destroy
+    destroy! [:admin, article]
   end
 end

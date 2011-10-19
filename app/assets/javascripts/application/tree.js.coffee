@@ -7,7 +7,7 @@ jQuery ->
   selected = $("li.link_to-#{article_id}")
   selected.addClass('selected').show()
   selected.siblings('li').show()
-  selected.next('ul').children('li').show()
+  selected.next('ul').addClass('selected').children('li').show()
   selected.parents('li').show()
   name = selected.children('a').text()
   selected.html("<span>#{name}</span>")

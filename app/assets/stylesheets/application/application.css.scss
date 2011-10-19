@@ -1,7 +1,8 @@
 
 $orange: #ff8a00;
 $gray: #EEE;
-$grayline: #CCC;
+$grayline: #666; //#CCC;
+$dark: #111;
 
 html, body {
     background-color: white;
@@ -36,6 +37,7 @@ h1 {font-size: 36px;}
     background-color: white;
     padding: 10px 20px;
     margin: -20px -20px 20px;
+    border-bottom: 1px solid $grayline;
 
     .span4 {margin-right: 19px;}
 
@@ -50,9 +52,9 @@ h1 {font-size: 36px;}
 }
 
 .content .sidebar {
-    margin-right: 10px;
-    padding-right: 9px;
-    border-right: 1px solid $grayline;
+    margin-right: 19px;
+    padding-right: 0px;
+    border-right: 1px solid $dark;
     min-height: 500px;
     padding-bottom: 10000px;
     margin-bottom: -10000px;
@@ -71,8 +73,7 @@ h1 {font-size: 36px;}
                 display: block;
                 padding: 3px 5px 2px 5px;
                 border-bottom: 1px solid transparent;
-                border-radius: 3px;
-                color: black;
+                color: $dark;
             }
 
             a:hover {
@@ -85,17 +86,27 @@ h1 {font-size: 36px;}
 
         li.selected {
             color: $orange;
+            background-color: $dark;
+            border: 1px solid $dark;
+            border-right: 1px solid $dark;
+            margin-right: -1px;
             span {display: block; padding: 3px 5px;}
-        }
 
+        }
 
         li.depth-0 {
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 1px;
         }
+
+        li.depth-0:first-child {margin-top: 0;}
 
         li.depth-1 {
             a {padding-left: 18px;}
         }
 
+        li.depth-1 a, li.depth-1 span {padding-left: 18px;}
         li.depth-2 a, li.depth-2 span {padding-left: 25px;}
         li.depth-3 a, li.depth-3 span {padding-left: 30px;}
 

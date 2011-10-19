@@ -5,11 +5,11 @@ class Admin::TranslationsController < Admin::ZapController
 
 
   def create
-    create! { [:admin, article] }
+    create! [:admin, article]
   end
 
   def update
-    update! { [:admin, article] }
+    update! [:admin, article]
   end
 end
 

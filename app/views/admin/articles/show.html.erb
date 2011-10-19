@@ -1,7 +1,7 @@
 <div class="page-header">
   <%= link_to raw('&larr; Volver'), [:admin, :articles] %> /
-  <%= link_to 'Ver en la web', article %> /
-  <%= link_to 'Editar', [:edit, :admin, article] %>
+  <%= link_to icon(:view, 'Ver en la web'), article %> /
+  <%= link_to icon(:edit, 'Editar'), [:edit, :admin, article] %>
 </div>
 
 <div class="row">
@@ -16,7 +16,7 @@
     <% end %>
   </div>
 
-  <div class="side span4">
+  <div class="sidebar span4">
     <h3>Sub navegación
       <small><%= article.children.count %></small>
     </h3>
@@ -32,7 +32,7 @@
       <small><%= article.all_relations.count %></small>
     </h3>
     <div class="links">
-      <%= link_to '+ Añadir relación', [:new, :admin, article, :relation] %>
+      <%= link_to icon(:new, 'Añadir relación'), [:new, :admin, article, :relation] %>
     </div>
     <ul class="relation_groups">
       <% article.grouped_relations.each do |category, group| %>
@@ -41,7 +41,8 @@
             <ul class="relations">
               <% group.each do |relation| %>
                   <li><%= link_to relation.other.title, [:admin, relation.other] %>
-                    <%= link_to 'x', '#', class: 'mini alert' %>
+                    <%= link_to icon(:delete), [:admin, article, relation], class: 'mini alert',
+                    method: :delete, confirm: "Borrar la relación entre '#{article.title}' y '#{relation.other.title}'. ¿Seguro?"%>
                   </li>
               <% end %>
             </ul>
@@ -54,7 +55,7 @@
     </h3>
     <ul class="mediafiles">
       <% article.mediafiles.each do |mf| %>
-          <li><%= mf.title %>
+          <li><%= mf.title %> <%= link_to mf.file_identifier, [:admin, mf] %>
           </li>
       <% end %>
     </ul>
@@ -68,8 +69,8 @@
     <ul class="translations">
       <% article.translations.each do |trans| %>
       <li>(<%= trans.lang %>) <%= link_to trans.title, [:admin, article, trans] %>
-        <%= link_to raw('&#9998;'), [:edit, :admin, article, trans], class: 'mini edit' %>
-        <%= link_to 'x', '#', class: 'mini alert' %>
+        <%= link_to icon(:edit), [:edit, :admin, article, trans], class: 'mini edit' %>
+        <%= link_to icon(:delete), '#', class: 'mini alert' %>
 
       </li>
       <% end %>

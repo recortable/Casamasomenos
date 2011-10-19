@@ -15,8 +15,12 @@ es:
       experiencie: 'es una experiencia de'
       inverse_experiencie: 'es modelo teórico de'
 
+  relation:
+    flash:
+      destroyed: 'La relación ha sido borrada'
+
   simple_form:
     labels:
       relation:
-        user_category: '2. Tipo de relación'
-        to: '3. Relacionado con'
+        from: 'Relacionar:'
+        to: 'con:'
