@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111018145216) do
+ActiveRecord::Schema.define(:version => 20111019101908) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",                  :limit => 300
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20111018145216) do
     t.integer  "position"
     t.string   "state",                  :limit => 16
     t.boolean  "always_visible_on_tree",                :default => false
+    t.string   "languages",              :limit => 30
   end
 
   add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"
@@ -85,6 +86,16 @@ ActiveRecord::Schema.define(:version => 20111018145216) do
   add_index "relations", ["from_id"], :name => "index_relations_on_from_id"
   add_index "relations", ["to_id"], :name => "index_relations_on_to_id"
   add_index "relations", ["user_id"], :name => "index_relations_on_user_id"
+
+  create_table "translations", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "article_id"
+    t.string   "title",      :limit => 300
+    t.text     "body"
+    t.string   "lang",       :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name",            :limit => 100

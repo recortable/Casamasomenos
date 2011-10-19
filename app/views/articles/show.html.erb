@@ -7,6 +7,17 @@
     </div>
     <div class="span10">
       <h1><%= title article.title %></h1>
+      <% article.grouped_relations.each do |category, group| %>
+          <li>
+            <%= category.es_name %>:
+            <ul class="relations">
+              <% group.each do |relation| %>
+                  <li><%= link_to relation.other.title, [:admin, relation.other] %>
+                  </li>
+              <% end %>
+            </ul>
+          </li>
+      <% end %>
     </div>
   </div>
 </div>

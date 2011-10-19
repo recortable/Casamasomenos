@@ -22,16 +22,10 @@ class Article < ActiveRecord::Base
   belongs_to :category
   has_many :comments, :as => :resource, :order => 'id DESC'
   has_many :mediafiles, :as => :resource
-
+  has_many :translations
 
   has_many :relations, :class_name => 'Relation', :foreign_key => 'from_id', :dependent => :destroy
   has_many :inverse_relations, :class_name => 'Relation', :foreign_key => 'to_id', :dependent => :destroy
-
-  scope :by_category, lambda { |category| where(:category => category) }
-
-  scope :models, where(:category => 'model')
-  scope :experiences, where(:category => 'experience')
-  scope :pages, where(:category => 'page')
 
   scope :by_modification, order('updated_at DESC')
 

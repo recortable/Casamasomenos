@@ -1,9 +1,9 @@
 <div class="page-header">
-  <%= link_to raw('&larr; Volver'), [:admin, resource] %>
+  <%= link_to raw('&larr; Volver'), [:admin, zap] %>
 </div>
 
 
-<%= title "Editar  #{resource_class.model_name.human}" %>
+<%= title "Editar  #{zap_class.model_name.human}" %>
 
 
-<%= render 'form', attributes: resource_class.attribute_names %>
+<%= render 'form', attributes: editable_attributes(zap_class) %>

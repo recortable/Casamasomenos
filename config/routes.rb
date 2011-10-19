@@ -26,6 +26,7 @@ Cmom::Application.routes.draw do
       collection { post :sort }
       resources :relations, path: 'relaciones'
       resources :mediafiles, :path => 'ficheros'
+      resources :translations, path: 'traducciones'
     end
     resource :navigation, path: 'navegacion'
     resources :users, path: 'participantes'

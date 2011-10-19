@@ -3,6 +3,9 @@ class Admin::ZapController < Admin::ApplicationController
   expose(:zap) { send(zap_resource_name) }
   expose(:zaps) { send(zap_resource_name.pluralize) }
 
+  expose(:article) { params[:article_id].present? ? Article.find(params[:article_id]) : nil }
+  expose(:parent) { article ? article : Site }
+
   def index
     respond_with zaps
   end

@@ -51,13 +51,25 @@
 
     <h3>Ficheros
       <small><%= article.mediafiles.count %></small>
-      <ul class="mediafiles">
-        <% article.mediafiles.each do |mf| %>
-            <li><%= mf.title %>
-            </li>
-        <% end %>
-      </ul>
     </h3>
+    <ul class="mediafiles">
+      <% article.mediafiles.each do |mf| %>
+          <li><%= mf.title %>
+          </li>
+      <% end %>
+    </ul>
+
+    <h3>Traducciones
+      <small><%= article.translations.count %></small>
+    </h3>
+    <div class="links">
+      <%= link_to '+ Añadir traducción', [:new, :admin, article, :translation] %>
+    </div>
+    <ul class="translations">
+      <% article.translations.each do |trans| %>
+      <li><%= trans.lang %> <%= link_to trans.title, [:admin, article, trans] %></li>
+      <% end %>
+    </ul>
   </div>
 </div>
 
