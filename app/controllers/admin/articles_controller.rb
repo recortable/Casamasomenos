@@ -1,7 +1,13 @@
 class Admin::ArticlesController < Admin::ZapController
   resource :article
-  expose(:articles) { Article.order('title ASC') }
+  expose(:articles) { Article.order("#{list_order} #{order_type}") }
   expose(:article)
+  expose(:list_order) do
+    ['title', 'updated_at'].include?(params[:order]) ? params[:order] : 'title'
+  end
+  expose(:order_type) do
+    list_order == 'title' ? 'ASC' : 'DESC'
+  end
 
   def index
   end

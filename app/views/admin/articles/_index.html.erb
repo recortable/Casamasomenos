@@ -19,7 +19,7 @@
                 </small>
               </h5>
             </td>
-            <td><%= article.category.es_name %></td>
+            <td><%= link_to article.category.es_name, [:admin, article.category] %></td>
             <td><%= article.comments.count %>/<%= article.relations.count %>/<%= article.mediafiles.count %></td>
             <td><%= time_ago_in_words article.updated_at %></td>
           </tr>

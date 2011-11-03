@@ -14,5 +14,5 @@ es:
         password: 'Contraseña'
         password_confirmation: 'Confirmar contraseña'
     hints:
-      password: 'Déjalo en blanco si no quieres cambiarla'
+      no_password: 'Déjalo en blanco si no quieres cambiarla'
       password_confirmation: 'Debe coincidir con la constraseña'
