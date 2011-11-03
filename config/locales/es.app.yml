@@ -1,4 +1,9 @@
 es:
+  common:
+    flash:
+      error: 'Por favor, revisa el formulario.'
+      created: 'Cambios añadidos. ¡Gracias!'
+
   articles:
     edit:
       title: "Editar artículo"

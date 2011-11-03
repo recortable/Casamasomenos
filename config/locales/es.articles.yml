@@ -24,11 +24,15 @@ es:
 
     flash:
       updated: 'Se ha guardado el artículo. Gracias!'
+      destroyed: 'Artículo eliminado.'
+      created: 'Artículo creado.'
 
 
   simple_form:
     labels:
       article:
         title: 'Título'
-        category: 'Tipo'
+        parent_id: 'Es sub-artículo de'
+        category: 'Categoría'
         body: 'Contenido'
+        always_visible_on_tree: 'Siempre visible en la navegación'

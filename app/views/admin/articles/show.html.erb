@@ -1,15 +1,20 @@
 <h3>Artículo</h3>
+<% if article.parent %>
+    En <%= link_to article.parent.title, [:admin, article.parent] %>:
+<% end %>
 <%= title article.title, small: "Por #{article.author.name}" %>
 
 <div class="strip">
   <%= link_to icon(:view, 'Ver en la web'), article %> /
-  <%= link_to icon(:edit, 'Editar'), [:edit, :admin, article] %>
+  <%= link_to icon(:edit, 'Editar'), [:edit, :admin, article], class: 'edit' %> /
+  <%= link_to icon(:delete, 'Borrar'), [:admin, article], method: :delete,
+              confirm: "Vas a borrar '#{article.title}'. No se puede deshacer. ¿Estás segurx?",
+              class: 'alert' if article.children.count == 0 %>
 </div>
 
 <div class="row">
   <div class="span10">
     <%= div_for article do %>
-        <h3><%= link_to article.parent.title, [:admin, article.parent] if article.parent %></h3>
 
         <div class="render">
           <%= render_body article %>
@@ -18,9 +23,13 @@
   </div>
 
   <div class="sidebar span4">
+
     <h3>Sub navegación
       <small><%= article.children.count %></small>
     </h3>
+    <div class="links">
+      <%= link_to icon(:new, 'Añadir sub-artículo'), new_admin_article_path(parent: article.id) %>
+    </div>
     <ul id="descendants" class="descendants" data-update-url="<%= sort_admin_articles_url %>">
       <% article.children.ordered.all.each do |children| %>
           <%= content_tag_for :li, children do %>
@@ -43,7 +52,7 @@
               <% group.each do |relation| %>
                   <li><%= link_to relation.other.title, [:admin, relation.other] %>
                     <%= link_to icon(:delete), [:admin, article, relation], class: 'mini alert',
-                    method: :delete, confirm: "Borrar la relación entre '#{article.title}' y '#{relation.other.title}'. ¿Seguro?"%>
+                                method: :delete, confirm: "Borrar la relación entre '#{article.title}' y '#{relation.other.title}'. ¿Seguro?" %>
                   </li>
               <% end %>
             </ul>
@@ -69,11 +78,11 @@
     </div>
     <ul class="translations">
       <% article.translations.each do |trans| %>
-      <li>(<%= trans.lang %>) <%= link_to trans.title, [:admin, article, trans] %>
-        <%= link_to icon(:edit), [:edit, :admin, article, trans], class: 'mini edit' %>
-        <%= link_to icon(:delete), '#', class: 'mini alert' %>
+          <li>(<%= trans.lang %>) <%= link_to trans.title, [:admin, article, trans] %>
+            <%= link_to icon(:edit), [:edit, :admin, article, trans], class: 'mini edit' %>
+            <%= link_to icon(:delete), '#', class: 'mini alert' %>
 
-      </li>
+          </li>
       <% end %>
     </ul>
   </div>

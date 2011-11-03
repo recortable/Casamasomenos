@@ -4,7 +4,21 @@ class Admin::ArticlesController < Admin::ZapController
   expose(:article)
 
   def index
+  end
 
+  def new
+    article.parent = Article.find(params[:parent]) if params[:parent].present?
+    respond_with article
+  end
+
+  def create
+    # TODO: article states
+    article.state = 'published'
+    create! [:admin, article]
+  end
+
+  def destroy
+    destroy! [:admin, article.parent]
   end
 
   def sort
