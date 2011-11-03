@@ -8,6 +8,16 @@
               class: 'alert' if category.articles.count == 0 %>
 </div>
 
+<h2>Propiedades de esta categoría</h2>
+<dl>
+  <dt>Identificador:</dt>
+  <dd><%= category.name %></dd>
+  <dt>Nombre en castellano:</dt>
+  <dd><%= category.es_name %></dd>
+  <dt>Nombre en inglés:</dt>
+  <dd><%= category.en_name %></dd>
+</dl>
+
 <h2>Artículos en esta categoría</h2>
 
 <%= render 'admin/articles/index', articles: category.articles %>
