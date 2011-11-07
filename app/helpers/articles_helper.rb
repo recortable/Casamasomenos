@@ -5,7 +5,7 @@ module ArticlesHelper
       content_tag(:ul, class: "depth-#{depth}") do
         articles.map do |article, children|
           content_tag(:li, link_to(article.title, article),
-                      class: "depth-#{article.ancestry_depth} link_to-#{article.id} #{'visible' if article.always_visible_on_tree}") +
+                      class: "article-#{article.id} depth-#{article.ancestry_depth} link_to-#{article.id} #{'visible' if article.always_visible_on_tree}") +
               article_tree(children, depth + 1)
         end.join.html_safe
       end
