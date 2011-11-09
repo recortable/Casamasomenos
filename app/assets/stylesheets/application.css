@@ -1,8 +1,6 @@
 /*
- * FIXME: Introduce SCSS & Sprockets
  *= require_self
- *= require ./lib/bootstrap.min.css
+ *= require bootstrap.min.css
  *= require_directory ./common
  *= require_tree ./application
- *= require ./lib/css3buttons
 */

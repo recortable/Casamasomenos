@@ -17,17 +17,16 @@ module Cmom
     config.filter_parameters += [:password]
     config.active_record.identity_map = true
 
-     # Enable the asset pipeline
+    # Enable the asset pipeline
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-#    config.assets.precompile += ['admin.js', 'admin.css', 'swfObject.js']
-  config.assets.initialize_on_precompile = false
-
+    #    config.assets.precompile += ['admin.js', 'admin.css', 'swfObject.js']
+    config.assets.initialize_on_precompile = false
 
     config.to_prepare do
-      Dir[Rails.root + "lib/models/**/*.rb"].sort.each {|f| load File.expand_path(f)}
+      Dir[Rails.root + "lib/models/**/*.rb"].sort.each { |f| load File.expand_path(f) }
     end
   end
 end
