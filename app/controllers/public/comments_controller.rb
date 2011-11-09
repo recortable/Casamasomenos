@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Public::CommentsController < ApplicationController
   respond_to :html
   expose(:parent) { Article.find params[:article_id] }
   expose(:comments) { parent.comments }

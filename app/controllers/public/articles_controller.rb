@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-class ArticlesController < ApplicationController
+class Public::ArticlesController < ApplicationController
   respond_to :html
   respond_to :js, :only => :show
   before_filter :require_user #, :except => [:show, :welcome, :index]

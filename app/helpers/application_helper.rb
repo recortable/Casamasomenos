@@ -9,7 +9,7 @@ module ApplicationHelper
 
   # translate collection
   def tc(prefix, collection)
-    collection.map { |i| [i, I18n.t("#{prefix}.#{i}")] }
+    collection.map { |i| [I18n.t("#{prefix}.#{i}"), i] }
   end
 
 

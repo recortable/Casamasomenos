@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111019101908) do
+ActiveRecord::Schema.define(:version => 20111109221417) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",                  :limit => 300
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20111019101908) do
     t.string   "state",                  :limit => 16
     t.boolean  "always_visible_on_tree",                :default => false
     t.string   "languages",              :limit => 30
+    t.string   "content_type",           :limit => 16
   end
 
   add_index "articles", ["ancestry"], :name => "index_articles_on_ancestry"

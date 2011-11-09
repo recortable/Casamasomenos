@@ -2,6 +2,8 @@
   <div class="span10">
     <%= simple_form_for [:admin, article] do |form| %>
         <%= form.input :title %>
+        <%= form.input :state, include_blank: false,
+                       collection: tc('article.states', ['published', 'draft']) %>
         <%= form.input :parent_id, :collection => Article.order(:title) %>
         <%= form.association :category %>
         <%= form.input :always_visible_on_tree %>

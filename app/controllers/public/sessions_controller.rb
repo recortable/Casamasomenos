@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class SessionsController < ApplicationController
+class Public::SessionsController < ApplicationController
   expose(:user_session) { Session.new(params[:session]) }
 
   def destroy

@@ -1,23 +1,17 @@
 Cmom::Application.routes.draw do
-  root :to => "articles#index"
+  root :to => "public/articles#index"
 
-  match "/salir" => "sessions#destroy", :as => :logout
-  match "/sesion" => "sessions#create", :as => :create_session
-  match "/entrar" => "sessions#new", :as => :login
-  match "/enter/:id" => "sessions#enter", :as => :enter
-  resources :sessions
+  scope module: 'public' do
+    resources :articles, :path => 'articulo', :except => :index do
+      resources :comments, :path => 'comentarios'
+    end
 
-  match "/mapa/:id" => "diagrams#show", :as => :diagram
-  match "/articulos" => "articles#index", :as => :index
-
-  resources :articles, :path => 'articulo', :except => :index do
-    resources :comments, :path => 'comentarios'
-    resources :relations, :path => 'relaciones'
+    match "/salir" => "sessions#destroy", :as => :logout
+    match "/sesion" => "sessions#create", :as => :create_session
+    match "/entrar" => "sessions#new", :as => :login
+    match "/enter/:id" => "sessions#enter", :as => :enter
+    resources :sessions
   end
-  resources :comments, :path => 'respuestas'
-  resources :relations, :path => 'relaciones'
-  resources :mediafiles, :path => 'ficheros'
-  resources :users, path: 'participantes'
 
 
   namespace :admin do

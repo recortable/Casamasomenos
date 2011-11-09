@@ -36,7 +36,7 @@ class Article < ActiveRecord::Base
   validates :category_id, :presence => true
   validates :state, presence: true
 
-  STATES = [:published, :draft, :hidden]
+  STATES = [:published, :draft]
 
 
   def all_relations

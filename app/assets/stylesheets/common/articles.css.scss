@@ -3,6 +3,21 @@
 div.article {
 }
 
+div.article_state {
+    width: 100%; overflow: hidden;
+    text-align: center;
+    color: #333;
+    padding: 4px 20px 4px 20px;
+    margin: -20px -20px 20px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+
+a.article.draft {color: gray;}
+
+.article_state.published {background-color: #6bff6b; border-color: #0c0;}
+.article_state.draft {background-color: #fdc153; border-color: #e69605;}
+
 pre.insert_code {padding: 2px; margin: 5px; color: #333;}
 
 div.article div.render {

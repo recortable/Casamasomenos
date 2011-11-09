@@ -1,8 +1,13 @@
+<div class="article_state <%= article.state %>">
+  Este artículo está <%= t("article.states.#{article.state}") %>.
+</div>
+
 <h3>Artículo</h3>
 <% if article.parent %>
     En <%= link_to article.parent.title, [:admin, article.parent] %>:
 <% end %>
 <%= title article.title, small: "Por #{article.author.name}" %>
+
 
 <div class="strip">
   <%= link_to icon(:view, 'Ver en la web'), article %> /

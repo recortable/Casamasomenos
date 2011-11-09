@@ -1,5 +1,9 @@
 es:
   article:
+    states:
+      published: 'publicado'
+      draft: 'en borrador'
+      hidden: 'oculto'
     categories:
       singular:
         model: 'Modelo teórico'
