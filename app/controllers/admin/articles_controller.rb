@@ -30,7 +30,9 @@ class Admin::ArticlesController < Admin::ZapController
   end
 
   def destroy
-    destroy! [:admin, article.parent]
+    if article.children.count == 0
+      destroy! [:admin, article.parent]
+    end
   end
 
   def sort

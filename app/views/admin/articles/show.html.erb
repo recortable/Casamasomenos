@@ -63,6 +63,9 @@
     <h3>Ficheros
       <small><%= article.mediafiles.count %></small>
     </h3>
+    <div class="links">
+      <%= link_to icon(:new, 'Añadir fichero'), [:new, :admin, article, :mediafile] %>
+    </div>
     <ul class="mediafiles">
       <% article.mediafiles.each do |mf| %>
           <li><%= mf.title %> <%= link_to mf.file_identifier, [:admin, mf] %>

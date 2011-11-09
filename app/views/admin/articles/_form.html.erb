@@ -22,8 +22,16 @@
 
     <h3>Listas</h3>
 
-    <h3>Insertar</h3>
-
+    <h3>Insertar ficheros</h3>
+    <ul>
+      <% article.mediafiles.each do |mf| %>
+          <li>
+            <%= mf.title %>
+            (<%= link_to mf.file_identifier, mf %>):
+            <pre class='insert_code'>!!@<%= mf.id %></pre>
+          </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 

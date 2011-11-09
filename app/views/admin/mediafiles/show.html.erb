@@ -1,0 +1,18 @@
+<%= title "Fichero '#{mediafile.title}'" %>
+<div class="strip">
+  <%= link_to raw('&larr; Volver'), [:admin, mediafile.resource] %> /
+  <%= link_to icon(:edit, 'Editar'), [:edit, :admin, mediafile] %> /
+  <%= link_to icon(:delete, 'Borrar'), [:admin, mediafile],
+    method: :delete, confirm: "¿Estás seguro?", class: 'alert' %>
+</div>
+
+<dl>
+  <dt>Título</dt>
+  <dd><%= mediafile.title %></dd>
+  <dt>Descripción</dt>
+  <dd><%= mediafile.description %></dd>
+  <dt>Fichero</dt>
+  <dd><%= mediafile.file_identifier %></dd>
+</dl>
+
+<%= image_tag(mediafile.file.url) %>
