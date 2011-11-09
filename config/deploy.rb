@@ -1,6 +1,8 @@
 # SOURCES setup users: http://www.viget.com/extend/building-an-environment-from-scratch-with-capistrano-2/
 # setup deploy: http://www.capify.org/getting-started/from-the-beginning/
 
+load 'deploy/assets'
+
 # default_run_options[:pty] = true
 set :application, "Casamasomenos"
 set :deploy_to, "/home/deploy/#{application}"
@@ -28,6 +30,13 @@ set :rvm_ruby_string, '1.9.2@rails31'
 set :rvm_type, :user  # Don't use system-wide RVM
 
 
+#before "deploy", "assets:precompile_local"
+#namespace :assets do
+#  desc "precompile assets on local"
+#  task :precompile_local do
+#  end
+#end
+
 after "deploy:update_code", "config:copy_shared_configurations"
 after "deploy", "deploy:cleanup"
 
@@ -40,21 +49,6 @@ namespace :config do
     end
   end
 end
-
-# Assets management
-namespace :assets do
-  task :precompile, :roles => :web do
-    run "cd #{current_path} && RAILS_ENV=production bundle exec rake assets:precompile"
-  end
-
-  task :cleanup, :roles => :web do
-    run "cd #{current_path} && RAILS_ENV=production bundle exec rake assets:clean"
-  end
-end
-
-after :deploy, "assets:precompile"
-after "assets:precompile", "deploy:restart"
-
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
