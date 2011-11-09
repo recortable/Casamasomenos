@@ -8,7 +8,7 @@ class Site
   end
 
   def self.tree
-    Article.arrange(order: 'position ASC')
+    Article.where(state: 'published').arrange(order: 'position ASC')
   end
 end
 

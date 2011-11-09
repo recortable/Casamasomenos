@@ -3,6 +3,12 @@
 div.article {
 }
 
+div.article-header {
+    div.space {position:relative; height: 100px;}
+    div.bottom {position: absolute; bottom: 0; left: 0;}
+}
+
+
 div.article_state {
     width: 100%; overflow: hidden;
     text-align: center;

@@ -2,7 +2,7 @@ Cmom::Application.routes.draw do
   root :to => "public/articles#index"
 
   scope module: 'public' do
-    resources :articles, :path => 'articulo', :except => :index do
+    resources :articles, :path => 'articulos', :except => :index do
       resources :comments, :path => 'comentarios'
     end
 
@@ -16,7 +16,7 @@ Cmom::Application.routes.draw do
 
   namespace :admin do
     root to: 'navigations#show'
-    resources :articles, path: 'entradas' do
+    resources :articles, path: 'articulos' do
       collection { post :sort }
       resources :relations, path: 'relaciones'
       resources :mediafiles, path: 'ficheros'
