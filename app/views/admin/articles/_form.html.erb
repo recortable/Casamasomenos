@@ -29,7 +29,7 @@
       <% article.mediafiles.each do |mf| %>
           <li>
             <%= mf.title %>
-            (<%= link_to mf.file_identifier, mf %>):
+            (<%= link_to mf.file_identifier, [:admin, mf] %>):
             <pre class='insert_code'>!!@<%= mf.id %></pre>
           </li>
       <% end %>

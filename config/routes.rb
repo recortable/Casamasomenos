@@ -15,7 +15,7 @@ Cmom::Application.routes.draw do
 
 
   namespace :admin do
-    root to: 'navigations#show'
+    root to: 'site#show'
     resources :articles, path: 'articulos' do
       collection { post :sort }
       resources :relations, path: 'relaciones'

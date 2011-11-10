@@ -1,7 +1,7 @@
 module ArticlesHelper
 
   def article_tree_for(article)
-    articles = article.children.where(state: :published).arrange(order: 'position ASC')
+    articles = article.descendants.where(state: :published).arrange(order: 'position ASC')
     content_tag :div, article_tree(articles)
   end
 

@@ -36,9 +36,16 @@ ul { li {color: #333;}}
         li {
             margin: 3px 0;
             a {display: block; padding-left: 20px; border-bottom: 1px solid transparent;}
-            span {display: block; padding-left: 20px; color: black; border-bottom: 1px solid $orange;}
             a:hover {color: $dark; border-color: $orange;}
+            span {
+                display: block; padding-left: 20px;
+                font-weight: bold;
+                color: black; border-bottom: 1px solid $orange;
+            }
         }
+
+        li.depth-3 {padding-left: 10px;}
+        li.depth-4 {padding-left: 30px; font-size: 90%;}
     }
 }
 

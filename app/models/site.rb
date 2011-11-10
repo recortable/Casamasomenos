@@ -7,8 +7,10 @@ class Site
     Mediafile.scoped
   end
 
-  def self.tree
-    Article.where(state: 'published').arrange(order: 'position ASC')
+  def self.tree(only_published = true)
+    articles = Article.scoped
+    articles.where(state: 'published') if only_published
+    articles.arrange(order: 'position ASC')
   end
 
   def self.about
