@@ -12,6 +12,10 @@ module ApplicationHelper
     collection.map { |i| [I18n.t("#{prefix}.#{i}"), i] }
   end
 
+  def span_or_link_to(name, options = {}, html_options = {}, &block)
+    current_page?(options) ? content_tag(:span, name, html_options) : link_to(name, options, html_options, &block)
+  end
+
 
 
 

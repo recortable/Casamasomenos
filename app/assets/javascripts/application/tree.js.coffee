@@ -1,7 +1,7 @@
 
 jQuery ->
-  $('#article_tree li').hide()
-  $('#article_tree li.visible').show()
+  $('.article_tree li').hide()
+  $('.article_tree li.visible').show()
 
   article_id = $('.main .article').attr('id').substring(8)
   selected = $("li.link_to-#{article_id}")
@@ -12,5 +12,5 @@ jQuery ->
   name = selected.children('a').text()
   selected.html("<span>#{name}</span>")
 
-  $('#article_tree').show()
+  $('.article_tree').show()
 

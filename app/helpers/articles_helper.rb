@@ -1,10 +1,15 @@
 module ArticlesHelper
 
+  def article_tree_for(article)
+    articles = article.children.where(state: :published).arrange(order: 'position ASC')
+    content_tag :div, article_tree(articles)
+  end
+
   def article_tree(articles, depth = 0)
     if articles.size > 0
       content_tag(:ul, class: "depth-#{depth}") do
         articles.map do |article, children|
-          content_tag(:li, link_to(article.title, article),
+          content_tag(:li, span_or_link_to(article.title, article),
                       class: "article-#{article.id} depth-#{article.ancestry_depth} link_to-#{article.id} #{'visible' if article.always_visible_on_tree}") +
               article_tree(children, depth + 1)
         end.join.html_safe

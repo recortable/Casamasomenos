@@ -1,45 +1,43 @@
-<div class="page-header">
-  <div class="row">
+<div class="container">
+  <!-- top -->
+  <div id="top" class="row">
     <div class="span4">
-      <a href="/">
-        <h3 id="logo">Casa más o menos</h3>
-      </a>
+      <%= span_or_link_to Site.about.title, Site.about %>
     </div>
-    <div class="span10 article-header">
-      <div class="space">
-        <div class="bottom">
-          <h1><%= title article.title %></h1>
-          <ul class="relations">
-            <% article.grouped_relations.each do |category, group| %>
-                <li class="category">
-                  <span><%= category.es_name %>:</span>
-                  <ul class="related">
-                    <% group.each do |relation| %>
-                        <li><%= link_to relation.other.title, relation.other %>
-                        </li>
-                    <% end %>
-                  </ul>
-                </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+    <div class="span4">
+      <%= span_or_link_to Site.process.title, Site.process %>
+    </div>
+    <div class="span4">&nbsp;</div>
+    <div class="span2">
+      <%= link_to 'Contacta' %>
+    </div>
+    <div class="span1">
+      <%= link_to 'ES' %>
+    </div>
+    <div class="span1">
+      <%= link_to 'EN' %>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="sidebar span4">
-    <div id="article_tree" style="display: none;">
-      <%= article_tree Site.tree %>
-    </div>
+
+  <div class="row">
+    <div class="span4">&nbsp;</div>
+    <div class="span8"><%= title article.title %></div>
+    <div class="span4">&nbsp;</div>
   </div>
-  <div class="span6 main">
-    <%= div_for article do %>
-        <div class="render">
-          <%= render_body article %>
-        </div>
-    <% end %>
+
+  <div class="row">
+    <div class="span4 sidebar left">
+      <h3><%= span_or_link_to Site.strategies.title, Site.strategies %></h3>
+      <%= article_tree_for Site.strategies %>
+    </div>
+    <div class="span8">
+      <%= render article %>
     <%#= render 'comments/comments' %>
+    </div>
+    <div class="span4 sidebar right">
+      <h3><%= span_or_link_to Site.experiencies.title, Site.experiencies %></h3>
+      <%= article_tree_for Site.experiencies %>
+    </div>
   </div>
-  <div class="span4"></div>
 </div>
+

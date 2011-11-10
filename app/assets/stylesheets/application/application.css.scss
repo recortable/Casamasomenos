@@ -1,63 +1,69 @@
 
-$orange: #ff8a00;
+$orange: #FF5B29;
+$orange-dark: #b12900;
 $gray: #EEE;
 $grayline: #666; //#CCC;
 $dark: #111;
+$text: #50534F;
+$background: white;//#FFEFFF;
 
 html, body {
-    background-color: white;
+    font-family: 'PT Sans', serif;
+    color: $text; background-color: $background;
 }
 
-body {
-    padding-top: 0px;
-    color: black;
-}
+body {padding-bottom: 40px;}
 
-a {
-    color: #ff8a00;
-}
+a {color: $dark;}
+a:hover {color: $orange;}
+ul { li {color: #333;}}
 
-a:hover {
-    color: #f57602;
-}
 
-//h1, h2, h3, h4, h5, h6 {font-family: Georgia,serif; font-style: italic;}
-//h1 {font-size: 36px;}
-
-.content {
-    background-color: white;
-    padding: 20px;
-    overflow: hidden;
-    border-radius: 0 0 6px 6px;
-//    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-//    box-shadow: 0 1px 2px rgba(0,0,0,.15);
-}
-
-.page-header {
-    width: 100%; overflow: hidden;
-    background-color: white;
-    padding: 10px 20px;
-    margin: -20px -20px 20px;
-    border-bottom: 1px solid $grayline;
-
-    .span4 {margin-right: 19px;}
-
-    #logo {
-        float: left;
-        width: 219px; height: 98px; margin: 10px auto 0 auto;
-        background: url('/images/logo-n.png') no-repeat;
-        text-indent: -1000px;
-        overflow: hidden;
+.sidebar {
+    h3 {
+        margin: 0 0 10px 0; line-height: 1.2em;
+        a, span {display: block; border-bottom: 2px solid transparent;}
+        span {border-color: $orange; color: $dark;}
+        a:hover {color: $dark; border-color: $orange;}
     }
 
+    a:hover {text-decoration: none; }
+
+    ul {
+        margin: 0;
+        list-style-type: none;
+
+        li {
+            margin: 3px 0;
+            a {display: block; padding-left: 20px; border-bottom: 1px solid transparent;}
+            span {display: block; padding-left: 20px; color: black; border-bottom: 1px solid $orange;}
+            a:hover {color: $dark; border-color: $orange;}
+        }
+    }
 }
 
-.content .sidebar {
-    margin-right: 19px;
-    padding-right: 0px;
-    border-right: 1px solid $dark;
-    min-height: 500px;
-    padding-bottom: 10000px;
-    margin-bottom: -10000px;
+.sidebar.right {
+    li {
+        a, span {}
+    }
 }
 
+ul.relations {
+    margin: 0;
+    list-style-type: none;
+    li.category {
+        padding-left: 20px;
+        width: 100%; overflow: hidden;
+        color: $orange; padding-bottom: 10px;
+
+        .name {margin-left: -20px; display: block; float: left;}
+    }
+}
+
+#top {
+    margin-top: 5px;
+    margin-bottom: 40px;
+    a, span {display: block; border-bottom: 2px solid transparent;}
+    span {color: black; border-color: $orange;}
+    a:hover {text-decoration: none; color: black; border-color: $orange;}
+}
