@@ -2,7 +2,7 @@
   Este artículo está <%= t("article.states.#{article.state}") %>.
 </div>
 
-<h3>Artículo</h3>
+<h3>Artículo<small>&nbsp;<%= 'Siempre visible en el árbol' if article.always_visible_on_tree? %></small></h3>
 <% if article.parent %>
     En <%= link_to article.parent.title, [:admin, article.parent] %>:
 <% end %>

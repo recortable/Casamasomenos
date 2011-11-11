@@ -5,5 +5,5 @@ db/*.sqlite3
 log/*.log
 config/database.yml
 config/amazon_s3.yml
-
+public/assets/**
 tmp/
