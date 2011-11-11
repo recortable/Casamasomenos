@@ -34,7 +34,7 @@ module ApplicationHelper
     text.gsub /!@(\d+)/ do
       image = Mediafile.find_by_id($1)
       if image
-        content_tag(:div, render_mediafile(image), :class => 'mediafile')
+        content_tag(:div, render_mediafile(image), class: 'mediafile')
       else
         "<div class='notice'>Imágen no encontrada</div>"
       end

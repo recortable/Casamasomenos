@@ -2,7 +2,7 @@
 # setup deploy: http://www.capify.org/getting-started/from-the-beginning/
 
 # Precompile assets in local
-#load 'deploy/assets'
+load 'deploy/assets'
 
 # default_run_options[:pty] = true
 set :application, "Casamasomenos"
@@ -42,14 +42,14 @@ namespace :local_assets do
   end
 
   desc "Upload compiled assets to server"
-  task :upload do
+  task :upload_to_server do
     upload("public/assets/assets.tgz", release_path + '/assets.tgz')
     run "cd #{release_path}; tar zxvf assets.tgz; rm assets.tgz"
   end
 end
 
-before "deploy:update_code", "local_assets:precompile"
-after "deploy:symlink", "local_assets:upload"
+#before "deploy:update_code", "local_assets:precompile"
+#after "deploy:symlink", "local_assets:upload_to_server"
 
 
 after "deploy:update_code", "config:copy_shared_configurations"

@@ -9,7 +9,9 @@ module Admin::ApplicationHelper
     content_tag :ul do
       articles.map do |article, children|
         content_tag :li do
-          postfix = article.always_visible_on_tree ? raw("&lArr;&nbsp;") : raw('')
+          postfix = article.always_visible_on_tree ? "&lArr;&nbsp;" : ''
+          postfix += link_to('[editar]', [:edit, :admin, article])
+          postfix = raw(postfix)
           link_to(article.title, [:admin, article], class: "article #{article.state}") +
               postfix + admin_nested_articles(children)
         end

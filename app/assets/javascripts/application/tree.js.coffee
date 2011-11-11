@@ -1,5 +1,27 @@
 
-jQuery ->
+# Reference jQuery
+$ = jQuery
+
+$.fn.extend
+  # tree
+  tree: (options) ->
+    # Default settings
+    settings =
+      debug: false
+
+    # Merge default settings with options.
+    settings = $.extend settings, options
+
+    # Simple logger.
+    log = (msg) ->
+      console?.log msg if settings.debug
+
+    # _Insert magic here._
+    return @each ()->
+      self = $(this)
+
+
+cositas = ->
   $('.article_tree li').hide()
   $('.article_tree li.visible').show()
 
@@ -14,3 +36,5 @@ jQuery ->
 
   $('.article_tree').show()
 
+
+jQuery ->

@@ -44,7 +44,9 @@ ul { li {color: #333;}}
             }
         }
 
-        li.depth-3 {padding-left: 10px;}
+        li.depth-1 {font-size: 110%;}
+        li.depth-2 {padding-left: 5px;}
+        li.depth-3 {padding-left: 20px;}
         li.depth-4 {padding-left: 30px; font-size: 90%;}
     }
 }
