@@ -11,6 +11,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "zurb-foundation", :group => :assets
+
 
 gem 'sqlite3'
 gem 'bcrypt-ruby', '~> 3.0.0'

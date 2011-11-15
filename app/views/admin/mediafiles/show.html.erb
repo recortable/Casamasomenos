@@ -15,4 +15,4 @@
   <dd><%= mediafile.file_identifier %></dd>
 </dl>
 
-<%= image_tag(mediafile.file.url) %>
+<%= image_tag(mediafile.file.url) if mediafile.file.present? %>
