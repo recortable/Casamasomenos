@@ -21,8 +21,8 @@ class Public::CommentsController < ApplicationController
       params[:comment][:author_id] = parent.author_id
       comment = parent.comments.build(params[:comment])
       flash[:notice] = t('comments.notice.create') if comment.save
-      AdminMailer.comment_email(comment).deliver
-      respond_with comment, :location => resource
+#      AdminMailer.comment_email(comment).deliver
+      respond_with comment, :location => comment.resource
     end
   end
 

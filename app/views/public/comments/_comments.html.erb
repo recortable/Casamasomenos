@@ -1,6 +1,6 @@
 <div class="comment_block">
   <h3>Comentarios</h3>
-  <%= render :partial => 'comments/form', :locals => {:resource => article, :comment => comment} %>
+  <%= render :partial => 'public/comments/form', :locals => {:resource => article, :comment => comment} %>
   <div class="comments">
     <% article.comments.each do |comment| %>
         <div class="nested_comments">

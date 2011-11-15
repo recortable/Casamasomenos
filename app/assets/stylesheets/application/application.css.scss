@@ -1,14 +1,10 @@
 
-$orange: #FF5B29;
-$orange-dark: #b12900;
-$gray: #EEE;
-$grayline: #666; //#CCC;
-$dark: #111;
-$text: #50534F;
-$background: white;//#FFEFFF;
+@import "variables.css.scss";
+
+$font: 'PT Sans', serif;
 
 html, body {
-    font-family: 'PT Sans', serif;
+    font-family: $font;
     color: $text; background-color: $background;
 }
 
@@ -17,6 +13,11 @@ body {padding-bottom: 40px;}
 a {color: $dark;}
 a:hover {color: $orange;}
 ul { li {color: #333;}}
+
+h1 {font-size: 36px;}
+h2 {font-size: 24px;}
+h3 {font-size: 18px;}
+textarea {font-family: $font;}
 
 
 .sidebar {
@@ -75,4 +76,9 @@ ul.relations {
     a, span {display: block; border-bottom: 2px solid transparent;}
     span {color: black; border-color: $orange;}
     a:hover {text-decoration: none; color: black; border-color: $orange;}
+
+    #app_links {
+        width: 100%; overflow: hidden;
+        a {float: left; margin-right: 5px;}
+    }
 }

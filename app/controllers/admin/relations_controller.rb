@@ -1,7 +1,7 @@
 class Admin::RelationsController < Admin::ZapController
   resource :relation
   expose(:article) { params[:article_id].present? ? Article.find(params[:article_id]) : nil }
-  expose(:parent) { article ? article : Site }
+  expose(:parent) { article ? article : Site.new }
   expose(:relations) { parent.relations }
   expose(:relation)
 

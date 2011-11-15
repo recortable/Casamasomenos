@@ -1,0 +1,38 @@
+
+
+@import "variables.css.scss";
+
+div.comment_block {
+    //border-top: 1px solid $grayline;
+    margin-top: 80px;
+    label {display: none;}
+
+    h3 {display: none;}
+
+    form {
+        width:100%; margin: 20px 0 0 0; padding: 0;
+
+        div.input {margin: 0;}
+        textarea {
+            width: 99%; margin: 5px auto; padding: 2px 2px;
+            height: 4em;
+            border: 1px solid $grayline;
+        }
+        input[type=submit] {font-size: 80%;}
+    }
+}
+
+div.comment {
+    div.info {
+        display: block; float: none; color: $grayline;
+        img {margin-right: 2px;}
+        a {font-weight: bold; color: black;}
+    }
+
+    div.body {color: $text;}
+}
+
+div.nested_comments {
+    margin: 10px 0;padding-left:10px;
+    border-left: 1px solid $grayline;
+}

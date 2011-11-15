@@ -4,6 +4,7 @@ class Public::ArticlesController < ApplicationController
   respond_to :html
   before_filter :require_user #, :except => [:show, :welcome, :index]
 
+  expose(:site) { Site.new }
   expose(:articles) { Article.all }
   expose(:article)
   expose(:comment) { Comment.new(:resource => article) }

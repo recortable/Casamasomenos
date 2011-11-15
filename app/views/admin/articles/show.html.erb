@@ -93,6 +93,22 @@
           </li>
       <% end %>
     </ul>
+
+    <h3>
+      Comentarios
+      <small><%= article.comments.count %></small>
+    </h3>
+    <div class="links">
+      <%= link_to icon(:view, 'Ver todos'), [:admin, article, :comments] %>
+    </div>
+    <ul class="comments">
+      <% article.comments.each do |comment|  %>
+      <li>
+        <%= link_to comment.author.name, [:admin, comment.author] %>
+        hace <%= time_ago_in_words comment.updated_at %>
+      </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 

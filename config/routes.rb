@@ -21,7 +21,9 @@ Cmom::Application.routes.draw do
       resources :relations, path: 'relaciones'
       resources :mediafiles, path: 'ficheros'
       resources :translations, path: 'traducciones'
+      resources :comments, path: 'comentarios'
     end
+    resources :comments, path: 'comentarios'
     resource :navigation, path: 'navegacion'
     resources :users, path: 'participantes'
     resources :categories, path: 'categorias'

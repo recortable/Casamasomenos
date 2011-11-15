@@ -1,4 +1,7 @@
 es:
+  mediafile:
+    flash:
+      destroyed: 'Fichero borrado.'
   mediafiles:
     index:
       title: "Ficheros"
