@@ -35,6 +35,7 @@ gem 'lorem'
 gem 'mysql2'
 
 gem 'newrelic_rpm'
+gem 'unicorn'
 
 group :test, :development do
   gem 'rspec-rails'

@@ -30,83 +30,10 @@ require "rvm/capistrano"
 set :rvm_ruby_string, '1.9.2@rails31'
 set :rvm_type, :user # Don't use system-wide RVM
 
-
-namespace :local_assets do
-  desc "Build and compress assets locally"
-  task :precompile do
-    run_locally("rm -rf public/assets/*")
-    run_locally("bundle exec rake assets:precompile")
-    run_locally("touch assets.tgz && rm assets.tgz")
-    run_locally("tar zcvf assets.tgz public/assets/")
-    run_locally("mv assets.tgz public/assets/")
-  end
-
-  desc "Upload compiled assets to server"
-  task :upload_to_server do
-    upload("public/assets/assets.tgz", release_path + '/assets.tgz')
-    run "cd #{release_path}; tar zxvf assets.tgz; rm assets.tgz"
-  end
-end
-
-#before "deploy:update_code", "local_assets:precompile"
-#after "deploy:symlink", "local_assets:upload_to_server"
-
-
-after "deploy:update_code", "config:copy_shared_configurations"
 after "deploy", "deploy:cleanup"
 
-# Configuration Tasks
-namespace :config do
-  desc "copy shared configurations to current"
-  task :copy_shared_configurations, :roles => [:app] do
-    %w[database.yml amazon_s3.yml newrelic.yml].each do |f|
-      run "ln -nsf #{shared_path}/config/#{f} #{release_path}/config/#{f}"
-    end
-  end
-end
-
-namespace :deploy do
-  desc "Restarting mod_rails with restart.txt"
-  task :restart, :roles => :app, :except => {:no_release => true} do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-
-  [:start, :stop].each do |t|
-    desc "#{t} task is a no-op with mod_rails"
-    task t, :roles => :app do
-      ;
-    end
-  end
-end
-
-namespace :mysql do
-  desc "Backup the remote production database"
-  task :backup, :roles => :db, :only => {:primary => true} do
-    filename = "#{application}.dump.#{Time.now.to_i}.sql.bz2"
-    file = "/tmp/#{filename}"
-    on_rollback { delete file }
-    db = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'database.yml'))).result)['production']
-    run "mysqldump -u #{db['username']} --password=#{db['password']} #{db['database']} | bzip2 -c > #{file}" do |ch, stream, data|
-      puts data
-    end
-    `mkdir -p #{File.dirname(__FILE__)}/../backups/`
-    get file, "backups/#{filename}"
-    `gpg -c #{File.dirname(__FILE__)}/../backups/#{filename}`
-    `rm #{File.dirname(__FILE__)}/../backups/#{filename}`
-    # delete file
-  end
-
-  task :download, :roles => :db, :only => {:primary => true} do
-    filename = "#{application}.dump.sql"
-    file = "/tmp/#{filename}"
-    on_rollback { delete file }
-    db = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'database.yml'))).result)
-    production = db['production']
-
-    pass_ops = !production['password'].nil? ? "--password=#{production['password']}" : ''
-    run "mysqldump -u #{production['username']} #{pass_ops} #{production['database']} > #{file}" do |ch, stream, data|
-      puts data
-    end
-    get file, "tmp/#{filename}"
-  end
-end
+load 'config/deploy/symlink'
+#load 'conifg/deploy/passenger'
+load 'config/deploy/mysql'
+load 'config/deploy/unicorn'
+load 'config/deploy/local_assets'
