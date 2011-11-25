@@ -47,7 +47,7 @@
         run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
       else
         logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
-        config_path = "#{current_path}/config/unicorn/#{unicorn_env}.rb"
+        config_path = "#{current_path}/config/unicorn.rb"
         if remote_file_exists?(config_path)
           run "cd #{current_path} && bundle exec unicorn -c #{config_path} -E #{unicorn_env} -D"
         else
