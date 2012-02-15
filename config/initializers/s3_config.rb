@@ -1,6 +1,7 @@
 
 
-local = ENV['S3_KEY'] ? {} : YAML::load(ERB.new(File.read("#{Rails.root}/config/amazon_s3.yml")).result)[Rails.env]
+config_file = "#{Rails.root}/config/amazon_s3.yml"
+local = ENV['S3_KEY'] ? {} : YAML::load(ERB.new(File.read(config_file)).result)[Rails.env]
 
 CarrierWave.configure do |config|
   config.s3_access_key_id = ENV['S3_KEY'] ? ENV['S3_KEY'] : local['access_key_id']
