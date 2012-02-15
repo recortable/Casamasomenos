@@ -13,7 +13,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'sqlite3'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'cancan'
@@ -46,6 +45,7 @@ group :test, :development do
   gem 'mysql2'
   gem 'lorem'
   gem 'newrelic_rpm'
+  gem 'sqlite3'
 #  gem 'mongrel', '1.2.0.pre2'
 end
 
