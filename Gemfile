@@ -1,19 +1,17 @@
 source 'http://rubygems.org'
 
-gem "rails", "3.1.1"
+gem "rails", "3.2.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.4"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
   gem 'therubyracer'
 end
 
 gem 'jquery-rails'
-gem "zurb-foundation", :group => :assets
-
 
 gem 'sqlite3'
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -32,16 +30,22 @@ gem 'acts_as_list'
 
 #gem 'twitter-bootstrap-rails'
 
-gem 'lorem'
-gem 'mysql2'
 
-gem 'newrelic_rpm'
 gem 'unicorn'
+
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'yaml_db'
   gem 'capistrano'
+  gem 'mysql2'
+  gem 'lorem'
+  gem 'newrelic_rpm'
 #  gem 'mongrel', '1.2.0.pre2'
 end
 
