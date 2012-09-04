@@ -53,6 +53,5 @@ group :test do
   gem "spork", "> 0.9.0.rc"
   gem "guard-spork"
   gem "capybara", ">= 1.0.1"
-  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
