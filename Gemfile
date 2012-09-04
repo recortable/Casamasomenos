@@ -2,8 +2,6 @@ source 'http://rubygems.org'
 
 gem "rails", "3.2.1"
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -27,16 +25,8 @@ gem 'carrierwave'
 gem 'ancestry'
 gem 'acts_as_list'
 
-#gem 'twitter-bootstrap-rails'
-
-
-gem 'unicorn'
-
-
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
+gem 'pg'
+gem 'thin'
 
 group :test, :development do
   gem 'rspec-rails'
@@ -46,7 +36,6 @@ group :test, :development do
   gem 'lorem'
   gem 'newrelic_rpm'
   gem 'sqlite3'
-#  gem 'mongrel', '1.2.0.pre2'
 end
 
 group :test do
