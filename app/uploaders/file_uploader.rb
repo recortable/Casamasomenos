@@ -6,7 +6,7 @@ class FileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::ImageScience
 
-  storage :s3
+  storage :fog
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"

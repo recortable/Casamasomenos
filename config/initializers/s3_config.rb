@@ -17,3 +17,4 @@ CarrierWave.configure do |config|
 #  config.fog_host = 'http://archivos.masqueunacasa.org'
 end
 
+
